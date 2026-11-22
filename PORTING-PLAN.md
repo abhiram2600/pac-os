@@ -173,6 +173,21 @@ Bank offsets are 0x20 apart (0x0, 0x20, 0x40, ...), and bank name prefix maps to
 - ✅ `MemoryMapLib.c` — 8GB RAM + 13 reserved regions (gsa, gxp, tpu, aoc, etc.) + UEFI regions + register regions (Watchdog Timer, GIC, UART, DRM Decon)
 - ⚠️ `ConfigurationMapLib.c` — copied from the Snapdragon template; some SoC-specific values need review (non-critical for first boot)
 
+## BUILD SUCCEEDED ✅ (2026-11-22)
+
+The UEFI firmware for the Tensor G4 **compiled successfully** (`Return Code: 0x00000000`).
+
+Output:
+- `Build/stallionPkg/RELEASE_CLANGPDB/FV/SILICIUM_UEFI.fd` — the UEFI firmware
+- `Mu-stallion.img` (804K) — the boot image (UEFI + boot shim + dtb)
+
+Fixes applied during the build:
+- Re-scaffolded `stallionPkg` from the **Exynos** `e1sPkg` template (not the Snapdragon `b5q` — the b5q was the wrong template, referencing Qualcomm drivers)
+- Fixed an unused variable in `PlatformSec.c`
+- Added `Resources/DTBs/stallion.dtb` (the device tree)
+
 ## Next Step
 
-Build the UEFI (`python3 build_uefi.py -d stallion`) and fix any build errors. Then pack into boot.img and flash.
+1. Verify the boot image compression (I set `gzip`, but the Pixel 10a uses `lz4` — may need to change).
+2. Flash `Mu-stallion.img` to the phone's `boot` partition.
+3. See if the UEFI boots (the first real test of our firmware).
