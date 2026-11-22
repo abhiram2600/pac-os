@@ -122,9 +122,21 @@ And each SoC package (`Silicon/<vendor>/<SoC>Pkg/`) has:
 - Linux (use Docker).
 - Build: `python3 build_uefi.py -d <device>`.
 
+## PROGRESS (2026-11-22)
+
+- ✅ Cloned the full UEFI build env (all submodules).
+- ✅ Created `Silicon/Samsung/zumaproPkg/` (copied from S5E9945Pkg template).
+- ✅ Wrote `zumaproPkg.dsc.inc` with correct Tensor G4 values: GIC 0x10400000/0x10440000, 8 cores/2 clusters, 13 pinctrl addresses (0x10840000, 0x10C40000, 0x12040000, 0x13040000, 0x13060000, 0x15060000, 0x154D0000, 0x154E0000, 0x16140000, 0x16280000-0x162B0000), SMBIOS "Tensor G4"/"zumapro".
+
+## KEY FINDING — GPIO bank offsets need the kernel source
+
+The dtb gives GPIO bank **names** (`gpa0`, `gpa1`, ...) and controller addresses, but NOT the bank **register offsets** (the `0x20`, `0x40`, `0x60` values in `GpioBank.c`). Those offsets live in Google's zumapro pinctrl *driver* source (the kernel), not the device tree.
+
+So `GpioBank.c` needs: either Google's kernel source (read the pinctrl driver), or use S5E9945 offsets as a first guess (risky). Same for the watchdog/decon register bits in `PlatformRegisters.h`.
+
 ## Immediate Next Step
 
-1. Set up the full build env (clone submodules in Docker).
-2. Write `zumaproPkg` (SoC: PlatformSecLib with watchdog @ 0x10060000, decon @ 0x19470000 + GpioBankLib).
-3. Write `stallionPkg` (device: MemoryMapLib table from stallion.dtb + dsc/fdf/dec).
+1. Get Google's zumapro kernel source (for the pinctrl driver's bank offsets + watchdog/decon bits).
+2. Write `GpioBank.c` + `PlatformRegisters.h` with the correct values.
+3. Write `stallionPkg` (MemoryMapLib table + dsc/fdf/dec/DeviceBuild.py).
 4. Build and flash.
