@@ -1,54 +1,61 @@
 # PAC-OS
 
-Build a custom operating system for the Google Pixel 7, starting from the lowest level the hardware allows.
+Run macOS on the Google Pixel 10a (Tensor G4). Not a custom Linux, not a skin — boot Apple's own kernel (XNU) on Tensor silicon.
 
 ## The Goal
 
-Replace Android entirely with a custom OS on the Pixel 7's Tensor G2 silicon. Not a skin, not root — a full OS swap, proving the machine can be owned from the kernel up.
+Boot macOS on the Pixel 10a's Tensor G4 SoC, using the same approach as the macOS-on-Snapdragon projects: a UEFI boot firmware brings up the SoC, then hands off to XNU.
 
 ## Hardware
 
-- **Device:** Google Pixel 7 (`panther`)
-- **SoC:** Google Tensor G2 (GS201) — arm64
-- **CPU:** Cortex-X1 / A78 / A55
-- **GPU:** Mali-G710
-- **Bootloader:** unlocked
+- **Device:** Google Pixel 10a (`stallion`)
+- **SoC:** Google Tensor G4 (`zumapro`) — arm64, Exynos 2400-based (S5E9945)
+- **GIC:** 0x10400000 / 0x10440000
+- **Timer:** `samsung,exynos4210-mct` @ 0x10050000
+- **RAM:** 8 GB @ `memory@80000000`
+- **Bootloader:** unlocked; phone rooted (Magisk)
 
 ## The Approach
 
-Work from the lowest level the bootloader allows. Below the kernel is locked silicon. The kernel is the door. Above it, everything is replaceable.
+The boot flow we're building:
 
 ```
-SILICON (Tensor G2)          locked (given)
+Google bootloader (ABL)
+   ↓  loads boot.img
+UEFI firmware (our port)         ← brings up the SoC (CPU, GIC, timer, memory)
    ↓
-BOOT ROM                     locked (given)
+UniXNU (OpenCore-like UEFI env)  ← loads drivers, boots the OS
    ↓
-BOOTLOADER (unlocked)        the door
+XNU (Apple's macOS kernel)       ← reads the device tree (Apple ADT format)
    ↓
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   ↓   ← our work starts here
-KERNEL                       we build this
-   ↓
-OS / everything above        we build this
+macOS (system image on APFS)
 ```
+
+Below the bootloader is locked silicon — that's a given. Everything from the UEFI up is ours to write.
 
 ## Milestones
 
-1. **Boot a custom kernel** — build, flash, and boot a kernel we compiled ourselves.
-   - Status: DONE — the kernel compiles, flashes, and the bootloader runs it. It fails mid-boot, which is expected; it needs Pixel 7 adaptation.
-2. **Adapt the kernel to the Pixel 7** — translate the Tensor G2's hardware details so the kernel boots fully.
+1. **UEFI firmware for Tensor G4** — port uefi-uke to zumapro.
+   - Status: BUILT ✅ — `SILICIUM_UEFI.fd` compiles; `Mu-stallion.img` (boot image) produced and flashed. The bootloader loads it, then it crashes early. Debugging now.
+2. **UEFI boots on the phone** — get past the early crash (bring up CPU/GIC/timer/memory cleanly).
    - Status: IN PROGRESS.
-3. **Full OS** — build the rest on top of a booting kernel.
+3. **Device tree → Apple ADT** — convert the zumapro device tree for XNU.
+4. **UniXNU adaptation** — boot XNU on zumapro.
+5. **Storage (UFS)** — mount the macOS system volume.
+6. **GPU** — PanVK (Mali) + metal2vulkan for a usable desktop.
 
 ## Current State
 
-- [x] Bootloader unlocked
-- [x] Custom kernel compiled and flashed (runs, then fails — expected)
-- [x] Pixel 7 device tree scaffolded and building
-- [ ] Pixel 7 address translation (CPU type, UART, clock)
-- [ ] Full boot
-- [ ] OS on top
+- [x] Bootloader unlocked, phone rooted
+- [x] zumaproPkg (SoC package) written — GPIO banks, watchdog, config
+- [x] stallionPkg (device platform) written — memory map, build config
+- [x] UEFI firmware compiled (SILICIUM_UEFI.fd)
+- [x] Boot image built (Mu-stallion.img, LZ4, header v4)
+- [x] Flashed — bootloader accepted and loaded it, then it crashed early
+- [ ] Debug the early crash (memory map / config address)
+- [ ] Boot XNU
+- [ ] macOS
 
 ## Key Concept
 
-The bootloader is the gate. Once it's unlocked, the phone runs whatever we flash. The kernel is the first thing we author. Everything above it is ours to build.
+The Tensor G4 is Exynos-based, so the uefi-uke framework's Samsung/Exynos path (`S5E9945Pkg` = Exynos 2400) is the closest reference — far closer than the Snapdragon path. The port is thin: a device tree + a small SoC package.
