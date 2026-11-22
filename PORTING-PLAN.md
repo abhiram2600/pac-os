@@ -134,9 +134,33 @@ The dtb gives GPIO bank **names** (`gpa0`, `gpa1`, ...) and controller addresses
 
 So `GpioBank.c` needs: either Google's kernel source (read the pinctrl driver), or use S5E9945 offsets as a first guess (risky). Same for the watchdog/decon register bits in `PlatformRegisters.h`.
 
+## GPIO bank data — EXTRACTED (zuma = zumapro)
+
+Cloned `zumapro-kernel` (Google Tensor kernel). The pinctrl banks are in `google-modules/soc/gs/drivers/pinctrl/gs/pinctrl-gs.c`.
+
+**Key: zumapro (Tensor G4) shares the zuma (Tensor G3) pinctrl banks.** 13 controllers, matching the dtb:
+
+| Ctrl | Name | Addr | Banks |
+|---|---|---|---|
+| 0 | alive | 0x154D0000 | gpa0-gpa10 |
+| 1 | custom | 0x15060000 | gpn0-gpn9 |
+| 2 | far | 0x154E0000 | gpa5 |
+| 3 | gsacore0 | 0x16280000 | gps0 |
+| 4 | gsacore1 | 0x16290000 | gps1 |
+| 5 | gsacore2 | 0x162A0000 | gps2 |
+| 6 | gsacore3 | 0x162B0000 | gps3 |
+| 7 | gsactrl | 0x16140000 | gps4 |
+| 8 | hsi1 | 0x12040000 | gph0-gph2 |
+| 9 | hsi2 | 0x13040000 | gph3-gph4 |
+| 10 | hsi2ufs | 0x13060000 | gph5 |
+| 11 | peric0 | 0x10840000 | gpp0-gpp17 |
+| 12 | peric1 | 0x10C40000 | gpp19-gpp24 |
+
+Bank offsets are 0x20 apart (0x0, 0x20, 0x40, ...), and bank name prefix maps to BANK_ID (gpa=A, gpn=N, gps=S, gph=H, gpp=P). All data present to write `GpioBank.c` with exact values.
+
 ## Immediate Next Step
 
-1. Get Google's zumapro kernel source (for the pinctrl driver's bank offsets + watchdog/decon bits).
-2. Write `GpioBank.c` + `PlatformRegisters.h` with the correct values.
-3. Write `stallionPkg` (MemoryMapLib table + dsc/fdf/dec/DeviceBuild.py).
+1. Write `GpioBank.c` (use the zuma bank table above).
+2. Write `PlatformRegisters.h` (watchdog/decon bits — check s3c2410_wdt.c).
+3. Write `stallionPkg` (MemoryMapLib + dsc/fdf/dec/DeviceBuild.py).
 4. Build and flash.
