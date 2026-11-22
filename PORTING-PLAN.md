@@ -158,9 +158,21 @@ Cloned `zumapro-kernel` (Google Tensor kernel). The pinctrl banks are in `google
 
 Bank offsets are 0x20 apart (0x0, 0x20, 0x40, ...), and bank name prefix maps to BANK_ID (gpa=A, gpn=N, gps=S, gph=H, gpp=P). All data present to write `GpioBank.c` with exact values.
 
-## Immediate Next Step
+## zumaproPkg (SoC package) — DONE ✅
 
-1. Write `GpioBank.c` (use the zuma bank table above).
-2. Write `PlatformRegisters.h` (watchdog/decon bits — check s3c2410_wdt.c).
-3. Write `stallionPkg` (MemoryMapLib + dsc/fdf/dec/DeviceBuild.py).
-4. Build and flash.
+- ✅ `GpioBank.c` — 56 banks, 13 controllers (from zuma pinctrl data)
+- ✅ `PlatformRegisters.h` — watchdog bits `(1<<5)|1`, decon trigger `0x30` (confirmed from s3c2410_wdt.c)
+- ✅ `PlatformSec.c`, `PlatformSecLib.inf`, `PlatformHelper.S`, `GpioBankLib.inf` — copied (generic, correct)
+- ✅ `zumaproPkg.dsc.inc` — GIC/CPU/GPIO/SMBIOS/LibraryClasses correct
+
+## stallionPkg (device platform) — SCAFFOLDED + CONFIGURED ✅
+
+- ✅ Renamed `b5q.*` → `stallion.*` (dsc/fdf/dec + all includes)
+- ✅ `DeviceBuild.py` — added `Platforms/Google` to PackagesPath
+- ✅ `stallion.dsc` — includes `zumaproPkg/zumaproPkg.dsc.inc`, SMBIOS "Google"/"Pixel 10a", framebuffer 1080x2400
+- ✅ `MemoryMapLib.c` — 8GB RAM + 13 reserved regions (gsa, gxp, tpu, aoc, etc.) + UEFI regions + register regions (Watchdog Timer, GIC, UART, DRM Decon)
+- ⚠️ `ConfigurationMapLib.c` — copied from the Snapdragon template; some SoC-specific values need review (non-critical for first boot)
+
+## Next Step
+
+Build the UEFI (`python3 build_uefi.py -d stallion`) and fix any build errors. Then pack into boot.img and flash.
