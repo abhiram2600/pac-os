@@ -1,0 +1,118 @@
+=== getting to fastboot ===
+fastboot up: current-slot: a
+
+=== flashing our UEFI to the active boot slot ===
+Sending 'boot_a' (536 KB)                          OKAY [  0.013s]
+Writing 'boot_a'                                   OKAY [  0.010s]
+Finished. Total time: 0.027s
+flashed
+
+=== booting it; the bootloader will retry and then drop to fastboot ===
+outcome: fastboot:233
+
+=== recovering to stock Android ===
+Sending 'boot_a' (65536 KB)                        OKAY [  1.556s]
+Writing 'boot_a'                                   OKAY [  0.201s]
+Finished. Total time: 1.761s
+stock restored
+android up
+
+=== OUR SEC TRACE (pmsg zone) ===
+pmsg-ramoops-0:  1272826 bytes
+full UEFI log saved to pac-os/uefi-debug-log.txt
+--- last 70 lines ---
+FreePool: F5176398 (len 30) 2,512,656
+FreePool: F5176318 (len 58) 2,512,528
+FreePool: F4DEA098 (len 28) 2,512,448
+FreePool: F5176618 (len 38) 2,512,352
+ConvertRange: F4C2C000-F4C84FFF to type 7
+AddRange: F4C2C000-F4C84FFF to 7
+FreePool: F4EBAD18 (len 18) 2,512,288
+FreePool: F513A818 (len 30) 2,512,200
+FreePool: F4DEAD18 (len 190) 2,511,760
+Image Return Status = Not Found
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootCurrent) returning Success.
+FreePool: F4EA7418 (len 28) 2,511,680
+FreePool: F4EA7598 (len 30) 2,511,592
+FreePool: F4EA7398 (len 8) 2,511,544
+FreePool: F4EA7698 (len 18) 2,511,480
+FreePool: F4EA7618 (len 30) 2,511,392
+FreePool: F4EA7318 (len 8) 2,511,344
+FreePool: F4EA7918 (len 18) 2,511,280
+FreePool: F4EA7998 (len 30) 2,511,192
+FreePool: F4EA7198 (len 108) 2,510,888
+FreePool: F4EA7718 (len 28) 2,510,808
+FreePool: F4EA7798 (len 30) 2,510,720
+FreePool: F4EBB698 (len 38) 2,510,624
+FreePool: F4EBB518 (len 38) 2,510,528
+[Bds] Unable to boot!
+MaxMode:0x1 
+Mode:0x0 
+SizeOfInfo:0x24 
+FrameBufferBase:0xF3C00000 
+FrameBufferSize:0x9FC900 
+Version:0x0 
+HorizontalResolution:0x438 
+VerticalResolution:0x978 
+PixelFormat:0x1 
+PixelsPerScanLine:0x438 
+VideoFill: color=0x0, wide-fill=0x0
+VideoFill (wide, one-shot)
+Coloring Background to color 0x0. Status: Success 
+On Screen Notifications: 
+ConvertRange: F4CD8000-F4CEEFFF to type 4
+AddRange: F4CD8000-F4CEEFFF to 4
+AllocatePoolI: Type 4, Addr F4CD8018 (len 16408) 2,601,712
+AllocatePoolI: Type 4, Addr F4EBB518 (len 48) 2,601,824
+AllocatePoolI: Type 4, Addr F4EBB698 (len 40) 2,601,928
+ConvertRange: F4CC1000-F4CD7FFF to type 4
+AddRange: F4CC1000-F4CD7FFF to 4
+AllocatePoolI: Type 4, Addr F4CC1018 (len 163C8) 2,693,048
+Bmp Support: Allocating 0x57E40 bytes of memory
+ConvertRange: F4C69000-F4CC0FFF to type 4
+AddRange: F4C69000-F4CC0FFF to 4
+AllocatePoolI: Type 4, Addr F4C69018 (len 57E40) 3,053,088
+BmpHeader->ImageOffset 0x436
+BmpHeader->PixelWidth 0x12C
+BmpHeader->PixelHeight 0x12C
+BmpHeader->BitPerPixel 0x8
+BmpHeader->ImageSize 0x15F90
+BmpHeader->HeaderSize 0x28
+BmpHeader->Size 0x163C6
+AllocatePoolI: Type 4, Addr F4DEAC18 (len B8) 3,053,312
+Register Event Group Notify: 3C4F1430-56D3-45B6-8A1D-B3E00DEBD8AF (F4E06400)
+Run Event Group Notify: 3C4F1430-56D3-45B6-8A1D-B3E00DEBD8AF (F4E06400)
+FreePool: F4DEAC18 (len B8) 3,053,088
+FreePool: F4C69018 (len 57E40) 2,693,048
+ConvertRange: F4C69000-F4CC0FFF to type 7
+AddRange: F4C69000-F4CC0FFF to 7
+FreePool: F4CC1018 (len 163C8) 2,601,928
+ConvertRange: F4CC1000-F4CD7FFF to type 7
+AddRange: F4CC1000-F4CD7FFF to 7
+DXE ResetSystem2: ResetType Shutdown, Call Depth = 1.
+PAC-OS: warm reset via watchdog
+
+=== BOOTLOADER LOG (console zone), tail ===
+console-ramoops-0:    42293 bytes
+[   7.988544] [I] [AND] padding prepended: 0
+[   7.989836] [I] [AND] vendor ramdisk copy
+[   7.989868] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
+[   7.989948] [I] [AND] padding prepended: 5
+[   7.997219] [I] [AND] ramdisk copy
+[   7.997250] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
+[   7.997329] [I] [AND] padding prepended: 6
+[   7.997818] [I] [AND] Ramdisk load size with padding: 49063043
+[   8.013064] [I] [AND] dpm not merged
+[   8.014567] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
+[   8.025291] [I] [AND] bootmode:
+[   8.025341] [I] [AND] DDR size: 8GiB
+[   8.025369] [I] [AND] DDR Manufacturer: Hynix
+[   8.025547] [I] [AND] ro.misctrl.16kb_before=0
+[   8.025594] [I] [AND] console is disabled
+[   8.025770] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
+[   8.025834] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
+[   8.028881] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
+[   8.055495] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
+[   8.070886] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
+
+done. /Users/abhiram/Documents/pac/pac-os/capture-result.txt

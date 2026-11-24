@@ -1,0 +1,31 @@
+waiting for fastboot (power-cycle the phone: hold Power ~30s, then hold Volume Down and plug USB)...
+fastboot up: current-slot: b
+
+=== setting up: stock on slot a, our firmware on slot b ===
+Sending 'boot_a' (65536 KB)                        OKAY [  1.583s]
+Writing 'boot_a'                                   OKAY [  0.218s]
+Finished. Total time: 1.806s
+slot a = stock Android
+Sending 'boot_b' (444 KB)                          OKAY [  0.011s]
+Writing 'boot_b'                                   OKAY [  0.011s]
+Finished. Total time: 0.024s
+slot b = our UEFI
+Setting current slot to 'b'                        OKAY [  0.071s]
+Finished. Total time: 0.071s
+active slot = b
+
+=== booting slot b; waiting for the bootloader to fall back to slot a ===
+outcome: fastboot:160
+
+the bootloader did not fall back to slot a, so the trace is gone.
+restoring slot a and stock images.
+Setting current slot to 'a'                        OKAY [  0.067s]
+Finished. Total time: 0.069s
+Sending 'boot_a' (65536 KB)                        OKAY [  1.586s]
+Writing 'boot_a'                                   OKAY [  0.190s]
+Finished. Total time: 1.780s
+Sending 'boot_b' (65536 KB)                        OKAY [  1.598s]
+Writing 'boot_b'                                   OKAY [  0.216s]
+Finished. Total time: 1.817s
+
+done. full log at /Users/abhiram/Documents/pac/pac-os/trace-result.txt
