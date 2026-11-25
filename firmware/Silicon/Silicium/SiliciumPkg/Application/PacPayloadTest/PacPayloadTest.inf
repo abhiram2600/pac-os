@@ -1,0 +1,26 @@
+## @file
+#  Tiny UEFI application used to prove the payload path end to end.
+#
+#  Copyright (c) 2026, PAC-OS.
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PacPayloadTest
+  FILE_GUID                      = 0E1B7C94-3A52-4D68-9B01-F7C6D2A58143
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = PacPayloadTestMain
+
+[Sources]
+  PacPayloadTest.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiApplicationEntryPoint
+  UefiBootServicesTableLib
+  UefiLib
+  DebugLib

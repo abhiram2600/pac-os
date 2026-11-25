@@ -1,0 +1,42 @@
+## @file
+#  Publishes the firmware's embedded payload volume as a RAM disk.
+#
+#  Copyright (c) 2026, PAC-OS.
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PacPayloadVolumeDxe
+  FILE_GUID                      = 5C9E2B47-8D16-4A73-BE05-91F4C7D3A862
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = PacPayloadVolumeEntry
+
+[Sources]
+  PacPayloadVolumeDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+
+[LibraryClasses]
+  BaseMemoryLib
+  DebugLib
+  DevicePathLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+
+[Protocols]
+  gEfiBlockIoProtocolGuid
+  gEfiDiskIoProtocolGuid
+  gEfiSimpleFileSystemProtocolGuid
+  gEfiDevicePathProtocolGuid
+  gEfiFirmwareVolume2ProtocolGuid
+
+[Depex]
+  TRUE
+
+[Guids]
+  gEfiEndOfDxeEventGroupGuid

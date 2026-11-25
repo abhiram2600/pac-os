@@ -1,0 +1,22 @@
+[submodule "firmware/Binaries"]
+	path = firmware/Binaries
+	url = https://github.com/Project-Silicium/Device-Binaries.git
+[submodule "firmware/Common/Mu"]
+	path = firmware/Common/Mu
+	url = https://github.com/microsoft/mu_plus.git
+	branch = release/202608
+[submodule "firmware/Common/Mu_OEM_Sample"]
+	path = firmware/Common/Mu_OEM_Sample
+	url = https://github.com/microsoft/mu_oem_sample.git
+	branch = release/202608
+[submodule "firmware/Mu_Basecore"]
+	path = firmware/Mu_Basecore
+	url = https://github.com/microsoft/mu_basecore.git
+	branch = release/202608
+[submodule "firmware/Silicium-ACPI"]
+	path = firmware/Silicium-ACPI
+	url = https://github.com/Project-Silicium/Silicium-ACPI.git
+[submodule "firmware/Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl"]
+	path = firmware/Silicon/Silicium/OpensslPkg/Library/OpensslLib/openssl
+	url = https://github.com/openssl/openssl.git
+	branch = 67b5686b4419b4cb8caa502711c41815f5279751

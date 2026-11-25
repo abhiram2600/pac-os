@@ -1,0 +1,31 @@
+#
+# Boot Shim Configs
+#
+[boot_shim]
+requires_kernel_header = true
+
+#
+# UEFI FD Configs
+#
+[uefi_fd]
+base = 0xF4800000
+size = 0x300000
+
+#
+# Android Boot Image Kernel Configs
+#
+[boot_image_kernel]
+kernel_compression = "lz4"
+# The Pixel 10a bootloader does not tolerate anything after the LZ4 stream.
+# The stock boot.img kernel payload is exactly the LZ4 legacy stream with
+# zero trailing bytes, while appending the DTB glued 386 KB starting with
+# 0xd00dfeed onto the end, which the bootloader reads as a corrupt block
+# length. This device takes its device tree from vendor_kernel_boot, not
+# from the kernel image.
+append_dtb         = false
+
+#
+# Android Boot Image Configs
+#
+[boot_image]
+header_version = 4

@@ -1,0 +1,53 @@
+## @file
+#  UFS platform support for the Google Tensor G4 (zumapro).
+#
+#  Vendor/ holds Google's published calibration for this SoC, unmodified and
+#  GPL-2.0-only; see Vendor/README.md. Everything else here is
+#  BSD-2-Clause-Patent like the rest of the package.
+#
+#  Copyright (c) 2026, PAC-OS.
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = PlatformUfsLib
+  FILE_GUID                      = 9D2C7E41-58B6-4A03-9F17-3E6D04C8B52A
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = PlatformUfsLib|DXE_DRIVER
+
+[Sources]
+  BoardInit.c
+  UfsCal.c
+  Vendor/PacUfsCalVendor.c
+  Vendor/ufs-cal-if.c
+
+[Packages]
+  ArmPkg/ArmPkg.dec
+  MdePkg/MdePkg.dec
+  SiliciumPkg/SiliciumPkg.dec
+  SamsungPkg/SamsungPkg.dec
+
+[Protocols]
+  gEfiGpioProtocolGuid
+
+[LibraryClasses]
+  ArmLib
+  UefiBootServicesTableLib
+  ArmSmcLib
+  BaseMemoryLib
+  DebugLib
+  IoLib
+  MemoryMapHelperLib
+  TimerLib
+
+[BuildOptions]
+  # The vendor calibration is written against the kernel's headers.
+  # Vendor/linux/ supplies the handful it needs (readl, writel, BIT, DSB,
+  # pr_info and the u8/u32/u64 types) mapped onto EDK2. It resolves through
+  # the include path the build already adds for the source's own directory,
+  # so no -I is needed here.
+  #
+  # The vendor file is deliberately unmodified, so its warnings are not fatal.
+  *_*_AARCH64_CC_FLAGS = -Wno-error

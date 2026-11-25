@@ -1,0 +1,40 @@
+--- BootShim/BootShim.S.orig	2026-11-22 16:27:21
++++ BootShim/BootShim.S	2026-11-22 16:27:21
+@@ -17,6 +17,37 @@
+ #endif
+ 
+ _Start:
++  /*
++   * PAC-OS reachability probe (TEMPORARY - remove once the port boots).
++   *
++   * Fire both cluster watchdogs immediately, using the same register
++   * sequence the stock kernel uses in s3c2410wdt_restart(). If the device
++   * drops back to fastboot in a couple of seconds instead of after the
++   * stock 30 second watchdog timeout, then the bootloader really does hand
++   * control to this image and the problem is further in. If it still takes
++   * 30 seconds, this code never ran.
++   *
++   * WTCON = ENABLE(1<<5) | RSTEN(1<<0) | DIV16(0<<3) | PRESCALE(0x20) = 0x2021
++   */
++  movz  x10, #0x1006, lsl #16   /* cluster 0 watchdog */
++  str   wzr, [x10, #0x00]       /* WTCON = 0, stop it so the reload takes */
++  movz  w11, #0x80
++  str   w11, [x10, #0x08]       /* WTCNT */
++  str   w11, [x10, #0x04]       /* WTDAT */
++  movz  w11, #0x2021
++  str   w11, [x10, #0x00]       /* WTCON = enable + reset */
++
++  movz  x10, #0x1007, lsl #16   /* cluster 1 watchdog */
++  str   wzr, [x10, #0x00]
++  movz  w11, #0x80
++  str   w11, [x10, #0x08]
++  str   w11, [x10, #0x04]
++  movz  w11, #0x2021
++  str   w11, [x10, #0x00]
++
++_PacProbeWait:
++  b     _PacProbeWait
++
+   mov   x4, x1
+   ldr   x5, =FD_BASE
+   cmp   x4, x5
