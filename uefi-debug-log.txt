@@ -22,7 +22,7 @@ sync D: after PlatformInitialize
 sync D: clean
 
 Project Silicium for Google Pixel 10a
-Firmware Version 4.0 Build at 02:55:54 on Nov 25 2026
+Firmware Version 4.0 Build at 03:22:18 on Nov 25 2026
 
 mem: located DXE Heap
 mem: HOB list constructed
@@ -37,13 +37,14 @@ fb: decon1 GLOBAL_CON=0x00000020 en=0 run=0 idle=1  BG_SIZE=0x00000000
 fb: decon2 GLOBAL_CON=0x00000020 en=0 run=0 idle=1  BG_SIZE=0x00000000
 fb: after reading DECON
 fb: DECON reads clean
-fb: dma0 en=0x40000000 src=0x00000438 base=0xFAC00000
-fb: dma1 en=0x40000000 src=0x00000000 base=0x00000000
-fb: dma2 en=0x40000000 src=0x00000000 base=0x00000000
-fb: dma3 en=0x40000000 src=0x00000000 base=0x00000000
-fb: dma4 en=0x40000000 src=0x00000000 base=0x00000000
-fb: dma5 en=0x40000000 src=0x00000000 base=0x00000000
-fb: dma6 en=0x40000000 src=0x00000000 base=0x00000000
+fb: dma0 en=0x40000000 w=1080 h=2424 img=0x09780438 base=0xFAC00000
+fb: ACTIVE channel 0, panel is scanning out 0xFAC00000
+fb: dma1 en=0x40000000 w=0 h=0 img=0x00000000 base=0x00000000
+fb: dma2 en=0x40000000 w=0 h=0 img=0x00000000 base=0x00000000
+fb: dma3 en=0x40000000 w=0 h=0 img=0x00000000 base=0x00000000
+fb: dma4 en=0x40000000 w=0 h=0 img=0x00000000 base=0x00000000
+fb: dma5 en=0x40000000 w=0 h=0 img=0x00000000 base=0x00000000
+fb: dma6 en=0x40000000 w=0 h=0 img=0x00000000 base=0x00000000
 fb: FOUND dma 0x19D3D000 -> base 0x33333333
 fb: after sweeping the plane DMA blocks
 fb: plane sweep clean
@@ -67,16 +68,17 @@ fb: window reads clean
 disp: drawing into our own reserved framebuffer
 disp: fb 0xFAC00000 holds 0x00000000 0x00000000 0x00000000
 disp: painting test bands into the framebuffer
-disp: programming plane 0
-disp: after programming the plane
+disp: pushing a frame
+disp: after rewriting the plane base
 disp: plane writes clean
-disp: TRIG_CON now 0x00003061
+disp: TRIG_CON now 0x00003061 (unmasked)
 disp: after the latch and trigger
 disp: display bring-up clean
-disp: before  frames=3 te=0x02A502A5
-disp: after   frames=4 te=0x02B702B7
-disp: VERDICT frames+1 dma_busy=1 int_pend=0x00000000
-disp: OUR PIXELS ARE ON THE PANEL (our plane is fetching)
+disp: before  frames=3 te=0x02A202A2
+disp: dma fetching on 8665 of 20000 samples, enable=0x40000004
+disp: after   frames=33 te=0x02C002C0
+disp: VERDICT frames+30 dma_busy=1 int_pend=0x00000000
+disp: OUR PIXELS ARE ON THE PANEL (we drew where it is fetching)
 sec: CPU HOB built
 sec: boot mode set
 sec: PlatformPeim done
@@ -423,7 +425,7 @@ UFS Host init
 UFS: hci 0x13200000 vs 0x13201100 unipro 0x13280000 pma 0x13204000 ufsp 0x132A0000
 UFS: ufs-vcc gpp0-1: pull=Success func=Success state=Success
 UFS: gph5 pins: pull0=Success pull1=Success func0=Success func1=Success
-UFS: gpp0 CON=0x00002011 DAT=0x00000003   gph5 CON=0x00000022 DAT=0x00000001
+UFS: gpp0 CON=0x00002011 DAT=0x00000003   gph5 CON=0x00000022 DAT=0x00000000
 UFS EVT version 0
 UFS cal: mclk 178000000, 2 lane(s), gear 4, hs-series 2, board 1, evt 0
 UFS Host interface init
