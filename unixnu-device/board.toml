@@ -1,0 +1,71 @@
+schema_version = 2
+
+[board]
+name = "stallion"
+soc = "zumapro"
+soc_source = "device"
+os_profile = "ipados-17.7.11-21H461"
+description = "Google Pixel 10a (stallion), Google Tensor G4 (zumapro)"
+kit = "stallion"
+
+# No shared chip repository exists for Tensor, so everything lives in this
+# repository until there is enough of it to be worth sharing. The device tree
+# therefore includes no chip-level source and names no include directories.
+
+[components]
+include = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot", "GopFramebuffer"]
+
+[kernel]
+defconfig = "stallion_defconfig"
+config_fragments = ["arch:configs/common.config", "os:configs/ipados.config"]
+patch_series = ["arch:patches/xnu/series", "os:patches/xnu/series", "device:patches/xnu/series"]
+
+[device_tree]
+source = "device:dts/stallion.dts"
+include_dirs = []
+
+[firmware]
+# Our own firmware, which is already a Mu-Silicium platform package and
+# already boots this phone to a console, links storage and runs a loader off
+# a volume embedded in its own image.
+config = "stallion"
+dsc = "Platforms/Google/stallionPkg/stallion.dsc"
+fd = "Build/stallionPkg/{target}_CLANGPDB/FV/SILICIUM_UEFI.fd"
+packages = ["{uefi}", "{tree}/package", "{tree}/drivers/DarwinBoot", "{edk2}"]
+
+[firmware.defines]
+DEVICE_MODEL = "stallion"
+
+[payload]
+volume = "STALLION"
+size_mib = 192
+loader = "firmware"
+title = "PAC-OS"
+kernel_args = ["-v"]
+
+[package]
+# The UniXNU checkout, relative to this folder. It sits beside pac-os
+# rather than beside this repository, because the device description lives
+# with the firmware and the notes instead of in a repository of its own.
+unixnu = "../../UniXNU"
+
+[package.defconfig]
+"ipados-17.7.11-21H461" = "stallion_defconfig"
+
+[payload.adt]
+# A stable nonzero identifier for this board, read as hexadecimal. It is not
+# an Apple part number: together with the per-build unique chip id it only
+# seeds the platform UUID. Callers of gethostuuid with no timeout hang
+# forever if both are absent, so it has to be something.
+chip_id = "0xa10"
+
+unique_chip_id = "required"
+
+# The contiguous window the loader reserves for the kernel, out of the 6 GiB
+# handed over. Two gigabytes to start with; it can grow once the kernel runs.
+owned_memory_size = "0x80000000"
+psci_method = "smc"
+
+# Which cores to start, as the affinity values of the stock tree: four
+# efficiency cores then four performance cores.
+cpu_regs = "0,0x100,0x200,0x300,0x400,0x500,0x600,0x700"
