@@ -1,0 +1,43 @@
+diff --git a/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsole.c b/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsole.c
+index 5cf4a1b4a6..90d50a2c09 100644
+--- a/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsole.c
++++ b/MdeModulePkg/Universal/Console/GraphicsConsoleDxe/GraphicsConsole.c
+@@ -240,9 +240,13 @@ InitializeGraphicsConsoleTextMode (
+   MaxRows    = VerticalResolution / EFI_GLYPH_HEIGHT;
+ 
+   //
+-  // According to UEFI spec, all output devices support at least 80x25 text mode.
++  // According to UEFI spec, all output devices support at least 80x25 text
++  // mode. A phone panel in portrait is narrower than that once the font is
++  // drawn at a readable size, so clamp rather than assert: an 80 column mode
++  // on a 45 column screen computes a negative centring offset, which as an
++  // unsigned value is enormous, and the console draws off the end of the
++  // framebuffer.
+   //
+-  ASSERT ((MaxColumns >= 80) && (MaxRows >= 25));
+ 
+   //
+   // Add full screen mode to the last entry.
+@@ -271,8 +275,8 @@ InitializeGraphicsConsoleTextMode (
+   //
+   ValidCount = 0;
+ 
+-  NewModeBuffer[ValidCount].Columns       = 80;
+-  NewModeBuffer[ValidCount].Rows          = 25;
++  NewModeBuffer[ValidCount].Columns       = MIN (80, MaxColumns);
++  NewModeBuffer[ValidCount].Rows          = MIN (25, MaxRows);
+   NewModeBuffer[ValidCount].GopWidth      = HorizontalResolution;
+   NewModeBuffer[ValidCount].GopHeight     = VerticalResolution;
+   NewModeBuffer[ValidCount].GopModeNumber = GopModeNumber;
+@@ -285,6 +289,11 @@ InitializeGraphicsConsoleTextMode (
+     NewModeBuffer[ValidCount].Rows    = 50;
+     NewModeBuffer[ValidCount].DeltaX  = (HorizontalResolution - (80 * EFI_GLYPH_WIDTH)) >> 1;
+     NewModeBuffer[ValidCount].DeltaY  = (VerticalResolution - (50 * EFI_GLYPH_HEIGHT)) >> 1;
++  } else {
++    NewModeBuffer[ValidCount].Columns = MIN (80, MaxColumns);
++    NewModeBuffer[ValidCount].Rows    = MIN (50, MaxRows);
++    NewModeBuffer[ValidCount].DeltaX  = (HorizontalResolution - (NewModeBuffer[ValidCount].Columns * EFI_GLYPH_WIDTH)) >> 1;
++    NewModeBuffer[ValidCount].DeltaY  = (VerticalResolution - (NewModeBuffer[ValidCount].Rows * EFI_GLYPH_HEIGHT)) >> 1;
+   }
+ 
+   NewModeBuffer[ValidCount].GopWidth      = HorizontalResolution;

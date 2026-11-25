@@ -22,6 +22,12 @@
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|0|UINT8|0x0000A002
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferDelay|0|UINT32|0x0000A003
 
+  ## How many real pixels each reported pixel is drawn as.
+  #  1 leaves the panel described at its true size. Higher values make
+  #  console text that many times larger, which is the only way to read it on
+  #  a dense phone panel, since the console font is a fixed bitmap.
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferScale|1|UINT32|0x0000A004
+
   #
   # Timer
   #

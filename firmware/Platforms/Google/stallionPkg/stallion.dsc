@@ -98,6 +98,13 @@
   # 2424, not 2400. The bootloader reports the active window itself:
   #   [DECON] Display 1st window(5) xres(1080) yres(2424)
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferHeight|2424
+
+  # Draw every pixel three times over. The console font is a fixed 8 by 19
+  # bitmap, so at this panel's density a character is about a millimetre tall
+  # and the whole console sits in a small box in the middle of the screen.
+  # Three gives characters about 24 by 57 real pixels, and 45 columns by 42
+  # rows, which fills the width exactly.
+  gSiliciumPkgTokenSpaceGuid.PcdFrameBufferScale|3
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
 [LibraryClasses]

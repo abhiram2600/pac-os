@@ -71,20 +71,30 @@ PacPayloadTestMain (
   // watchdog deadline, which takes the phone back to the bootloader on its
   // own, so nothing here can leave the device stuck.
   //
-  for (Index = 10; Index > 0; Index--) {
+  //
+  // Deliberately never returns.
+  //
+  // Returning hands control back to the boot manager, which finds nothing
+  // else to boot and puts up its device chooser. That menu waits for a
+  // keypress, and until the buttons work it waits forever, so the only way
+  // out is holding the power button, which also destroys the debug log. The
+  // real loader will not return either, so this matches what replaces it.
+  //
+  // The firmware's own watchdog reclaims the phone after about ninety
+  // seconds and drops it back to the bootloader, so nothing here can leave
+  // the device stuck.
+  //
+  for (Index = 1; ; Index++) {
     DEBUG ((EFI_D_ERROR, "payload: alive, %u\n", Index));
     if (SystemTable->ConOut != NULL) {
-      Print (L"  running, %u seconds left on screen \r", Index);
+      Print (L"  running, %u seconds\r", Index);
     }
 
     gBS->Stall (1000000);
   }
 
-  if (SystemTable->ConOut != NULL) {
-    Print (L"\n\n  Handing the phone back to the bootloader.\n");
-  }
-
-  DEBUG ((EFI_D_ERROR, "payload: returning to the firmware\n"));
-
+  //
+  // Not reached.
+  //
   return EFI_SUCCESS;
 }

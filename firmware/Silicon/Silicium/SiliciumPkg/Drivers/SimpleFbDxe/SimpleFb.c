@@ -13,6 +13,22 @@
 //
 STATIC FRAME_BUFFER_CONFIGURE *FrameBufferConfiguration;
 
+//
+// How many real pixels each reported pixel is drawn as.
+//
+// The console font is a fixed 8 by 19 pixel bitmap with no scaling of its
+// own, so on a panel this dense a character ends up about a millimetre tall
+// and the standard 80 by 25 console occupies a small box in the middle of
+// the screen. Reporting the panel as a fraction of its real size and
+// expanding every blit by the same factor makes the text that many times
+// larger, without touching the console driver or the font.
+//
+// The real geometry is kept separately because the hardware still has to be
+// described truthfully to the blit library underneath.
+//
+STATIC UINT32                            mScale = 1;
+STATIC EFI_GRAPHICS_OUTPUT_MODE_INFORMATION mRealInfo;
+
 EFI_STATUS
 FrameBufferQueryMode (
   IN  EFI_GRAPHICS_OUTPUT_PROTOCOL          *This,
@@ -49,6 +65,66 @@ FrameBufferSetMode (
   return EFI_SUCCESS;
 }
 
+/**
+  Expand a caller's image by the scale factor into a temporary buffer.
+
+  Each source pixel becomes a square of Scale by Scale identical pixels, so
+  the result is the same picture drawn larger. Returns NULL if there is no
+  memory for it, and the caller falls back to drawing unscaled rather than
+  drawing nothing.
+**/
+STATIC
+EFI_GRAPHICS_OUTPUT_BLT_PIXEL *
+ExpandBltBuffer (
+  IN EFI_GRAPHICS_OUTPUT_BLT_PIXEL  *Source,
+  IN UINTN                           SourceX,
+  IN UINTN                           SourceY,
+  IN UINTN                           Width,
+  IN UINTN                           Height,
+  IN UINTN                           Delta
+  )
+{
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL  *Scaled;
+  UINTN                           SourceStride;
+  UINTN                           ScaledWidth;
+  UINTN                           Row;
+  UINTN                           Column;
+  UINTN                           CopyRow;
+  UINTN                           CopyColumn;
+
+  SourceStride = (Delta != 0) ? (Delta / sizeof (EFI_GRAPHICS_OUTPUT_BLT_PIXEL)) : Width;
+  ScaledWidth  = Width * mScale;
+
+  Scaled = AllocatePool (ScaledWidth * Height * mScale * sizeof (EFI_GRAPHICS_OUTPUT_BLT_PIXEL));
+  if (Scaled == NULL) {
+    return NULL;
+  }
+
+  for (Row = 0; Row < Height; Row++) {
+    EFI_GRAPHICS_OUTPUT_BLT_PIXEL  *SourceRow = Source + ((SourceY + Row) * SourceStride) + SourceX;
+    EFI_GRAPHICS_OUTPUT_BLT_PIXEL  *FirstRow  = Scaled + (Row * mScale * ScaledWidth);
+
+    for (Column = 0; Column < Width; Column++) {
+      for (CopyColumn = 0; CopyColumn < mScale; CopyColumn++) {
+        FirstRow[(Column * mScale) + CopyColumn] = SourceRow[Column];
+      }
+    }
+
+    //
+    // The remaining rows of the square are copies of the one just built.
+    //
+    for (CopyRow = 1; CopyRow < mScale; CopyRow++) {
+      CopyMem (
+        FirstRow + (CopyRow * ScaledWidth),
+        FirstRow,
+        ScaledWidth * sizeof (EFI_GRAPHICS_OUTPUT_BLT_PIXEL)
+        );
+    }
+  }
+
+  return Scaled;
+}
+
 EFI_STATUS
 FrameBufferGopBlt (
   IN EFI_GRAPHICS_OUTPUT_PROTOCOL      *This,
@@ -62,14 +138,132 @@ FrameBufferGopBlt (
   IN UINTN                              Height,
   IN UINTN                              Delta OPTIONAL)
 {
-  EFI_STATUS Status;
-  EFI_TPL    Tpl;
+  EFI_STATUS                      Status;
+  EFI_TPL                         Tpl;
+  EFI_GRAPHICS_OUTPUT_BLT_PIXEL  *Scaled;
 
   // Raise TPL Level
   Tpl = gBS->RaiseTPL (TPL_NOTIFY);
 
-  // Draw to Frame Buffer
-  Status = FrameBufferBlt (FrameBufferConfiguration, BltBuffer, BltOperation, SourceX, SourceY, DestinationX, DestinationY, Width, Height, Delta);
+  if (mScale <= 1) {
+    Status = FrameBufferBlt (FrameBufferConfiguration, BltBuffer, BltOperation, SourceX, SourceY, DestinationX, DestinationY, Width, Height, Delta);
+    gBS->RestoreTPL (Tpl);
+    return Status;
+  }
+
+  switch (BltOperation) {
+    case EfiBltVideoFill:
+      //
+      // One colour over a rectangle. Only the rectangle needs scaling.
+      //
+      Status = FrameBufferBlt (
+                 FrameBufferConfiguration,
+                 BltBuffer,
+                 EfiBltVideoFill,
+                 0,
+                 0,
+                 DestinationX * mScale,
+                 DestinationY * mScale,
+                 Width * mScale,
+                 Height * mScale,
+                 0
+                 );
+      break;
+
+    case EfiBltBufferToVideo:
+      //
+      // A picture from the caller. This is the path the console uses for
+      // every character it draws.
+      //
+      Scaled = ExpandBltBuffer (BltBuffer, SourceX, SourceY, Width, Height, Delta);
+      if (Scaled == NULL) {
+        Status = FrameBufferBlt (FrameBufferConfiguration, BltBuffer, BltOperation, SourceX, SourceY, DestinationX, DestinationY, Width, Height, Delta);
+        break;
+      }
+
+      Status = FrameBufferBlt (
+                 FrameBufferConfiguration,
+                 Scaled,
+                 EfiBltBufferToVideo,
+                 0,
+                 0,
+                 DestinationX * mScale,
+                 DestinationY * mScale,
+                 Width * mScale,
+                 Height * mScale,
+                 0
+                 );
+
+      FreePool (Scaled);
+      break;
+
+    case EfiBltVideoToVideo:
+      //
+      // Moving part of the screen, which is how the console scrolls.
+      //
+      Status = FrameBufferBlt (
+                 FrameBufferConfiguration,
+                 BltBuffer,
+                 EfiBltVideoToVideo,
+                 SourceX * mScale,
+                 SourceY * mScale,
+                 DestinationX * mScale,
+                 DestinationY * mScale,
+                 Width * mScale,
+                 Height * mScale,
+                 0
+                 );
+      break;
+
+    case EfiBltVideoToBltBuffer:
+      //
+      // Reading the screen back. Take the enlarged region and keep one pixel
+      // out of every square, which undoes the expansion.
+      //
+      {
+        EFI_GRAPHICS_OUTPUT_BLT_PIXEL  *Large;
+        UINTN                           DestStride;
+        UINTN                           Row;
+        UINTN                           Column;
+
+        DestStride = (Delta != 0) ? (Delta / sizeof (EFI_GRAPHICS_OUTPUT_BLT_PIXEL)) : Width;
+
+        Large = AllocatePool (Width * mScale * Height * mScale * sizeof (EFI_GRAPHICS_OUTPUT_BLT_PIXEL));
+        if (Large == NULL) {
+          Status = EFI_OUT_OF_RESOURCES;
+          break;
+        }
+
+        Status = FrameBufferBlt (
+                   FrameBufferConfiguration,
+                   Large,
+                   EfiBltVideoToBltBuffer,
+                   SourceX * mScale,
+                   SourceY * mScale,
+                   0,
+                   0,
+                   Width * mScale,
+                   Height * mScale,
+                   0
+                   );
+        if (!EFI_ERROR (Status)) {
+          for (Row = 0; Row < Height; Row++) {
+            for (Column = 0; Column < Width; Column++) {
+              BltBuffer[((DestinationY + Row) * DestStride) + DestinationX + Column] =
+                Large[(Row * mScale * Width * mScale) + (Column * mScale)];
+            }
+          }
+        }
+
+        FreePool (Large);
+      }
+
+      break;
+
+    default:
+      Status = EFI_INVALID_PARAMETER;
+      break;
+  }
 
   // Restore TPL Level
   gBS->RestoreTPL (Tpl);
@@ -224,6 +418,33 @@ SetFrameBufferModeDetails (
       return EFI_UNSUPPORTED;
   }
 
+  //
+  // Keep the truth for the blit library, which talks to the hardware and
+  // must know the real geometry, then shrink what everything above sees.
+  //
+  CopyMem (&mRealInfo, mFrameBuffer.Mode->Info, sizeof (mRealInfo));
+
+  mScale = PcdGet32 (PcdFrameBufferScale);
+  if (mScale < 1) {
+    mScale = 1;
+  }
+
+  if (mScale > 1) {
+    mFrameBuffer.Mode->Info->HorizontalResolution = Width / mScale;
+    mFrameBuffer.Mode->Info->VerticalResolution   = Height / mScale;
+    mFrameBuffer.Mode->Info->PixelsPerScanLine    = Width / mScale;
+
+    DEBUG ((
+      EFI_D_WARN,
+      "fb: %u x %u panel reported as %u x %u, drawing every pixel %u times\n",
+      Width,
+      Height,
+      mFrameBuffer.Mode->Info->HorizontalResolution,
+      mFrameBuffer.Mode->Info->VerticalResolution,
+      mScale
+      ));
+  }
+
   return EFI_SUCCESS;
 }
 
@@ -236,7 +457,7 @@ CreateFrameBufferConfig (IN EFI_PHYSICAL_ADDRESS BaseAddress)
   STATIC UINTN FrameBufferConfigurationSize = 0;
 
   // Get Frame Buffer Configuration Size
-  FrameBufferBltConfigure ((VOID *)(UINTN)BaseAddress, mFrameBuffer.Mode->Info, FrameBufferConfiguration, &FrameBufferConfigurationSize);
+  FrameBufferBltConfigure ((VOID *)(UINTN)BaseAddress, &mRealInfo, FrameBufferConfiguration, &FrameBufferConfigurationSize);
 
   // Allocate Memory
   FrameBufferConfiguration = AllocatePool (FrameBufferConfigurationSize);
@@ -246,7 +467,7 @@ CreateFrameBufferConfig (IN EFI_PHYSICAL_ADDRESS BaseAddress)
   }
 
   // Create FrameBufferBltLib Configuration
-  Status = FrameBufferBltConfigure ((VOID *)(UINTN)BaseAddress, mFrameBuffer.Mode->Info, FrameBufferConfiguration, &FrameBufferConfigurationSize);
+  Status = FrameBufferBltConfigure ((VOID *)(UINTN)BaseAddress, &mRealInfo, FrameBufferConfiguration, &FrameBufferConfigurationSize);
   if (EFI_ERROR (Status)) {
     DEBUG ((EFI_D_ERROR, "Failed to Create the Frame Buffer Configuration! Status = %r\n", Status));
     return Status;

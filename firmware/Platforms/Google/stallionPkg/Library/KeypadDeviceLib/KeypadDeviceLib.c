@@ -173,9 +173,30 @@ LibKeyUpdateKeyStatus (
   }
 }
 
+//
+// The three buttons this phone has.
+//
+// Taken from its own device tree, which names them by the pin controller at
+// 0x154D0000 and a pin on it:
+//
+//   KEY_POWER       gpa4 pin 0
+//   KEY_VOLUMEDOWN  gpa4 pin 1
+//   KEY_VOLUMEUP    gpa6 pin 2
+//
+// gpa4 and gpa6 are bank 4 and bank 6 of bank group A on controller 6, which
+// is the controller at that address. Only one button used to be described
+// here, on bank 3, which is a different bank entirely, so no button ever
+// reported a press.
+//
 STATIC KEY_CONTEXT_PRIVATE KeyContextVolumeUp;
+STATIC KEY_CONTEXT_PRIVATE KeyContextVolumeDown;
+STATIC KEY_CONTEXT_PRIVATE KeyContextPower;
 
-STATIC KEY_CONTEXT_PRIVATE *KeyList[] = { &KeyContextVolumeUp };
+STATIC KEY_CONTEXT_PRIVATE *KeyList[] = {
+  &KeyContextVolumeUp,
+  &KeyContextVolumeDown,
+  &KeyContextPower
+};
 
 STATIC
 VOID
@@ -190,11 +211,19 @@ STATIC
 KEY_CONTEXT_PRIVATE*
 KeypadKeyCodeToKeyContext (UINT32 KeyCode)
 {
-  if (KeyCode == 115) {
-    return &KeyContextVolumeUp;
-  }
+  switch (KeyCode) {
+    case 115:
+      return &KeyContextVolumeUp;
 
-  return NULL;
+    case 114:
+      return &KeyContextVolumeDown;
+
+    case 116:
+      return &KeyContextPower;
+
+    default:
+      return NULL;
+  }
 }
 
 RETURN_STATUS
@@ -215,11 +244,23 @@ KeypadDeviceConstructor ()
   if (!EFI_ERROR (Status)) {
     // Configure keys
 
-    /// Volume Up Button
+    /// Volume Up Button, gpa6 pin 2
     StaticContext             = KeypadKeyCodeToKeyContext (115);
-    StaticContext->BankNumber = 3;
+    StaticContext->BankNumber = 6;
     StaticContext->BankId     = BANK_ID_A;
-    StaticContext->Pin        = 0x0;
+    StaticContext->Pin        = 2;
+
+    /// Volume Down Button, gpa4 pin 1
+    StaticContext             = KeypadKeyCodeToKeyContext (114);
+    StaticContext->BankNumber = 4;
+    StaticContext->BankId     = BANK_ID_A;
+    StaticContext->Pin        = 1;
+
+    /// Power Button, gpa4 pin 0
+    StaticContext             = KeypadKeyCodeToKeyContext (116);
+    StaticContext->BankNumber = 4;
+    StaticContext->BankId     = BANK_ID_A;
+    StaticContext->Pin        = 0;
   } else {
     DEBUG ((EFI_D_ERROR, "%a: Failed to Locate GPIO Protocol! Status = %r\n", __FUNCTION__, Status));
   }
@@ -231,8 +272,19 @@ EFI_STATUS
 EFIAPI
 KeypadDeviceReset (KEYPAD_DEVICE_PROTOCOL *This)
 {
-  LibKeyInitializeKeyContext(&KeyContextVolumeUp.EfiKeyContext);
+  //
+  // Volume moves the selection and power chooses, which is the only
+  // arrangement that works on a phone: there is no keyboard, and these are
+  // the only three buttons on the device.
+  //
+  LibKeyInitializeKeyContext (&KeyContextVolumeUp.EfiKeyContext);
   KeyContextVolumeUp.EfiKeyContext.KeyData.Key.ScanCode = SCAN_UP;
+
+  LibKeyInitializeKeyContext (&KeyContextVolumeDown.EfiKeyContext);
+  KeyContextVolumeDown.EfiKeyContext.KeyData.Key.ScanCode = SCAN_DOWN;
+
+  LibKeyInitializeKeyContext (&KeyContextPower.EfiKeyContext);
+  KeyContextPower.EfiKeyContext.KeyData.Key.UnicodeChar = CHAR_CARRIAGE_RETURN;
 
   return EFI_SUCCESS;
 }
