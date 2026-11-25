@@ -11,16 +11,28 @@ flashed
 outcome: fastboot:436
 
 === recovering to stock Android ===
-Sending 'boot_a' (65536 KB)                        OKAY [  1.559s]
-Writing 'boot_a'                                   OKAY [  0.196s]
-Finished. Total time: 1.759s
+Sending 'boot_a' (65536 KB)                        OKAY [  1.564s]
+Writing 'boot_a'                                   OKAY [  0.209s]
+Finished. Total time: 1.777s
 stock restored
 android up
 
 === OUR SEC TRACE (pmsg zone) ===
-pmsg-ramoops-0:   129969 bytes
+pmsg-ramoops-0:    90704 bytes
 full UEFI log saved to pac-os/uefi-debug-log.txt
 --- last 70 lines ---
+ LastBlock : F 
+ BlockSize : 4096 
+ LastBlock : F 
+ BlockSize : 4096 
+ LastBlock : F 
+ BlockSize : 4096 
+ LastBlock : FF 
+ BlockSize : 4096 
+ LastBlock : 12BFF 
+ BlockSize : 4096 
+ LastBlock : 1FC7FF 
+ BlockSize : 4096 
  LastBlock : 1B51A14 
  BlockSize : 4096 
  LastBlock : 5 
@@ -78,41 +90,29 @@ full UEFI log saved to pac-os/uefi-debug-log.txt
  LastBlock : 1 
  BlockSize : 4096 
  LastBlock : 333 
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0003) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0004) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0005) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0006) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
-ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0007) returning Success.
-VideoFill: color=0x0, wide-fill=0x0
-VideoFill (wide, one-shot)
 Connect ConIn in first WaitForKey in Lazy ConIn mode.
 
 === BOOTLOADER LOG (console zone), tail ===
-console-ramoops-0:    42292 bytes
-[   7.981050] [I] [AND] padding prepended: 0
-[   7.982321] [I] [AND] vendor ramdisk copy
-[   7.982353] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
-[   7.982428] [I] [AND] padding prepended: 5
-[   7.989844] [I] [AND] ramdisk copy
-[   7.989875] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
-[   7.989957] [I] [AND] padding prepended: 6
-[   7.990439] [I] [AND] Ramdisk load size with padding: 49063043
-[   8.005621] [I] [AND] dpm not merged
-[   8.007121] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
-[   8.017974] [I] [AND] bootmode:
-[   8.018022] [I] [AND] DDR size: 8GiB
-[   8.018050] [I] [AND] DDR Manufacturer: Hynix
-[   8.018221] [I] [AND] ro.misctrl.16kb_before=0
-[   8.018266] [I] [AND] console is disabled
-[   8.018444] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
-[   8.018509] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
-[   8.021522] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
-[   8.048188] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
-[   8.063543] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
+console-ramoops-0:    40806 bytes
+[   7.978089] [I] [AND] padding prepended: 0
+[   7.979385] [I] [AND] vendor ramdisk copy
+[   7.979416] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
+[   7.979495] [I] [AND] padding prepended: 5
+[   7.986757] [I] [AND] ramdisk copy
+[   7.986788] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
+[   7.986862] [I] [AND] padding prepended: 6
+[   7.987351] [I] [AND] Ramdisk load size with padding: 49063043
+[   8.002401] [I] [AND] dpm not merged
+[   8.003899] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
+[   8.014949] [I] [AND] bootmode:
+[   8.014997] [I] [AND] DDR size: 8GiB
+[   8.015025] [I] [AND] DDR Manufacturer: Hynix
+[   8.015195] [I] [AND] ro.misctrl.16kb_before=0
+[   8.015242] [I] [AND] console is disabled
+[   8.015376] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
+[   8.015442] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
+[   8.018447] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
+[   8.045295] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
+[   8.060665] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
 
 done. /Users/abhiram/Documents/pac/pac-os/capture-result.txt

@@ -11,7 +11,7 @@ Goal: run macOS on the Google Pixel 10a (stallion, Tensor G4 "zumapro") via
 | --- | --- |
 | 1. Bootloader loads our UEFI | **done** |
 | 2. UEFI brings up the SoC, MMU, timer | **done** |
-| 3. UEFI display output | **done** |
+| 3. UEFI display output | **not done**, was wrongly marked done |
 | 4. UEFI storage, reads partitions | **done** |
 | 5. UEFI loads an executable from storage | **done** |
 | 6. UniXNU menu on screen | next |
@@ -24,8 +24,9 @@ Goal: run macOS on the Google Pixel 10a (stallion, Tensor G4 "zumapro") via
 | 13. GPU and Metal | |
 | 14. Touch, battery, thermals | |
 
-The firmware runs to completion with no faults, drives the panel, reads the
-disk, mounts a filesystem, and boots a program of ours off it. That program
+The firmware runs to completion with no faults, reads the disk, mounts a
+filesystem, and boots a program of ours off it. Nothing is visible on the
+panel: the phone shows the bootloader's logo throughout. That program
 is a placeholder that prints to the screen and counts down; replacing it with
 UniXNU is a matter of dropping a different file into
 `uefi-uke/Resources/PacPayload`.
@@ -130,6 +131,45 @@ Worth reporting; all affect devices other than this one.
   with the SPDX line and copyright notice removed. A licence violation, not a
   style choice. Ours keeps the notice; see
   `uefi-uke/Silicon/Samsung/zumaproPkg/Library/PlatformUfsLib/Vendor/README.md`.
+
+## Display, what is actually true
+
+Step 3 was marked done on the strength of a test that checked the wrong
+thing. It sampled DECON's frame counter, saw it advancing, and concluded our
+pixels were reaching the panel. The counter advances because the controller
+is still refreshing the panel with the frame it already had, which it was
+doing before we touched anything. Nothing we drew was ever displayed. The
+honest test is whether a plane is fetching from a buffer we wrote.
+
+Verified on this phone:
+
+| Thing | Value |
+| --- | --- |
+| DECON0 | `0x19470000`, enabled, command mode, hardware trigger |
+| Active window | 5, 1080 x 2424, `win_end_pos` 0x9770437 |
+| DPP0 read DMA | `0x19900000`, channel 0 |
+| DPP0 block | `0x19930000` |
+| Framebuffer the DMA points at | `0xFAC00000` |
+| TRIG_CON | `0x00003070` |
+| DATA_PATH_CON_0 | `0x000000B1` |
+
+Two things had been wrong. The framebuffer address was a carve-out of free
+RAM we chose ourselves, on the reasoning that the device tree reserves no
+framebuffer so there cannot be one. There is one, it is simply not reserved,
+because the kernel reclaims the memory later. And the DMA and DPP register
+bases were swapped, so every plane register went to the wrong block. The
+device tree settles the order: `drmdpp@19900000` names its ranges "dma" then
+"dpp".
+
+Published work on the sibling Tensor phones reports the same framebuffer
+address and the same TRIG_CON value, which is a useful cross-check that this
+family behaves alike.
+
+What remains: the panel is in command mode and self-refreshing. It holds the
+last frame it was sent, and DECON's frame counter barely moves, so writing
+pixels into the framebuffer changes nothing on screen. A frame has to be
+pushed. Latching the shadow registers and unmasking the hardware trigger is
+the likely sequence, but the exact register writes are not yet confirmed.
 
 ## Loading anything off storage
 
