@@ -13,8 +13,8 @@ Goal: run macOS on the Google Pixel 10a (stallion, Tensor G4 "zumapro") via
 | 2. UEFI brings up the SoC, MMU, timer | **done** |
 | 3. UEFI display output | **done** |
 | 4. UEFI storage, reads partitions | **done** |
-| 5. UEFI loads UniXNU from disk | next |
-| 6. UniXNU menu on screen | |
+| 5. UEFI loads an executable from storage | **done** |
+| 6. UniXNU menu on screen | next |
 | 7. Apple device tree for this board | |
 | 8. Drop to EL1, enter XNU | |
 | 9. XNU entry, MMU on | |
@@ -25,8 +25,15 @@ Goal: run macOS on the Google Pixel 10a (stallion, Tensor G4 "zumapro") via
 | 14. Touch, battery, thermals | |
 
 The firmware runs to completion with no faults, drives the panel, reads the
-disk, and enters the boot manager. BdsDxe finds nothing to boot, which is
-correct: no partition holds a loader yet.
+disk, mounts a filesystem, and boots a program of ours off it. That program
+is a placeholder that prints to the screen and counts down; replacing it with
+UniXNU is a matter of dropping a different file into
+`uefi-uke/Resources/PacPayload`.
+
+The payload filesystem lives inside the firmware image rather than on the
+phone's storage, because none of the 34 partitions can be given up. It is a
+360 KB FAT12 volume published as a block device at runtime, so the boot
+manager treats it exactly like a disk.
 
 ## Hardware, all verified on this device
 
@@ -123,6 +130,23 @@ Worth reporting; all affect devices other than this one.
   with the SPDX line and copyright notice removed. A licence violation, not a
   style choice. Ours keeps the notice; see
   `uefi-uke/Silicon/Samsung/zumaproPkg/Library/PlatformUfsLib/Vendor/README.md`.
+
+## Loading anything off storage
+
+The FAT driver will not start without a Unicode collation driver. It wants
+one to compare filenames without regard to case, and it refuses before it
+ever reads the media, so the symptom is that no volume anywhere mounts and
+the boot manager reports nothing bootable. Easy to misread as a storage or
+filesystem problem. Both drivers must be in the firmware volume, not merely
+built.
+
+The boot manager only invents a boot option for the default loader path on
+media marked removable. A fixed disk is expected to have registered its own
+boot variable, so a mounted volume with a loader on it still goes untried.
+
+A driver that publishes a device from its entry point should connect again at
+end of DXE. The first attempt can run before every driver has registered its
+binding, and a driver that was not asked about a handle is never asked again.
 
 ## Recovery
 

@@ -2,117 +2,117 @@
 fastboot up: current-slot: a
 
 === flashing our UEFI to the active boot slot ===
-Sending 'boot_a' (568 KB)                          OKAY [  0.014s]
+Sending 'boot_a' (576 KB)                          OKAY [  0.014s]
 Writing 'boot_a'                                   OKAY [  0.011s]
-Finished. Total time: 0.030s
+Finished. Total time: 0.029s
 flashed
 
 === booting it; the bootloader will retry and then drop to fastboot ===
-outcome: fastboot:233
+outcome: fastboot:436
 
 === recovering to stock Android ===
-Sending 'boot_a' (65536 KB)                        OKAY [  1.571s]
-Writing 'boot_a'                                   OKAY [  0.195s]
-Finished. Total time: 1.770s
+Sending 'boot_a' (65536 KB)                        OKAY [  1.559s]
+Writing 'boot_a'                                   OKAY [  0.196s]
+Finished. Total time: 1.759s
 stock restored
 android up
 
 === OUR SEC TRACE (pmsg zone) ===
-pmsg-ramoops-0:  2031616 bytes
+pmsg-ramoops-0:   129969 bytes
 full UEFI log saved to pac-os/uefi-debug-log.txt
 --- last 70 lines ---
-FreePool: F4E06118 (len 60) 2,820,832
-AllocatePoolI: Type 4, Addr F4E06418 (len 0) 2,820,872
-FreePool: F4E06418 (len 0) 2,820,832
-AllocatePoolI: Type 4, Addr F4E06118 (len 60) 2,820,968
-AllocatePoolI: Type 4, Addr F4C48A98 (len 60) 2,821,104
-FreePool: F4E06118 (len 60) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06118 (len 60) 2,821,104
-FreePool: F4E06118 (len 60) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06418 (len 30) 2,821,056
-FreePool: F4E06418 (len 30) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06418 (len 30) 2,821,056
-FreePool: F4E06418 (len 30) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06418 (len 30) 2,821,056
-AllocatePoolI: Type 4, Addr F4C48F98 (len 30) 2,821,144
+ LastBlock : 1B51A14 
  BlockSize : 4096 
- LastBlock : 3FFF 
-ConvertRange: F4BEC000-F4BEDFFF to type 4
-AddRange: F4BEC000-F4BEDFFF to 4
-AllocatePoolI: Type 4, Addr F4BEC018 (len 1000) 2,825,280
-DiskIo: Create subtasks for task: Offset/BufferSize/Buffer = 0000000000000000/00001000/F4BEC018
-AllocatePoolI: Type 4, Addr F4E06118 (len 68) 2,825,424
-  R:Lba/Offset/Length/WorkingBuffer/Buffer = 0000000000000000/00000000/00001000/00000000/F4BEC018
-DiskIo: Create subtasks for task: Offset/BufferSize/Buffer = 0000000015186000/00001000/F4BEC018
-AllocatePoolI: Type 4, Addr F4C48E98 (len 68) 2,825,568
-  R:Lba/Offset/Length/WorkingBuffer/Buffer = 0000000000015186/00000000/00001000/00000000/F4BEC018
-FreePool: F4C48E98 (len 68) 2,825,424
-FreePool: F4E06118 (len 68) 2,825,280
-FreePool: F4BEC018 (len 1000) 2,821,144
-ConvertRange: F4BEC000-F4BEDFFF to type 7
-AddRange: F4BEC000-F4BEDFFF to 7
-ConvertRange: F4BEC000-F4BEDFFF to type 4
-AddRange: F4BEC000-F4BEDFFF to 4
-AllocatePoolI: Type 4, Addr F4BEC018 (len 1000) 2,825,280
-DiskIo: Create subtasks for task: Offset/BufferSize/Buffer = 0000000000000000/00001000/F4BEC018
-AllocatePoolI: Type 4, Addr F4E06118 (len 68) 2,825,424
-  R:Lba/Offset/Length/WorkingBuffer/Buffer = 0000000000000000/00000000/00001000/00000000/F4BEC018
-DiskIo: Create subtasks for task: Offset/BufferSize/Buffer = 0000000015186000/00001000/F4BEC018
-AllocatePoolI: Type 4, Addr F4C48E98 (len 68) 2,825,568
-  R:Lba/Offset/Length/WorkingBuffer/Buffer = 0000000000015186/00000000/00001000/00000000/F4BEC018
-FreePool: F4C48E98 (len 68) 2,825,424
-FreePool: F4E06118 (len 68) 2,825,280
-FreePool: F4BEC018 (len 1000) 2,821,144
-ConvertRange: F4BEC000-F4BEDFFF to type 7
-AddRange: F4BEC000-F4BEDFFF to 7
-FreePool: F4C48F98 (len 30) 2,821,056
-FreePool: F4E06418 (len 30) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06418 (len 30) 2,821,056
-FreePool: F4E06418 (len 30) 2,820,968
-FreePool: F4C48A98 (len 60) 2,820,832
-AllocatePoolI: Type 4, Addr F4E06418 (len 0) 2,820,872
-FreePool: F4E06418 (len 0) 2,820,832
-AllocatePoolI: Type 4, Addr F4C48A98 (len 60) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06118 (len 60) 2,821,104
-FreePool: F4C48A98 (len 60) 2,820,968
-AllocatePoolI: Type 4, Addr F4C48A98 (len 60) 2,821,104
-FreePool: F4C48A98 (len 60) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06418 (len 30) 2,821,056
-FreePool: F4E06418 (len 30) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06418 (len 30) 2,821,056
-FreePool: F4E06418 (len 30) 2,820,968
-AllocatePoolI: Type 4, Addr F4E06418 (len 30) 2,821,056
-AllocatePoolI: Type 4, Addr F4C48F98 (len 30) 2,821,144
+ LastBlock : 5 
  BlockSize : 4096 
- LastBlock : 7FFF 
-ConvertRange: F4BEC000-F4BEDFFF to type 4
-AddRange: F4BEC000-F4BEDFFF to 4
-AllocatePoolI: Type 4, Addr F4BEC018 (len 1000) 2,825,280
-DiskIo: Create subtasks for task: Offset/BufferSize/Buffer = 0000000000000000/00001000/F4BEC018
-AllocatePoolI: Type 4, Addr F4C48A98 (len 68) 2,825,424
-  R:Lba/Of
+ LastBlock : 13 
+ BlockSize : 4096 
+ LastBlock : 86 
+ BlockSize : 4096 
+ LastBlock : 18 
+ BlockSize : 4096 
+ LastBlock : 3FF 
+ BlockSize : 4096 
+ LastBlock : 3F 
+ BlockSize : 4096 
+ LastBlock : 13FF 
+ BlockSize : 4096 
+ LastBlock : FF 
+ BlockSize : 4096 
+ LastBlock : 17 
+ BlockSize : 4096 
+ LastBlock : 3FF 
+ BlockSize : 4096 
+ LastBlock : 8 
+ BlockSize : 4096 
+ LastBlock : 57 
+ BlockSize : 4096 
+ LastBlock : 5 
+ BlockSize : 4096 
+ LastBlock : 13 
+ BlockSize : 4096 
+ LastBlock : 86 
+ BlockSize : 4096 
+ LastBlock : 18 
+ BlockSize : 4096 
+ LastBlock : 3FF 
+ BlockSize : 4096 
+ LastBlock : 3F 
+ BlockSize : 4096 
+ LastBlock : 13FF 
+ BlockSize : 4096 
+ LastBlock : FF 
+ BlockSize : 4096 
+ LastBlock : 17 
+ BlockSize : 4096 
+ LastBlock : 3FF 
+ BlockSize : 4096 
+ LastBlock : 8 
+ BlockSize : 4096 
+ LastBlock : 57 
+ BlockSize : 4096 
+ LastBlock : 1 
+ BlockSize : 4096 
+ LastBlock : 1 
+ BlockSize : 4096 
+ LastBlock : 1 
+ BlockSize : 4096 
+ LastBlock : 333 
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0003) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0004) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0005) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0006) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:BootOrder) returning Success.
+ValidateSetVariable - Variable (8BE4DF61-93CA-11D2-AA0D-00E098032B8C:Boot0007) returning Success.
+VideoFill: color=0x0, wide-fill=0x0
+VideoFill (wide, one-shot)
+Connect ConIn in first WaitForKey in Lazy ConIn mode.
 
 === BOOTLOADER LOG (console zone), tail ===
-console-ramoops-0:    42248 bytes
-[   7.981232] [I] [AND] padding prepended: 0
-[   7.982510] [I] [AND] vendor ramdisk copy
-[   7.982542] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
-[   7.982621] [I] [AND] padding prepended: 5
-[   7.990002] [I] [AND] ramdisk copy
-[   7.990033] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
-[   7.990106] [I] [AND] padding prepended: 6
-[   7.990585] [I] [AND] Ramdisk load size with padding: 49063043
-[   8.005571] [I] [AND] dpm not merged
-[   8.007072] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
-[   8.018079] [I] [AND] bootmode:
-[   8.018127] [I] [AND] DDR size: 8GiB
-[   8.018155] [I] [AND] DDR Manufacturer: Hynix
-[   8.018321] [I] [AND] ro.misctrl.16kb_before=0
-[   8.018370] [I] [AND] console is disabled
-[   8.018524] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
-[   8.018586] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
-[   8.021613] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
-[   8.048352] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
-[   8.063751] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
+console-ramoops-0:    42292 bytes
+[   7.981050] [I] [AND] padding prepended: 0
+[   7.982321] [I] [AND] vendor ramdisk copy
+[   7.982353] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
+[   7.982428] [I] [AND] padding prepended: 5
+[   7.989844] [I] [AND] ramdisk copy
+[   7.989875] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
+[   7.989957] [I] [AND] padding prepended: 6
+[   7.990439] [I] [AND] Ramdisk load size with padding: 49063043
+[   8.005621] [I] [AND] dpm not merged
+[   8.007121] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
+[   8.017974] [I] [AND] bootmode:
+[   8.018022] [I] [AND] DDR size: 8GiB
+[   8.018050] [I] [AND] DDR Manufacturer: Hynix
+[   8.018221] [I] [AND] ro.misctrl.16kb_before=0
+[   8.018266] [I] [AND] console is disabled
+[   8.018444] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
+[   8.018509] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
+[   8.021522] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
+[   8.048188] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
+[   8.063543] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
 
 done. /Users/abhiram/Documents/pac/pac-os/capture-result.txt
