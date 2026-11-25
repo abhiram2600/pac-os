@@ -1,6 +1,10 @@
+# Tensor chip support.
+#
+# There is no published repository for this chip, so the source is the folder
+# beside this one. It is laid out as a chip repository and can be published as
+# one unchanged, at which point this becomes a git source with a pinned
+# commit.
 [[source]]
-name = "sm8550"
+name = "zumapro"
 kind = "soc"
-git = "https://github.com/UniXNU/UniXNU-sm8550-common"
-# Replace with a reviewed 40-character commit from the selected SoC repository.
-commit = "REQUIRED_SOC_COMMIT"
+local = "../unixnu-soc-zumapro"

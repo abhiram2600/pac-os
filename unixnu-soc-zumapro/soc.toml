@@ -1,0 +1,14 @@
+schema_version = 2
+
+[soc]
+name = "zumapro"
+description = "Google Tensor G4 (zumapro), the Exynos-derived chip in the Pixel 9 and Pixel 10a families"
+
+# Hardware values come from the phone itself: its own flattened device tree,
+# read from /sys/firmware/fdt, and registers read by our firmware while it was
+# running on the device. No value here is carried over from another board.
+source = "device"
+revision = "stallion, Android 16 CP1A.260505.005"
+
+[components]
+include = ["ArmDTPlatform", "ArmCpu"]

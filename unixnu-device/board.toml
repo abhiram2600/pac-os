@@ -3,26 +3,28 @@ schema_version = 2
 [board]
 name = "stallion"
 soc = "zumapro"
-soc_source = "device"
-os_profile = "ipados-17.7.11-21H461"
+soc_source = "zumapro"
+os_profile = "macos-27.3-26C5035r"
 description = "Google Pixel 10a (stallion), Google Tensor G4 (zumapro)"
 kit = "stallion"
 
-# No shared chip repository exists for Tensor, so everything lives in this
-# repository until there is enough of it to be worth sharing. The device tree
-# therefore includes no chip-level source and names no include directories.
+# Chip support lives beside this folder rather than in a published
+# repository, because none exists for Tensor yet. It is laid out as one.
 
 [components]
 include = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot", "GopFramebuffer"]
 
 [kernel]
-defconfig = "stallion_defconfig"
-config_fragments = ["arch:configs/common.config", "os:configs/ipados.config"]
-patch_series = ["arch:patches/xnu/series", "os:patches/xnu/series", "device:patches/xnu/series"]
+# macOS 27.3 is an arm64e target, which this board's processors satisfy: the
+# address and generic pointer authentication keys are present and writable at
+# the kernel's level, measured on the phone rather than assumed.
+defconfig = "stallion_macos_defconfig"
+config_fragments = ["arch:configs/common.config", "soc:configs/zumapro.config", "os:configs/macos.config"]
+patch_series = ["arch:patches/xnu/series", "soc:patches/xnu/series", "os:patches/xnu/series", "device:patches/xnu/series"]
 
 [device_tree]
 source = "device:dts/stallion.dts"
-include_dirs = []
+include_dirs = ["soc:dts"]
 
 [firmware]
 # Our own firmware, which is already a Mu-Silicium platform package and
@@ -50,7 +52,7 @@ kernel_args = ["-v"]
 unixnu = "../../UniXNU"
 
 [package.defconfig]
-"ipados-17.7.11-21H461" = "stallion_defconfig"
+"macos-27.3-26C5035r" = "stallion_macos_defconfig"
 
 [payload.adt]
 # A stable nonzero identifier for this board, read as hexadecimal. It is not
