@@ -105,6 +105,7 @@
   # Three gives characters about 24 by 57 real pixels, and 45 columns by 42
   # rows, which fills the width exactly.
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferScale|3
+
   gSiliciumPkgTokenSpaceGuid.PcdFrameBufferColorDepth|32
 
 [LibraryClasses]
@@ -155,3 +156,15 @@
   #
   SiliciumPkg/Drivers/KeypadDxe/KeypadDxe.inf
   SiliciumPkg/Drivers/KeypadDeviceDxe/KeypadDeviceDxe.inf
+
+[PcdsPatchableInModule]
+  # Let the console pick the largest text mode rather than insisting on
+  # exactly 80 by 25.
+  #
+  # The splitter searches the mode list for those exact dimensions and, when
+  # it finds none, asks for mode 0xFF, which does not exist; the failure then
+  # asserts and the console never comes up. Nothing here is 80 columns wide
+  # once the font is drawn at a readable size, so there is no such mode to
+  # find. Zero means take the biggest, which is the full screen.
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutColumn|0
+  gEfiMdeModulePkgTokenSpaceGuid.PcdConOutRow|0

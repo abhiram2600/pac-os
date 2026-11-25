@@ -4,115 +4,115 @@ fastboot up: current-slot: a
 === flashing our UEFI to the active boot slot ===
 Sending 'boot_a' (576 KB)                          OKAY [  0.014s]
 Writing 'boot_a'                                   OKAY [  0.011s]
-Finished. Total time: 0.031s
+Finished. Total time: 0.030s
 flashed
 
 === booting it; the bootloader will retry and then drop to fastboot ===
-outcome: fastboot:436
+outcome: fastboot:435
 
 === recovering to stock Android ===
-Sending 'boot_a' (65536 KB)                        OKAY [  1.563s]
-Writing 'boot_a'                                   OKAY [  0.195s]
-Finished. Total time: 1.761s
+Sending 'boot_a' (65536 KB)                        OKAY [  1.597s]
+Writing 'boot_a'                                   OKAY [  0.251s]
+Finished. Total time: 1.851s
 stock restored
 android up
 
 === OUR SEC TRACE (pmsg zone) ===
-pmsg-ramoops-0:    90903 bytes
-full UEFI log saved to pac-os/uefi-debug-log.txt
+pmsg-ramoops-0:    78892 bytes
+full UEFI log saved to pac-os/notes/uefi-debug-log.txt
 --- last 70 lines ---
- LastBlock : F 
- BlockSize : 4096 
- LastBlock : F 
- BlockSize : 4096 
- LastBlock : F 
- BlockSize : 4096 
- LastBlock : FF 
- BlockSize : 4096 
- LastBlock : 12BFF 
- BlockSize : 4096 
- LastBlock : 1FC7FF 
- BlockSize : 4096 
- LastBlock : 1B51A14 
- BlockSize : 4096 
- LastBlock : 5 
- BlockSize : 4096 
- LastBlock : 13 
- BlockSize : 4096 
- LastBlock : 86 
- BlockSize : 4096 
- LastBlock : 18 
- BlockSize : 4096 
- LastBlock : 3FF 
- BlockSize : 4096 
- LastBlock : 3F 
- BlockSize : 4096 
- LastBlock : 13FF 
- BlockSize : 4096 
- LastBlock : FF 
- BlockSize : 4096 
- LastBlock : 17 
- BlockSize : 4096 
- LastBlock : 3FF 
- BlockSize : 4096 
- LastBlock : 8 
- BlockSize : 4096 
- LastBlock : 57 
- BlockSize : 4096 
- LastBlock : 5 
- BlockSize : 4096 
- LastBlock : 13 
- BlockSize : 4096 
- LastBlock : 86 
- BlockSize : 4096 
- LastBlock : 18 
- BlockSize : 4096 
- LastBlock : 3FF 
- BlockSize : 4096 
- LastBlock : 3F 
- BlockSize : 4096 
- LastBlock : 13FF 
- BlockSize : 4096 
- LastBlock : FF 
- BlockSize : 4096 
- LastBlock : 17 
- BlockSize : 4096 
- LastBlock : 3FF 
- BlockSize : 4096 
- LastBlock : 8 
- BlockSize : 4096 
- LastBlock : 57 
- BlockSize : 4096 
- LastBlock : 1 
- BlockSize : 4096 
- LastBlock : 1 
- BlockSize : 4096 
- LastBlock : 1 
- BlockSize : 4096 
- LastBlock : 333 
-Connect ConIn in first WaitForKey in Lazy ConIn mode.
+payload: alive, 37
+payload: alive, 38
+payload: alive, 39
+payload: alive, 40
+payload: alive, 41
+payload: alive, 42
+payload: alive, 43
+payload: alive, 44
+payload: alive, 45
+payload: alive, 46
+payload: alive, 47
+payload: alive, 48
+payload: alive, 49
+payload: alive, 50
+payload: alive, 51
+payload: alive, 52
+payload: alive, 53
+payload: alive, 54
+payload: alive, 55
+payload: alive, 56
+payload: alive, 57
+payload: alive, 58
+payload: alive, 59
+payload: alive, 60
+payload: alive, 61
+payload: alive, 62
+payload: alive, 63
+payload: alive, 64
+payload: alive, 65
+payload: alive, 66
+payload: alive, 67
+payload: alive, 68
+payload: alive, 69
+payload: alive, 70
+payload: alive, 71
+payload: alive, 72
+payload: alive, 73
+payload: alive, 74
+payload: alive, 75
+payload: alive, 76
+payload: alive, 77
+payload: alive, 78
+payload: alive, 79
+payload: alive, 80
+payload: alive, 81
+payload: alive, 82
+payload: alive, 83
+payload: alive, 84
+payload: alive, 85
+payload: alive, 86
+payload: alive, 87
+payload: alive, 88
+payload: alive, 89
+payload: alive, 90
+payload: alive, 91
+payload: alive, 92
+payload: alive, 93
+payload: alive, 94
+payload: alive, 95
+payload: alive, 96
+payload: alive, 97
+payload: alive, 98
+payload: alive, 99
+payload: alive, 100
+payload: alive, 101
+payload: alive, 102
+payload: alive, 103
+payload: alive, 104
+payload: alive, 105
+payload: alive, 106
 
 === BOOTLOADER LOG (console zone), tail ===
-console-ramoops-0:    42295 bytes
-[   7.978136] [I] [AND] padding prepended: 0
-[   7.979437] [I] [AND] vendor ramdisk copy
-[   7.979470] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
-[   7.979545] [I] [AND] padding prepended: 5
-[   7.986954] [I] [AND] ramdisk copy
-[   7.986985] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
-[   7.987059] [I] [AND] padding prepended: 6
-[   7.987536] [I] [AND] Ramdisk load size with padding: 49063043
-[   8.002560] [I] [AND] dpm not merged
-[   8.004060] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
-[   8.014591] [I] [AND] bootmode:
-[   8.014638] [I] [AND] DDR size: 8GiB
-[   8.014666] [I] [AND] DDR Manufacturer: Hynix
-[   8.014841] [I] [AND] ro.misctrl.16kb_before=0
-[   8.014885] [I] [AND] console is disabled
-[   8.015082] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
-[   8.015145] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
-[   8.018685] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
-[   8.045776] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
-[   8.061140] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
+console-ramoops-0:    40796 bytes
+[   7.991554] [I] [AND] padding prepended: 0
+[   7.992850] [I] [AND] vendor ramdisk copy
+[   7.992882] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
+[   7.992959] [I] [AND] padding prepended: 5
+[   8.000407] [I] [AND] ramdisk copy
+[   8.000445] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
+[   8.000520] [I] [AND] padding prepended: 6
+[   8.001007] [I] [AND] Ramdisk load size with padding: 49063043
+[   8.016255] [I] [AND] dpm not merged
+[   8.017754] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
+[   8.028510] [I] [AND] bootmode:
+[   8.028556] [I] [AND] DDR size: 8GiB
+[   8.028584] [I] [AND] DDR Manufacturer: Hynix
+[   8.028754] [I] [AND] ro.misctrl.16kb_before=0
+[   8.028800] [I] [AND] console is disabled
+[   8.028954] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
+[   8.029018] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
+[   8.032039] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
+[   8.058909] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
+[   8.074307] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
 
-done. /Users/abhiram/Documents/pac/pac-os/capture-result.txt
+done. /Users/abhiram/Documents/pac/pac-os/notes/capture-result.txt
