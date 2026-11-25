@@ -23,7 +23,7 @@ sync D: clean
 
 PAC-OS for Google Pixel 10a
 Built on Project Silicium, Project Mu and EDK2
-Firmware Version 4.0 Build at 16:13:56 on Nov 25 2026
+Firmware Version 4.0 Build at 16:53:46 on Nov 25 2026
 
 mem: located DXE Heap
 mem: HOB list constructed
@@ -32,6 +32,13 @@ MMU Inmem: MemoryPeim returned, MMU is on
 mem: stack HOB built
 sec: memory initialized
 sync E: after MMU enable
+pac: ISAR1=0x0111111100211002 ISAR2=0x0000000001005102
+pac: APA=0 API=0 GPA=0 GPI=0 APA3=5 GPA3=1
+pac: address and generic keys present, arm64e possible
+pac: before touching a key register
+pac: APIAKeyLo wrote 0x0123456789ABCDEF read 0x0123456789ABCDEF MATCH
+pac: after touching a key register
+pac: key register access clean
 sync E: clean
 fb: decon0 GLOBAL_CON=0x00000133 en=1 run=1 idle=1  BG_SIZE=0x09780438
 fb: decon1 GLOBAL_CON=0x00000020 en=0 run=0 idle=1  BG_SIZE=0x00000000
@@ -75,10 +82,10 @@ disp: plane writes clean
 disp: TRIG_CON now 0x00003061 (unmasked)
 disp: after the latch and trigger
 disp: display bring-up clean
-disp: before  frames=3 te=0x02A402A4
-disp: dma fetching on 8051 of 20000 samples, enable=0x40000004
-disp: after   frames=34 te=0x02C302C3
-disp: VERDICT frames+31 dma_busy=1 int_pend=0x00000000
+disp: before  frames=3 te=0x02A302A3
+disp: dma fetching on 8666 of 20000 samples, enable=0x40000004
+disp: after   frames=33 te=0x02C102C1
+disp: VERDICT frames+30 dma_busy=1 int_pend=0x00000000
 disp: OUR PIXELS ARE ON THE PANEL (we drew where it is fetching)
 sec: CPU HOB built
 sec: boot mode set

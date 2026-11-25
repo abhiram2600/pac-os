@@ -447,6 +447,97 @@ STATIC UINT32  mPacActiveFb      = 0;
 #define PAC_FB_WIDTH              1080
 #define PAC_FB_HEIGHT             2424
 
+/**
+  Report whether these CPUs can run an arm64e operating system.
+
+  macOS needs pointer authentication in hardware: the processor must
+  implement it, and the keys must be writable at the level the kernel runs
+  at, with nothing above us trapping the instructions. The architecture
+  describes all of that in two identification registers, so the question is
+  answerable by reading them, with no Apple code and nothing downloaded.
+
+  ID_AA64ISAR1_EL1 holds APA at bits 7:4 and API at 11:8 for the address
+  keys, and GPA at 27:24 and GPI at 31:28 for the generic key. Any nonzero
+  field means that form is implemented. ID_AA64ISAR2_EL1 carries the third
+  pair, APA3 at 15:12 and GPA3 at 27:24, for parts that use it instead.
+**/
+STATIC
+VOID
+PacProbePointerAuth (VOID)
+{
+  CHAR8   Line[112];
+  UINT64  Isar1;
+  UINT64  Isar2;
+  UINT32  Apa;
+  UINT32  Api;
+  UINT32  Gpa;
+  UINT32  Gpi;
+  UINT32  Apa3;
+  UINT32  Gpa3;
+  BOOLEAN Address;
+  BOOLEAN Generic;
+
+  __asm__ volatile ("mrs %0, id_aa64isar1_el1" : "=r" (Isar1));
+  __asm__ volatile ("mrs %0, S3_0_C0_C6_2"     : "=r" (Isar2));
+
+  Apa  = (UINT32)((Isar1 >>  4) & 0xF);
+  Api  = (UINT32)((Isar1 >>  8) & 0xF);
+  Gpa  = (UINT32)((Isar1 >> 24) & 0xF);
+  Gpi  = (UINT32)((Isar1 >> 28) & 0xF);
+  Apa3 = (UINT32)((Isar2 >> 12) & 0xF);
+  Gpa3 = (UINT32)((Isar2 >> 24) & 0xF);
+
+  Address = (Apa != 0) || (Api != 0) || (Apa3 != 0);
+  Generic = (Gpa != 0) || (Gpi != 0) || (Gpa3 != 0);
+
+  AsciiSPrint (Line, sizeof (Line), "pac: ISAR1=0x%016lx ISAR2=0x%016lx", Isar1, Isar2);
+  PacTrace (Line);
+
+  AsciiSPrint (
+    Line,
+    sizeof (Line),
+    "pac: APA=%u API=%u GPA=%u GPI=%u APA3=%u GPA3=%u",
+    Apa, Api, Gpa, Gpi, Apa3, Gpa3
+    );
+  PacTrace (Line);
+
+  if (Address && Generic) {
+    PacTrace ("pac: address and generic keys present, arm64e possible");
+  } else {
+    PacTrace ("pac: NOT all keys present, this board cannot run arm64e");
+  }
+
+  //
+  // Having the feature is not the same as being allowed to use it. Write one
+  // key register and read it back; anything above us that traps or discards
+  // the write shows up here rather than as an unexplained kernel fault much
+  // later. The tripwire either side catches a trap that aborts instead.
+  //
+  PacSyncErrors ("pac: before touching a key register");
+
+  if (Address) {
+    UINT64  Written = 0x0123456789ABCDEFULL;
+    UINT64  ReadBack;
+
+    __asm__ volatile ("msr S3_0_C2_C1_0, %0" :: "r" (Written));
+    __asm__ volatile ("isb");
+    __asm__ volatile ("mrs %0, S3_0_C2_C1_0" : "=r" (ReadBack));
+
+    AsciiSPrint (
+      Line,
+      sizeof (Line),
+      "pac: APIAKeyLo wrote 0x%016lx read 0x%016lx %a",
+      Written,
+      ReadBack,
+      (ReadBack == Written) ? "MATCH" : "MISMATCH"
+      );
+    PacTrace (Line);
+  }
+
+  PacSyncErrors ("pac: after touching a key register");
+  PacTrace ("pac: key register access clean");
+}
+
 VOID
 PacProbeFrameBuffer (VOID)
 {
@@ -1079,6 +1170,9 @@ SecMain (VOID)
   }
   PacStep (13, "sec: memory initialized");
   PacSyncErrors ("sync E: after MMU enable");
+
+  // Does this board have the pointer authentication an arm64e system needs.
+  PacProbePointerAuth ();
   PacTrace ("sync E: clean");
 
   // Needs the MMU, since the display registers are only mapped by MemoryPeim.

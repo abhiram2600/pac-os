@@ -4,21 +4,21 @@ fastboot up: current-slot: a
 === flashing our UEFI to the active boot slot ===
 Sending 'boot_a' (576 KB)                          OKAY [  0.014s]
 Writing 'boot_a'                                   OKAY [  0.011s]
-Finished. Total time: 0.030s
+Finished. Total time: 0.028s
 flashed
 
 === booting it; the bootloader will retry and then drop to fastboot ===
 outcome: fastboot:435
 
 === recovering to stock Android ===
-Sending 'boot_a' (65536 KB)                        OKAY [  1.597s]
-Writing 'boot_a'                                   OKAY [  0.251s]
-Finished. Total time: 1.851s
+Sending 'boot_a' (65536 KB)                        OKAY [  1.613s]
+Writing 'boot_a'                                   OKAY [  0.228s]
+Finished. Total time: 1.845s
 stock restored
 android up
 
 === OUR SEC TRACE (pmsg zone) ===
-pmsg-ramoops-0:    78892 bytes
+pmsg-ramoops-0:    79217 bytes
 full UEFI log saved to pac-os/notes/uefi-debug-log.txt
 --- last 70 lines ---
 payload: alive, 37
@@ -94,25 +94,25 @@ payload: alive, 106
 
 === BOOTLOADER LOG (console zone), tail ===
 console-ramoops-0:    40796 bytes
-[   7.991554] [I] [AND] padding prepended: 0
-[   7.992850] [I] [AND] vendor ramdisk copy
-[   7.992882] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
-[   7.992959] [I] [AND] padding prepended: 5
-[   8.000407] [I] [AND] ramdisk copy
-[   8.000445] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
-[   8.000520] [I] [AND] padding prepended: 6
-[   8.001007] [I] [AND] Ramdisk load size with padding: 49063043
-[   8.016255] [I] [AND] dpm not merged
-[   8.017754] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
-[   8.028510] [I] [AND] bootmode:
-[   8.028556] [I] [AND] DDR size: 8GiB
-[   8.028584] [I] [AND] DDR Manufacturer: Hynix
-[   8.028754] [I] [AND] ro.misctrl.16kb_before=0
-[   8.028800] [I] [AND] console is disabled
-[   8.028954] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
-[   8.029018] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
-[   8.032039] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
-[   8.058909] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
-[   8.074307] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
+[   7.993432] [I] [AND] padding prepended: 0
+[   7.994722] [I] [AND] vendor ramdisk copy
+[   7.994756] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
+[   7.994835] [I] [AND] padding prepended: 5
+[   8.002162] [I] [AND] ramdisk copy
+[   8.002193] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
+[   8.002268] [I] [AND] padding prepended: 6
+[   8.002735] [I] [AND] Ramdisk load size with padding: 49063043
+[   8.017820] [I] [AND] dpm not merged
+[   8.019322] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
+[   8.029790] [I] [AND] bootmode:
+[   8.029842] [I] [AND] DDR size: 8GiB
+[   8.029870] [I] [AND] DDR Manufacturer: Hynix
+[   8.030049] [I] [AND] ro.misctrl.16kb_before=0
+[   8.030096] [I] [AND] console is disabled
+[   8.030272] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
+[   8.030335] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
+[   8.033405] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
+[   8.059868] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
+[   8.075292] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
 
 done. /Users/abhiram/Documents/pac/pac-os/notes/capture-result.txt
