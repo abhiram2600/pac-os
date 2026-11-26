@@ -4,6 +4,10 @@ CONFIG_XNU_SOURCE_CORECRYPTO14=y
 CONFIG_XNU_SOURCE_PTHREAD=y
 CONFIG_XNU_ARM_DT_PLATFORM=y
 CONFIG_XNU_ARMCPU=y
-CONFIG_XNU_CRYPTO_BOOTSTRAP="prelinked"
+# Build the crypto provider from Apple's source rather than taking it from
+# the original kernel collection. In the prelinked mode the provider's entry
+# point is deliberately compiled out, while the kext startup path still
+# refers to it, so the kernel does not link.
+CONFIG_XNU_CRYPTO_BOOTSTRAP="source"
 # CONFIG_XNU_NATIVE_UFS is not set
 # CONFIG_XNU_NATIVE_ADRENO is not set

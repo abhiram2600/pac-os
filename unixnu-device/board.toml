@@ -19,6 +19,16 @@ include = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot",
 # address and generic pointer authentication keys are present and writable at
 # the kernel's level, measured on the phone rather than assumed.
 defconfig = "stallion_macos_defconfig"
+
+# Built before the kernel is linked, in this order. The configuration asks
+# for Apple's own corecrypto and pthread sources rather than stubs, and each
+# needs its archive built first. Component recipes are added automatically
+# because nothing here names one explicitly.
+# Corecrypto is built twice on purpose: the plain provider first, then again
+# with its globals namespaced away from XNU's own crypto wrappers. The second
+# pass refuses to run until the first has produced the plain archive.
+archives = ["build-corecrypto-14.py", "build-corecrypto-14.py --namespace", "build-libpthread-kernel.py"]
+
 config_fragments = ["arch:configs/common.config", "soc:configs/zumapro.config", "os:configs/macos.config"]
 patch_series = ["arch:patches/xnu/series", "soc:patches/xnu/series", "os:patches/xnu/series", "device:patches/xnu/series"]
 
