@@ -55,3 +55,25 @@ native_verified_block_root_authorized(dev_t device)
 }
 
 }
+
+/*
+ * The stack allocation alignment shift, read by Apple's own code.
+ *
+ * Apple's entitlement parser checks it is still inside its stack with
+ * sp & ((1 << shift) - 1), and takes an error exit if the result is small.
+ * That assumes the stack base is aligned to 1 << shift, which holds on
+ * Apple's 16 KiB-page kernels. This kernel uses 4 KiB pages, where the stack
+ * starts 8 KiB into a 32 KiB-aligned allocation, so handing that code the
+ * page shift makes it decide it has run off a perfectly good stack. It then
+ * fails to copy an entitlement dictionary while starting the first user
+ * process, and the system stops there.
+ *
+ * 15 is the allocation alignment, not the page size, which is what the check
+ * actually needs: with it, the masked stack pointer stays at least 8 KiB
+ * inside any stack. Everything else in the kernel keeps using the page shift
+ * for page arithmetic.
+ *
+ * The prelink step binds Apple's reference to this name rather than to its
+ * own constant.
+ */
+extern "C" int unixnu_kernel_stack_shift = 15;

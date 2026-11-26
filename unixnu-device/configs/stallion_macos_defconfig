@@ -27,3 +27,8 @@ CONFIG_XNU_OWNER_ROOT_TRUST=y
 
 # The handful of symbols a board is expected to define itself.
 CONFIG_XNU_EXTRA_LD_ARCHIVES="{tree}/build/stallion-hooks/libStallionHooks.a"
+
+# The kernel replaces Apple's own inside a kernel collection, so it has to
+# carry chained fixups and split-segment records for the prelink step to
+# relocate it. Without them the prelink refuses the image outright.
+CONFIG_XNU_KERNEL_CHAINED_FIXUPS=y
