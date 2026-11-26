@@ -12,7 +12,13 @@ kit = "stallion"
 # repository, because none exists for Tensor yet. It is laid out as one.
 
 [components]
-include = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot", "GopFramebuffer"]
+# A block device is not optional for macOS: its authenticated open path
+# refers to the root-binding globals, which are only compiled when the audit
+# is on, which in turn requires storage built on Apple's own storage family.
+# The RAM-backed device satisfies that and gives a root to boot from while
+# the Exynos driver does not exist yet.
+include = ["ArmDTPlatform", "ArmCpu", "SoftwareAES", "XnuPrelink", "DarwinBoot",
+           "GopFramebuffer", "RamBlock"]
 
 [kernel]
 # macOS 27.3 is an arm64e target, which this board's processors satisfy: the
@@ -27,7 +33,8 @@ defconfig = "stallion_macos_defconfig"
 # Corecrypto is built twice on purpose: the plain provider first, then again
 # with its globals namespaced away from XNU's own crypto wrappers. The second
 # pass refuses to run until the first has produced the plain archive.
-archives = ["build-corecrypto-14.py", "build-corecrypto-14.py --namespace", "build-libpthread-kernel.py"]
+archives = ["build-corecrypto-14.py", "build-corecrypto-14.py --namespace",
+            "build-libpthread-kernel.py", "build-stallion-hooks.py"]
 
 config_fragments = ["arch:configs/common.config", "soc:configs/zumapro.config", "os:configs/macos.config"]
 patch_series = ["arch:patches/xnu/series", "soc:patches/xnu/series", "os:patches/xnu/series", "device:patches/xnu/series"]

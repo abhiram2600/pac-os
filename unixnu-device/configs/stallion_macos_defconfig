@@ -4,10 +4,26 @@ CONFIG_XNU_SOURCE_CORECRYPTO14=y
 CONFIG_XNU_SOURCE_PTHREAD=y
 CONFIG_XNU_ARM_DT_PLATFORM=y
 CONFIG_XNU_ARMCPU=y
-# Build the crypto provider from Apple's source rather than taking it from
-# the original kernel collection. In the prelinked mode the provider's entry
-# point is deliberately compiled out, while the kext startup path still
+# Build the crypto provider from Apple's source. In the prelinked mode its
+# entry point is compiled out of one file while the kext startup path still
 # refers to it, so the kernel does not link.
 CONFIG_XNU_CRYPTO_BOOTSTRAP="source"
 # CONFIG_XNU_NATIVE_UFS is not set
 # CONFIG_XNU_NATIVE_ADRENO is not set
+
+# The authenticated root path macOS requires.
+#
+# Its globals live in one kernel file and are only compiled when the audit is
+# enabled; the macOS open path refers to them regardless, so without this the
+# kernel does not link. The audit needs verified block crypto, and acceptance
+# needs a real block transport bound to mounted media.
+# Storage built on Apple's own storage family, rather than the separate
+# verification probe, which is qualified against one specific iPadOS image
+# and not against macOS at all.
+CONFIG_XNU_SOURCE_STORAGE=y
+CONFIG_XNU_NATIVE_RAM_BLOCK=y
+CONFIG_XNU_OWNER_ROOT_AUDIT=y
+CONFIG_XNU_OWNER_ROOT_TRUST=y
+
+# The handful of symbols a board is expected to define itself.
+CONFIG_XNU_EXTRA_LD_ARCHIVES="{tree}/build/stallion-hooks/libStallionHooks.a"
