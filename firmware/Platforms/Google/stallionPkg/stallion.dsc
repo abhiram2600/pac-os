@@ -33,6 +33,10 @@
 
 !include zumaproPkg/zumaproPkg.dsc.inc
 
+[LibraryClasses]
+  # The kernel loader's own library, and the two the shared driver needs.
+  UniXNULib|UniXNUPkg/Library/UniXNULib/UniXNULib.inf
+
 [PcdsFixedAtBuild]
   #
   # Debug verbosity
@@ -145,6 +149,20 @@
   #
   SiliciumPkg/Application/PacPayloadTest/PacPayloadTest.inf
   SiliciumPkg/Drivers/PacPayloadVolumeDxe/PacPayloadVolumeDxe.inf
+
+  #
+  # The kernel loader and its boot menu.
+  #
+  # These live in the firmware rather than on a filesystem on purpose. The
+  # boot option that starts the menu is registered by a driver here; the XNU
+  # loader has to publish its interface before the menu hands a kernel over;
+  # and the RAM disk driver has to be able to find the payload the bootloader
+  # placed in memory before anything has read its configuration.
+  #
+  UniXNUPkg/Application/UniXNU/UniXNU.inf
+  UniXNUPkg/Driver/UniXNUDxe/UniXNUDxe.inf
+  UniXNUPkg/Driver/UniXNURamDiskDxe/UniXNURamDiskDxe.inf
+  DarwinBootPkg/Driver/DarwinBoot.inf
 
   #
   # ACPI Tables

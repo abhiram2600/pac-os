@@ -49,4 +49,13 @@
 
   INF SamsungPkg/Drivers/RngDxe/RngDxe.inf
 
+  #
+  # The kernel loader and its boot menu, in the firmware volume for the
+  # reasons given beside them in the platform description.
+  #
+  INF UniXNUPkg/Driver/UniXNURamDiskDxe/UniXNURamDiskDxe.inf
+  INF DarwinBootPkg/Driver/DarwinBoot.inf
+  INF UniXNUPkg/Driver/UniXNUDxe/UniXNUDxe.inf
+  INF UniXNUPkg/Application/UniXNU/UniXNU.inf
+
   INF MdeModulePkg/Universal/BdsDxe/BdsDxe.inf
