@@ -1173,6 +1173,28 @@ SecMain (VOID)
 
   // Does this board have the pointer authentication an arm64e system needs.
   PacProbePointerAuth ();
+
+  //
+  // Which privilege level the firmware runs at.
+  //
+  // The kernel loader refuses to hand a kernel over unless it is called at
+  // EL1, so this decides whether a drop is needed before the handoff. The
+  // register reports the level in bits 3:2, so EL1 reads as 4 and EL2 as 8.
+  //
+  {
+    UINT64  CurrentEl;
+    CHAR8   ElLine[112];
+
+    __asm__ volatile ("mrs %0, CurrentEL" : "=r" (CurrentEl));
+    AsciiSPrint (
+      ElLine,
+      sizeof (ElLine),
+      "el: CurrentEL=0x%lx, running at EL%u",
+      CurrentEl,
+      (UINT32)((CurrentEl >> 2) & 3)
+      );
+    PacTrace (ElLine);
+  }
   PacTrace ("sync E: clean");
 
   // Needs the MMU, since the display registers are only mapped by MemoryPeim.

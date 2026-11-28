@@ -37,6 +37,8 @@ class CommonPlatform ():
         "Mu_Basecore",
         "Silicon/Samsung",
         "Silicon/Silicium",
+        # The kernel loader and its boot menu, carried in the firmware volume.
+        "Loader",
         "Silicium-ACPI",
         "Silicium-ACPI/Platforms/Samsung",
         "Silicium-ACPI/Silicon/Samsung"
