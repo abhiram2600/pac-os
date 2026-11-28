@@ -1,65 +1,65 @@
 [   0.000000] [I] [GS] secure payload loading took 0ms
 [   0.000000] [I] [GS] platform info binded: true
 [   0.000000] [I] [GS] platform info: 061306010000
-[   7.574093] [I] [MAIN] 
+[   7.578064] [I] [MAIN] 
 welcome to lk/MP
 
-[   7.574126] [I] [MAIN] boot args 0x1 0x0 0x0 0x0
+[   7.578097] [I] [MAIN] boot args 0x1 0x0 0x0 0x0
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   7.574791] [I] [GS] WXN has been enabled.
-[   7.574833] [I] [GS] acpm locks regulators
-[   7.574890] [I] [GS] Soc Product ID: 0x09875
-[   7.574931] [I] [GS] Soc rev: A1
-[   7.574964] [I] [GS] Soc ID: 0x120c4c8db7c8
-[   7.575002] [I] [GS] DVFS version: 2
-[   7.575038] [E] [LNXDBG] vendor magic_number must be 0xcceeddff but 0x00000000
-[   7.575099] [E] [LNXDBG] magic_number must be 0xcceeddff but 0x00000000
-[   7.575186] [I] [PMIC] S2MPG_M CHIPID read: 0x10
-[   7.575253] [I] [PMIC] S2MPG_S CHIPID read: 0x10
-[   7.575329] [I] [PMIC] S2MPG_M PWRONSRC read: 0x4
-[   7.575398] [I] [PMIC] S2MPG_M OFFSRC1 read: 0x10
-[   7.575468] [I] [PMIC] S2MPG_M OFFSRC2 read: 0x0
-[   7.575541] [I] [PMIC] S2MPG_M RTC_WTSR read: 0x7e
-[   7.575587] [I] [PMIC] S2MPG_M INT1: 0x30
-[   7.575625] [I] [PMIC] S2MPG_M INT2: 0x0
-[   7.575657] [I] [PMIC] S2MPG_M INT3: 0x0
-[   7.575691] [I] [PMIC] S2MPG_M INT4: 0x0
-[   7.575722] [I] [PMIC] S2MPG_M INT5: 0x0
-[   7.575786] [I] [PMIC] S2MPG_S OFFSRC1 read: 0x11
-[   7.575832] [I] [PMIC] S2MPG_S INT1: 0x83
-[   7.575864] [I] [PMIC] S2MPG_S INT2: 0x80
-[   7.575896] [I] [PMIC] S2MPG_S INT3: 0x0
-[   7.575926] [I] [PMIC] S2MPG_S INT4: 0x0
-[   7.575961] [I] [PMIC] S2MPG_S INT5: 0x0
+[   7.578766] [I] [GS] WXN has been enabled.
+[   7.578805] [I] [GS] acpm locks regulators
+[   7.578865] [I] [GS] Soc Product ID: 0x09875
+[   7.578902] [I] [GS] Soc rev: A1
+[   7.578935] [I] [GS] Soc ID: 0x120c4c8db7c8
+[   7.578973] [I] [GS] DVFS version: 2
+[   7.579009] [E] [LNXDBG] vendor magic_number must be 0xcceeddff but 0x00000000
+[   7.579067] [E] [LNXDBG] magic_number must be 0xcceeddff but 0x00000000
+[   7.579156] [I] [PMIC] S2MPG_M CHIPID read: 0x10
+[   7.579224] [I] [PMIC] S2MPG_S CHIPID read: 0x10
+[   7.579299] [I] [PMIC] S2MPG_M PWRONSRC read: 0x4
+[   7.579370] [I] [PMIC] S2MPG_M OFFSRC1 read: 0x10
+[   7.579440] [I] [PMIC] S2MPG_M OFFSRC2 read: 0x0
+[   7.579513] [I] [PMIC] S2MPG_M RTC_WTSR read: 0x7e
+[   7.579559] [I] [PMIC] S2MPG_M INT1: 0x30
+[   7.579597] [I] [PMIC] S2MPG_M INT2: 0x0
+[   7.579629] [I] [PMIC] S2MPG_M INT3: 0x0
+[   7.579663] [I] [PMIC] S2MPG_M INT4: 0x0
+[   7.579694] [I] [PMIC] S2MPG_M INT5: 0x0
+[   7.579758] [I] [PMIC] S2MPG_S OFFSRC1 read: 0x11
+[   7.579804] [I] [PMIC] S2MPG_S INT1: 0x83
+[   7.579840] [I] [PMIC] S2MPG_S INT2: 0x80
+[   7.579871] [I] [PMIC] S2MPG_S INT3: 0x0
+[   7.579902] [I] [PMIC] S2MPG_S INT4: 0x0
+[   7.579936] [I] [PMIC] S2MPG_S INT5: 0x0
 APC Bootmetrics:
-  BL1: MT:1 / DT:ENTRY / 104032 us
-  BL1: MT:2 / DT:LOAD  / 7344 us
-  BL1: MT:F / DT:EXIT  / 143320 us
-  PBL: MT:1 / DT:ENTRY / 143448 us
-  PBL: MT:2 / DT:LOAD  / 19504 us
-  PBL: MT:F / DT:EXIT  / 208536 us
-  BL2: MT:1 / DT:ENTRY / 210104 us
+  BL1: MT:1 / DT:ENTRY / 103800 us
+  BL1: MT:2 / DT:LOAD  / 7336 us
+  BL1: MT:F / DT:EXIT  / 142288 us
+  PBL: MT:1 / DT:ENTRY / 142416 us
+  PBL: MT:2 / DT:LOAD  / 19488 us
+  PBL: MT:F / DT:EXIT  / 207144 us
+  BL2: MT:1 / DT:ENTRY / 208704 us
   BL2: MT:2 / DT:LOAD  / 160 us
   BL2: MT:3 / DT:LOAD  / 152 us
-  BL2: MT:4 / DT:CHECK / 338264 us
+  BL2: MT:4 / DT:CHECK / 336704 us
   BL2: MT:5 / DT:CHECK / 2096 us
-  BL2: MT:6 / DT:LOAD  / 6821040 us
-  BL2: MT:7 / DT:CHECK / 6916592 us
-  BL2: MT:8 / DT:CHECK / 6916736 us
-  BL2: MT:9 / DT:LOAD  / 44248 us
-  BL2: MT:A / DT:LOAD  / 31256 us
-  BL2: MT:B / DT:LOAD  / 320152 us
+  BL2: MT:6 / DT:LOAD  / 6824200 us
+  BL2: MT:7 / DT:CHECK / 6919736 us
+  BL2: MT:8 / DT:CHECK / 6919872 us
+  BL2: MT:9 / DT:LOAD  / 44072 us
+  BL2: MT:A / DT:LOAD  / 31232 us
+  BL2: MT:B / DT:LOAD  / 320760 us
   BL2: MT:C / DT:LOAD  / 8 us
-  BL2: MT:F / DT:EXIT  / 7361664 us
-  PBL: MT:3 / DT:LOAD  / 86144 us
-  PBL: MT:4 / DT:LOAD  / 27872 us
+  BL2: MT:F / DT:EXIT  / 7365232 us
+  PBL: MT:3 / DT:LOAD  / 86136 us
+  PBL: MT:4 / DT:LOAD  / 27864 us
   PBL: MT:5 / DT:LOAD  / 6048 us
-  PBL: MT:6 / DT:CHECK / 7496848 us
-  PBL: MT:7 / DT:CHECK / 7496984 us
-  EL3: MT:1 / DT:ENTRY / 7499736 us
-  EL3: MT:D / DT:CHECK / 7515304 us
-  EL3: MT:E / DT:CHECK / 7562920 us
-  EL3: MT:F / DT:EXIT  / 7562960 us
+  PBL: MT:6 / DT:CHECK / 7500384 us
+  PBL: MT:7 / DT:CHECK / 7500520 us
+  EL3: MT:1 / DT:ENTRY / 7503296 us
+  EL3: MT:D / DT:CHECK / 7518864 us
+  EL3: MT:E / DT:CHECK / 7566888 us
+  EL3: MT:F / DT:EXIT  / 7566928 us
 APC Breadcrumbs(v2.4):
  stages(S): 0000404F / 0000404F
   flags(S): 000022C0 / 000022C0
@@ -69,93 +69,93 @@ stages(NS): 00005004 / 00005004
     device: 00000001 / 00000001
    tmutrip: 00000000 / 00000000
      reset: 00180000 / 00180000
-[   7.576957] [E] [DBGC] GSA Breadcrumb:
+[   7.580934] [E] [DBGC] GSA Breadcrumb:
 00000000 0000000d 00000000 00000000  |................|
 00000000 00000000 00000001           |............    |
-[   7.577093] [I] [DPM] SBDP initialized: chipid allowed=0, dpm_state=0x0000
-[   7.577151] [E] [DPM] check header failed
-[   7.577285] [I] [dev] initializing device i2c:usi00
-[   7.577331] [I] [I2C] usi00: version 2.2
-[   7.577382] [I] [dev] initializing device i2c:usi04
-[   7.577425] [I] [I2C] usi04: version 2.2
-[   7.577473] [I] [dev] initializing device i2c:usi06
-[   7.577514] [I] [I2C] usi06: version 2.2
-[   7.577562] [I] [dev] initializing device i2c:usi09
-[   7.577606] [I] [I2C] usi09: version 2.2
-[   7.577659] [I] [dev] initializing device i2cm:i2cm0
-[   7.577704] [I] DVFS init
-[   7.579950] [I] DVFS init done
-[   7.579984] [I] [UFS] UFS EVT version 0
-[   7.580032] [I] [UFS] controller version 3.0 found
-[   7.580073] [I] [UFS] capabilities 0x1383ff1f
-[   7.580252] [I] [UFS] UFS device found
+[   7.581074] [I] [DPM] SBDP initialized: chipid allowed=0, dpm_state=0x0000
+[   7.581135] [E] [DPM] check header failed
+[   7.581267] [I] [dev] initializing device i2c:usi00
+[   7.581311] [I] [I2C] usi00: version 2.2
+[   7.581362] [I] [dev] initializing device i2c:usi04
+[   7.581408] [I] [I2C] usi04: version 2.2
+[   7.581457] [I] [dev] initializing device i2c:usi06
+[   7.581498] [I] [I2C] usi06: version 2.2
+[   7.581546] [I] [dev] initializing device i2c:usi09
+[   7.581587] [I] [I2C] usi09: version 2.2
+[   7.581636] [I] [dev] initializing device i2cm:i2cm0
+[   7.581680] [I] DVFS init
+[   7.583925] [I] DVFS init done
+[   7.583959] [I] [UFS] UFS EVT version 0
+[   7.584004] [I] [UFS] controller version 3.0 found
+[   7.584043] [I] [UFS] capabilities 0x1383ff1f
+[   7.584210] [I] [UFS] UFS device found
 zuma_ufs_device_init_done
-[   7.580304] [E] [UFS] ufshc_notify done
-[   7.580376] [I] [UFS] ufshc_power_mode_change HS gear 4
-[   7.590572] [I] [UFS] ufshc: bBootLunEn 0x1
-[   7.590692] [I] [UFS] UFS device SKhynix HN8T05DEHKX073 version 3.1
-[   7.590740] [I] [UFS] Enabled LUNs found 4
-[   7.590797] [I] [UFS] UFS device total size 127984992256
-[   7.590883] [I] [UFS] Temp too high enabled
-[   7.590961] [I] [UFS] Temp too low enabled
-[   7.591414] [I] [UFS] Write Booster: available buffer=0x0 lifetime=0x1 current buffer=0x1e00
-[   7.591501] [I] [RIPCURRENTPRO] boot slot: a
-[   7.593177] [I] [A/B] slot data a: 0x00001c00
-[   7.593212] [I] [A/B] slot data b: 0x00001803
-[   7.593810] [I] [RIPCURRENTPRO] platform info: 061306010000
-[   7.593993] [I] [dev] initializing device cs40l2x:cs40l26
-[   7.604490] [I] [CS40L2x] CS40L26 found
-[   7.606158] [I] [dev] initializing device nfc:st21nfc
-[   7.608013] [I] [MAX77759] tcpc vendor id 56
-[   7.608959] [BMS] found 77779 on usi6
-[   7.608989] [BMS] bms_init init usi10 as sec_i2c
-[   7.609025] [I] [dev] initializing device i2c:usi10
-[   7.609065] [I] [I2C] usi10: version 2.2
-[   7.609263] [I] [MAX77779fg] FG device name 0x5100
-[   7.609773] [I] [BMS] [max77779fg] SOC(100), VCELL(4386), INOW(-447), IAVG(-299)
-[   7.610361] [I] [BMS] fship 0x0
-[   7.610489] [I] [BMS] master disconnect reason 0x0
+[   7.584256] [E] [UFS] ufshc_notify done
+[   7.584332] [I] [UFS] ufshc_power_mode_change HS gear 4
+[   7.594529] [I] [UFS] ufshc: bBootLunEn 0x1
+[   7.594646] [I] [UFS] UFS device SKhynix HN8T05DEHKX073 version 3.1
+[   7.594697] [I] [UFS] Enabled LUNs found 4
+[   7.594751] [I] [UFS] UFS device total size 127984992256
+[   7.594842] [I] [UFS] Temp too high enabled
+[   7.594919] [I] [UFS] Temp too low enabled
+[   7.595372] [I] [UFS] Write Booster: available buffer=0x0 lifetime=0x1 current buffer=0x1e00
+[   7.595466] [I] [RIPCURRENTPRO] boot slot: a
+[   7.597133] [I] [A/B] slot data a: 0x00001c00
+[   7.597168] [I] [A/B] slot data b: 0x00001803
+[   7.597758] [I] [RIPCURRENTPRO] platform info: 061306010000
+[   7.597944] [I] [dev] initializing device cs40l2x:cs40l26
+[   7.608438] [I] [CS40L2x] CS40L26 found
+[   7.610106] [I] [dev] initializing device nfc:st21nfc
+[   7.611961] [I] [MAX77759] tcpc vendor id 56
+[   7.612905] [BMS] found 77779 on usi6
+[   7.612935] [BMS] bms_init init usi10 as sec_i2c
+[   7.612973] [I] [dev] initializing device i2c:usi10
+[   7.613012] [I] [I2C] usi10: version 2.2
+[   7.613210] [I] [MAX77779fg] FG device name 0x5100
+[   7.613719] [I] [BMS] [max77779fg] SOC(100), VCELL(4390), INOW(-437), IAVG(-300)
+[   7.614306] [I] [BMS] fship 0x0
+[   7.614431] [I] [BMS] master disconnect reason 0x0
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   7.613366] [I] [FUSE] LCS state:PRODUCTION
-[   7.613580] [I] [RIPCURRENTPRO] saving ddr training data
-[   7.614818] [I] [FFU] no valid file
-[TMU:0] 49
-[TMU:1] 46
-[   7.620690] [I] [DSIM] dsim_probe dsim0+
-[   7.620731] [I] [DSIM] using data lane count(4)
-[   7.636937] [E] [DSIM] dsim0 wait phy pll stable
-[   7.654049] [I] [DPU] Succeeded to read panel product id : 0x3500a040
-[   7.654097] [E] [DPU] is_compatible is not defined!
-[   7.654138] [I] [DPU] panel_rev: 0x1000
-[   7.654271] [I] [DSIM] use panel google-staea for dsim0
-[   7.654311] [I] [DSIM] dsim_probe -: dsim0 driver(cmd mode) has been probed.
-[   7.654362] [I] [DSIM] dsim_probe dsim1+
-[   7.654399] [I] [DSIM] using data lane count(4)
-[   7.654468] [E] [DSIM] dsim1 wait phy pll stable
-[   7.705475] [E] [DSIM] timeout!! wait for DSIM interrupt (0x40300004)
-[   7.705554] [E] [DSIM] MIPI DSIM (id=6) read Timeout! 0x4
-[   7.705593] [E] [DSIM] dsim fail to get panel operation
-[   7.705674] [E] [DSIM] dsim has error.
-[   7.705704] [E] [DSIM] dsim_probe -: dsim1 probe failed.
-[   7.705747] [I] [DSIM] dsim1 probe was failed
-[   7.705785] [I] [DSIM] dsim_init -: set dsim0 driver as primary.
-[   7.730397] [E] [DSIM] dsim0 wait phy pll stable
-[   7.745485] [I] [DPP] dpp_probe +
-[   7.745513] [I] [DPP] dpp-0's attr is (0x004d0047)
-[   7.745549] [I] [DPP] dpp(0) init resources.
-[   7.745607] [I] [DPP] dpp_probe -: dpp0 is probed successfully
-[   7.745653] [I] [DECON] decon-int: max win6, command mode, hw trigger
-[   7.745703] [I] [DECON] single dsi mode
-[   7.745738] [I] [decon0] d_path(0xB1) DSCC DSC_ENC1 DSC_ENC0 OFIFO.0
-[   7.745846] [I] [decon0] sel(0x0) OFIFO.0 - dsim0 - google-staea
-[   7.745892] [I] [DECON] Display 1st window(5) xres(1080) yres(2424) win_start_pos(0) win_end_pos(9770437)
-[   7.783844] [E] [RIPCURRENTPRO] [   8.676808] [I] [DSS] -------------------- DSS LOGS START --------------------
+[   7.617309] [I] [FUSE] LCS state:PRODUCTION
+[   7.617526] [I] [RIPCURRENTPRO] saving ddr training data
+[   7.618773] [I] [FFU] no valid file
+[TMU:0] 52
+[TMU:1] 49
+[   7.623448] [I] [DSIM] dsim_probe dsim0+
+[   7.623490] [I] [DSIM] using data lane count(4)
+[   7.639695] [E] [DSIM] dsim0 wait phy pll stable
+[   7.656829] [I] [DPU] Succeeded to read panel product id : 0x3500a040
+[   7.656879] [E] [DPU] is_compatible is not defined!
+[   7.656923] [I] [DPU] panel_rev: 0x1000
+[   7.657065] [I] [DSIM] use panel google-staea for dsim0
+[   7.657109] [I] [DSIM] dsim_probe -: dsim0 driver(cmd mode) has been probed.
+[   7.657164] [I] [DSIM] dsim_probe dsim1+
+[   7.657205] [I] [DSIM] using data lane count(4)
+[   7.657274] [E] [DSIM] dsim1 wait phy pll stable
+[   7.708326] [E] [DSIM] timeout!! wait for DSIM interrupt (0x40300004)
+[   7.708374] [E] [DSIM] MIPI DSIM (id=6) read Timeout! 0x4
+[   7.708413] [E] [DSIM] dsim fail to get panel operation
+[   7.708489] [E] [DSIM] dsim has error.
+[   7.708518] [E] [DSIM] dsim_probe -: dsim1 probe failed.
+[   7.708557] [I] [DSIM] dsim1 probe was failed
+[   7.708590] [I] [DSIM] dsim_init -: set dsim0 driver as primary.
+[   7.731587] [E] [DSIM] dsim0 wait phy pll stable
+[   7.746674] [I] [DPP] dpp_probe +
+[   7.746701] [I] [DPP] dpp-0's attr is (0x004d0047)
+[   7.746738] [I] [DPP] dpp(0) init resources.
+[   7.746796] [I] [DPP] dpp_probe -: dpp0 is probed successfully
+[   7.746843] [I] [DECON] decon-int: max win6, command mode, hw trigger
+[   7.746893] [I] [DECON] single dsi mode
+[   7.746929] [I] [decon0] d_path(0xB1) DSCC DSC_ENC1 DSC_ENC0 OFIFO.0
+[   7.747036] [I] [decon0] sel(0x0) OFIFO.0 - dsim0 - google-staea
+[   7.747081] [I] [DECON] Display 1st window(5) xres(1080) yres(2424) win_start_pos(0) win_end_pos(9770437)
+[   7.798407] [E] [RIPCURRENTPRO] [   8.683152] [I] [DSS] -------------------- DSS LOGS START --------------------
 [PRE] reset message: APC Watchdog Early
 [PRE] RST_STAT: 0x1 - CLUSTER0_NONCPU_WDTRESET
 [PRE] GSA_RESET_STATUS: 0x10 - GSA_INTERMEDIATE_RESET
 [PRE] Reboot reason: 0xcbea - APC Watchdog Early
 [PRE] Reboot mode: 0x0 - Normal Boot
-[   8.679196] [DSS] APC Breadcrumbs(v2.4):
+[   8.685548] [DSS] APC Breadcrumbs(v2.4):
  stages(S): 0000404F / 00004030
   flags(S): 000022C0 / 000022C0
 stages(NS): 00005004 / 00005004
@@ -164,25 +164,25 @@ stages(NS): 00005004 / 00005004
     device: 00000001 / 00000001
    tmutrip: 00000000 / 00000000
      reset: 00180000 / 00000001
-[   8.681261] [E] [DBGC] GSA Breadcrumb:
+[   8.687629] [E] [DBGC] GSA Breadcrumb:
 00000000 fffd000d 00000000 00000000  |................|
 00000000 00000000 00000010           |............    |
-[   8.682945] [I] [DBGC] ACPM GPR DUMP - NOT AVAILABLE
-STATES_MIF|TOP - 0x27fb9951 | 0x3ce74f72
+[   8.689313] [I] [DBGC] ACPM GPR DUMP - NOT AVAILABLE
+STATES_MIF|TOP - 0x2ffb9851 | 0x34ef0f42
 
-          pd-apm - 0xeaae09e8	          pd-cmu - 0xea25925d	       pd-cpucl0 - 0xa35f0313	       pd-cpucl1 - 0xd8a8e17e	
-       pd-cpucl2 - 0xefff080e	          pd-g3d - 0xa10bb3fe	pd-embedded_cpucl0 - 0x3c8062c0	pd-embedded_cpucl1 - 0x4097bbce	
-pd-embedded_cpucl2 - 0xedcc0f31	 pd-embedded_g3d - 0x814d3ba	         pd-dpub - 0x30130945	        pd-dpuf0 - 0x9b80682d	
-        pd-dpuf1 - 0xdde5c172	          pd-g2d - 0x9130d205	          pd-gdc - 0x21ff0a0b	          pd-gse - 0x476feda	
-         pd-mcsc - 0x3e87e38a	          pd-mfc - 0x140b937f	         pd-rgbp - 0x2fab5835	          pd-tnr - 0x44f4f375	
-         pd-yuvp - 0x53bd3409	          pd-aoc - 0x4400ce6b	          pd-aur - 0xe1b3ae58	           pd-bw - 0xe148eb15	
-           pd-eh - 0x8df054e4	        pd-ispfe - 0x46b47896	          pd-tpu - 0x7ef9234c	         pd-mif0 - 0x20c08a7f	
-         pd-mif1 - 0xf195349f	         pd-mif2 - 0x10d2b4de	         pd-mif3 - 0xaec72254	         pd-misc - 0x5068e88f	
-        pd-nocl0 - 0xf1d3c0dc	       pd-nocl1a - 0x7683fc7	       pd-nocl1b - 0x8c65a853	      pd-nocl2aa - 0x2913fe0	
-      pd-nocl2ab - 0x75432129	         pd-hsi0 - 0xb1f293ce	         pd-hsi1 - 0xcececf0b	         pd-hsi2 - 0x2686be3f	
-       pd-peric0 - 0xf9b74863	       pd-peric1 - 0x3c2af4f3	          pd-s2d - 0xddbf4038	
+          pd-apm - 0xe88e19e8	          pd-cmu - 0xea25927d	       pd-cpucl0 - 0xa75f0313	       pd-cpucl1 - 0x5820a17f	
+       pd-cpucl2 - 0xefff000e	          pd-g3d - 0xa10bb3fe	pd-embedded_cpucl0 - 0x3c8862c0	pd-embedded_cpucl1 - 0x40b7bbce	
+pd-embedded_cpucl2 - 0xe5cc0f33	 pd-embedded_g3d - 0xa14d3be	         pd-dpub - 0x34131944	        pd-dpuf0 - 0x9b80686d	
+        pd-dpuf1 - 0xdd87d172	          pd-g2d - 0x9130d00d	          pd-gdc - 0x21ef0a1b	          pd-gse - 0x476fedb	
+         pd-mcsc - 0x3e86e38a	          pd-mfc - 0x141a937f	         pd-rgbp - 0x2fabf835	          pd-tnr - 0x44f4f175	
+         pd-yuvp - 0x53bf3409	          pd-aoc - 0x4400ce6b	          pd-aur - 0xe1b3be58	           pd-bw - 0x61487b15	
+           pd-eh - 0xadf854e4	        pd-ispfe - 0x63cf896	          pd-tpu - 0x7ef9314c	         pd-mif0 - 0xa8c08a6f	
+         pd-mif1 - 0xf3b53483	         pd-mif2 - 0x1088b4d6	         pd-mif3 - 0xaae60654	         pd-misc - 0x506aa88f	
+        pd-nocl0 - 0xf1d140dc	       pd-nocl1a - 0x5681bc7	       pd-nocl1b - 0x8c67a053	      pd-nocl2aa - 0x2913fe0	
+      pd-nocl2ab - 0x75432529	         pd-hsi0 - 0xb1f293ce	         pd-hsi1 - 0xc6ca4b0b	         pd-hsi2 - 0x26863a3e	
+       pd-peric0 - 0xf1b54a63	       pd-peric1 - 0x2c2a74f3	          pd-s2d - 0xddbf4028	
 
-[UP] CUR_SEQ0 - 456796160
+[UP] CUR_SEQ0 - 457050451
 [DOWN] CUR_SEQ0 - DONE
 APSOC_CNT - 86837
 APSOC|MIF_CNT_SLEEP- 96861 | 29081
@@ -190,109 +190,109 @@ APSOC|MIF_CNT_SICD - 0 | 909456689
 CURR_POWERMODE - 825243186
 CPU_STAT - cpu0:on, cpu1:off, cpu2:off, cpu3:off, cpu4:on, cpu5:off, cpu6:off, cpu7:off
 SEQ_STAT - APSOC_SEQ_down, MIF_SEQ_down, CL0_off, CL1_off, CL2_off
-[UP] CUR_SEQ0 - 456796160
+[UP] CUR_SEQ0 - 457050451
 [DOWN] CUR_SEQ0 - DONE
-access_type: CUR_SEQ1 - 922805705, index: 0
+access_type: CUR_SEQ1 - 923222971, index: 0
 hotplug_flag - cpu0:out, cpu1:in, cpu2:out, cpu3:in, cpu4:out, cpu5:in, cpu6:out, cpu7:in, 
 MIF REF_COUNT:0
 MIF REQ_MASTER - 
 CURR_POWERMODE - 825243186
-[   8.699418] [DSS] Core stat at previous(KERNEL)
-[   8.699838] [DSS] Core0: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.700375] [DSS] Core1: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.700912] [DSS] Core2: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.701445] [DSS] Core3: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.701981] [DSS] Core4: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.702516] [DSS] Core5: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.703051] [DSS] Core6: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.703585] [DSS] Core7: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.704120] [I] [DSS] ***** S2D Info Block ********************************************************
-[   8.705069] [I] [DSS] S2D Magic didn't detect - s2d validity check failed!
-[   8.705661] [I] [DSS] Additional information:
-[   8.706149] [I] [DSS]    S2D status: Not triggered
-[   8.706591] [I] [DSS] *****************************************************************************
-[   8.707342] [I] [DSS] Core reg status and PC:
-[   8.707737] [I] [DSS]        /- Power state  - +:On -:Off
-[   8.708215] [I] [DSS]        |/- Recorded by - P:panic A:arraydump S:s2d _:none
-[   8.708836] [I] [DSS]        ||/- IRQ        - O:enabled X:disabled _:n/a
-[   8.709421] [I] [DSS]        |||/- FIQ       - O:enabled X:disabled _:n/a
-[   8.709998] [I] [DSS] core#  ||||
-[   8.710346] [I] [DSS]   0    -___ PC=0x0000000000000000 ESR_EL1=0x00000000 EL0
-[   8.711179] [I] [DSS]   1    -___ PC=0x0000000000000000 ESR_EL1=0x56000000 EL0
-[   8.711980] [I] [DSS]   2    -___ PC=0x0000000000000000 ESR_EL1=0xf6556fcf EL0
-[   8.712781] [I] [DSS]   3    -___ PC=0x0000000000000000 ESR_EL1=0x647e4bfe EL0
-[   8.713581] [I] [DSS]   4    -___ PC=0x0000000000000000 ESR_EL1=0x1e1c7a91 EL0
-[   8.714379] [I] [DSS]   5    -___ PC=0x0000000000000000 ESR_EL1=0xf97dde97 EL0
-[   8.715182] [I] [DSS]   6    -___ PC=0x0000000000000000 ESR_EL1=0x4000000bfb5fea5 EL0
-[   8.716025] [I] [DSS]   7    -___ PC=0x0000000000000000 ESR_EL1=0x14226c80 EL0
-[   8.716849] [LNXDBG] PCSR iteration magic is invalid: 000000
-[   8.717413] [I] [DSS] Watchdog or Long Press Power Key Detected.
-[   8.717939] [I] [DSS] Core[0]: Initial policy - cache flush level 0
-[   8.718511] [I] [DSS] Core[1]: Initial policy - cache flush level 0
-[   8.719083] [I] [DSS] Core[2]: Initial policy - cache flush level 0
-[   8.719657] [I] [DSS] Core[3]: Initial policy - cache flush level 0
-[   8.720228] [I] [DSS] Core[4]: Initial policy - cache flush level 0
-[   8.720799] [I] [DSS] Core[5]: Initial policy - cache flush level 0
-[   8.721371] [I] [DSS] Core[6]: Initial policy - cache flush level 0
-[   8.721942] [I] [DSS] Core[7]: Initial policy - cache flush level 0
-[   8.722512] [I] [DSS] Core[0]: Cache flush level changed => 3
-[   8.723359] [I] [DSS] try to get arraydump for cores 0x1
-[   8.723959] [I] [DSS] Array dump response 0x0
-[   8.734531] [E] [DSIM] dsim0 wait phy pll stable
-[   8.752251] [I] [DPU] Succeeded to read panel product id : 0x3500a040
-[   8.752726] [E] [DPU] is_compatible is not defined!
-[   8.753135] [I] [DPU] panel_rev: 0x1000
-[   8.753767] [I] [DSIM] use panel google-staea for dsim0
-[   8.754177] [I] [DSIM] dsim_probe -: dsim0 driver(cmd mode) has been probed.
-[   8.754715] [I] [DSIM] dsim_probe dsim1+
-[   8.755064] [I] [DSIM] using data lane count(4)
-[   8.755597] [E] [DSIM] dsim1 wait phy pll stable
-[   8.806370] [E] [DSIM] timeout!! wait for DSIM interrupt (0x40300004)
-[   8.806934] [E] [DSIM] MIPI DSIM (id=6) read Timeout! 0x4
-[   8.807432] [E] [DSIM] dsim fail to get panel operation
-[   8.807977] [E] [DSIM] dsim has error.
-[   8.808281] [E] [DSIM] dsim_probe -: dsim1 probe failed.
-[   8.808693] [I] [DSIM] dsim1 probe was failed
-[   8.809029] [I] [DSIM] dsim_init -: set dsim0 driver as primary.
-[   8.826021] [E] [DSIM] dsim0 wait phy pll stable
-[   8.841643] [I] [DPP] dpp_probe +
-[   8.841978] [I] [DPP] dpp-0's attr is (0x004d0047)
-[   8.842444] [I] [DPP] dpp(0) init resources.
-[   8.842875] [I] [DPP] dpp_probe -: dpp0 is probed successfully
-[   8.843435] [I] [DECON] decon-int: max win6, command mode, hw trigger
-[   8.844040] [I] [DECON] single dsi mode
-[   8.844428] [I] [decon0] d_path(0xB1) DSCC DSC_ENC1 DSC_ENC0 OFIFO.0
-[   8.845071] [I] [decon0] sel(0x0) OFIFO.0 - dsim0 - google-staea
-[   8.845537] [I] [DECON] Display 1st window(5) xres(1080) yres(2424) win_start_pos(0) win_end_pos(9770437)
-[   8.858579] [I] [TCPM] port connected
-[   8.989699] [I] [DECON] decon0 registered successfully
-[   9.704803] [E] Discarding ramdump file gsa_sram_key.lst flag 0
-[   9.705358] [E] [GSA] fail to add gsa_sram_key.lst to ramdump sub-file, -8
-[   9.706211] [E] [BL31] Invalid bl31 log reserved region: bypass
+[   8.705776] [DSS] Core stat at previous(KERNEL)
+[   8.706196] [DSS] Core0: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.706733] [DSS] Core1: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.707268] [DSS] Core2: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.707802] [DSS] Core3: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.708339] [DSS] Core4: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.708876] [DSS] Core5: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.709409] [DSS] Core6: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.709946] [DSS] Core7: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.710481] [I] [DSS] ***** S2D Info Block ********************************************************
+[   8.711429] [I] [DSS] S2D Magic didn't detect - s2d validity check failed!
+[   8.712020] [I] [DSS] Additional information:
+[   8.712510] [I] [DSS]    S2D status: Not triggered
+[   8.712953] [I] [DSS] *****************************************************************************
+[   8.713705] [I] [DSS] Core reg status and PC:
+[   8.714101] [I] [DSS]        /- Power state  - +:On -:Off
+[   8.714580] [I] [DSS]        |/- Recorded by - P:panic A:arraydump S:s2d _:none
+[   8.715203] [I] [DSS]        ||/- IRQ        - O:enabled X:disabled _:n/a
+[   8.715790] [I] [DSS]        |||/- FIQ       - O:enabled X:disabled _:n/a
+[   8.716367] [I] [DSS] core#  ||||
+[   8.716713] [I] [DSS]   0    -___ PC=0x0000000000000000 ESR_EL1=0x00000000 EL0
+[   8.717548] [I] [DSS]   1    -___ PC=0x0000000000000000 ESR_EL1=0x0555dc45 EL0
+[   8.718353] [I] [DSS]   2    -___ PC=0x0000000000000000 ESR_EL1=0xd6d7efcf EL0
+[   8.719154] [I] [DSS]   3    -___ PC=0x0000000000000000 ESR_EL1=0x54000000 EL0
+[   8.719953] [I] [DSS]   4    -___ PC=0x0000000000000000 ESR_EL1=0x1e1e6ab1 EL0
+[   8.720753] [I] [DSS]   5    -___ PC=0x0000000000000000 ESR_EL1=0xf97dde97 EL0
+[   8.721553] [I] [DSS]   6    -___ PC=0x0000000000000000 ESR_EL1=0x4000000bfb5fea5 EL0
+[   8.722396] [I] [DSS]   7    -___ PC=0x0000000000000000 ESR_EL1=0x1c626e80 EL0
+[   8.723219] [LNXDBG] PCSR iteration magic is invalid: 000000
+[   8.723785] [I] [DSS] Watchdog or Long Press Power Key Detected.
+[   8.724312] [I] [DSS] Core[0]: Initial policy - cache flush level 0
+[   8.724882] [I] [DSS] Core[1]: Initial policy - cache flush level 0
+[   8.725455] [I] [DSS] Core[2]: Initial policy - cache flush level 0
+[   8.726028] [I] [DSS] Core[3]: Initial policy - cache flush level 0
+[   8.726601] [I] [DSS] Core[4]: Initial policy - cache flush level 0
+[   8.727173] [I] [DSS] Core[5]: Initial policy - cache flush level 0
+[   8.727745] [I] [DSS] Core[6]: Initial policy - cache flush level 0
+[   8.728316] [I] [DSS] Core[7]: Initial policy - cache flush level 0
+[   8.728888] [I] [DSS] Core[0]: Cache flush level changed => 3
+[   8.729735] [I] [DSS] try to get arraydump for cores 0x1
+[   8.730338] [I] [DSS] Array dump response 0x0
+[   8.739910] [E] [DSIM] dsim0 wait phy pll stable
+[   8.757625] [I] [DPU] Succeeded to read panel product id : 0x3500a040
+[   8.758101] [E] [DPU] is_compatible is not defined!
+[   8.758510] [I] [DPU] panel_rev: 0x1000
+[   8.759138] [I] [DSIM] use panel google-staea for dsim0
+[   8.759547] [I] [DSIM] dsim_probe -: dsim0 driver(cmd mode) has been probed.
+[   8.760084] [I] [DSIM] dsim_probe dsim1+
+[   8.760433] [I] [DSIM] using data lane count(4)
+[   8.760969] [E] [DSIM] dsim1 wait phy pll stable
+[   8.811738] [E] [DSIM] timeout!! wait for DSIM interrupt (0x40300004)
+[   8.812310] [E] [DSIM] MIPI DSIM (id=6) read Timeout! 0x4
+[   8.812807] [E] [DSIM] dsim fail to get panel operation
+[   8.813352] [E] [DSIM] dsim has error.
+[   8.813656] [E] [DSIM] dsim_probe -: dsim1 probe failed.
+[   8.814067] [I] [DSIM] dsim1 probe was failed
+[   8.814404] [I] [DSIM] dsim_init -: set dsim0 driver as primary.
+[   8.831397] [E] [DSIM] dsim0 wait phy pll stable
+[   8.847013] [I] [DPP] dpp_probe +
+[   8.847348] [I] [DPP] dpp-0's attr is (0x004d0047)
+[   8.847815] [I] [DPP] dpp(0) init resources.
+[   8.848249] [I] [DPP] dpp_probe -: dpp0 is probed successfully
+[   8.848811] [I] [DECON] decon-int: max win6, command mode, hw trigger
+[   8.849416] [I] [DECON] single dsi mode
+[   8.849799] [I] [decon0] d_path(0xB1) DSCC DSC_ENC1 DSC_ENC0 OFIFO.0
+[   8.850438] [I] [decon0] sel(0x0) OFIFO.0 - dsim0 - google-staea
+[   8.850915] [I] [DECON] Display 1st window(5) xres(1080) yres(2424) win_start_pos(0) win_end_pos(9770437)
+[   8.863967] [I] [TCPM] port connected
+[   8.995034] [I] [DECON] decon0 registered successfully
+[   9.709452] [E] Discarding ramdump file gsa_sram_key.lst flag 0
+[   9.710008] [E] [GSA] fail to add gsa_sram_key.lst to ramdump sub-file, -8
+[   9.710863] [E] [BL31] Invalid bl31 log reserved region: bypass
 
-[   9.706717] [E] [PBLLOG] Invalid pbl log reserved region: bypass
+[   9.711370] [E] [PBLLOG] Invalid pbl log reserved region: bypass
 
-[   9.707247] [DSS] PSCI Breadcrumbs(v2.0):
-[   9.707652] [DSS] Core0: 00000000 / 00000000
-[   9.708168] [DSS] Core1: 00000000 / 00000000
-[   9.708682] [DSS] Core2: 00000000 / 00000000
-[   9.709195] [DSS] Core3: 00000000 / 00000000
-[   9.709707] [DSS] Core4: 00000000 / 00000000
-[   9.710220] [DSS] Core5: 00000000 / 00000000
-[   9.710732] [DSS] Core6: 00000000 / 00000000
-[   9.711244] [DSS] Core7: 00000000 / 00000000
-[   9.711757] [LNXDBG] WDT FIQ info:
-[   9.712041] [LNXDBG] core# type    raw-magic   elr
-[   9.712397] [LNXDBG]     0-7   N/A
-[   9.712708] [I] [DSS] linux debug info is not valid
-[   9.713153] [E] [LNXDBG] cdd_param is out of boundary
-[   9.713533] [I] [DSS] Last AVB: avb_ret=ERROR_VERIFICATION
-[   9.714048] [I] [DSS] Last AVB: avb_veritymode=enforcing
-[   9.714573] [I] [DSS] Last AVB: avb_error_parts=boot,init_boot
-[   9.715660] [I] [LNXDBG] build info set by ABL google/stallion/stallion:16/CP1A.260505.005/15081906:user/release-keys
+[   9.711899] [DSS] PSCI Breadcrumbs(v2.0):
+[   9.712301] [DSS] Core0: 00000000 / 00000000
+[   9.712816] [DSS] Core1: 00000000 / 00000000
+[   9.713332] [DSS] Core2: 00000000 / 00000000
+[   9.713847] [DSS] Core3: 00000000 / 00000000
+[   9.714363] [DSS] Core4: 00000000 / 00000000
+[   9.714879] [DSS] Core5: 00000000 / 00000000
+[   9.715393] [DSS] Core6: 00000000 / 00000000
+[   9.715908] [DSS] Core7: 00000000 / 00000000
+[   9.716424] [LNXDBG] WDT FIQ info:
+[   9.716706] [LNXDBG] core# type    raw-magic   elr
+[   9.717064] [LNXDBG]     0-7   N/A
+[   9.717376] [I] [DSS] linux debug info is not valid
+[   9.717823] [E] [LNXDBG] cdd_param is out of boundary
+[   9.718204] [I] [DSS] Last AVB: avb_ret=ERROR_VERIFICATION
+[   9.718720] [I] [DSS] Last AVB: avb_veritymode=enforcing
+[   9.719245] [I] [DSS] Last AVB: avb_error_parts=boot,init_boot
+[   9.720329] [I] [LNXDBG] build info set by ABL google/stallion/stallion:16/CP1A.260505.005/15081906:user/release-keys
 RAMDUMP_MSG.txt:
   reset message: APC Watchdog Early
-  UUID: 1d1aca0b-b853-6945-8970-507ae4271b1b
+  UUID: 06c04147-ab1a-a049-8a0f-5ac7dbd8ce50
   last kernel version: N/A
   aosp kernel version: N/A
   build: google/stallion/stallion:16/CP1A.260505.005/15081906:user/release-keys
@@ -300,94 +300,95 @@ RAMDUMP_MSG.txt:
   GSA_RESET_STATUS: 0x10 - GSA_INTERMEDIATE_RESET
   Reboot reason: 0xcbea - APC Watchdog Early
   Reboot mode: 0x0 - Normal Boot
-[   9.719488] [I] [DSS] -------------------- DSS LOGS END --------------------
+[   9.724159] [I] [DSS] -------------------- DSS LOGS END --------------------
 
 Reboot Info:
   RST_STAT: 0x180000 - PIN_RESET | PO_RESET
   GSA_RESET_STATUS: 0x1 - GSA_PINRESET
   Reboot reason: 0xcbea - APC Watchdog Early
   Reboot mode: 0x0 - Normal Boot
-[   7.808536] [E] [EUSB] failed to get eUSB revision -62
-[   7.808583] [I] [FB] Set EUSB Ref clock auto
-[   7.808828] [I] [TCPM] port connected
-[   7.809439] [I] LK build date: Jan 28 2026, time: 07:11:15
-[   7.809482] [I] BL version: stallion-16.4-14791556
-[   7.809518] [I] BL type: official build
+[   7.823536] [E] [EUSB] failed to get eUSB revision -62
+[   7.823581] [I] [FB] Set EUSB Ref clock auto
+[   7.823829] [I] [TCPM] port connected
+[   7.824425] [I] LK build date: Jan 28 2026, time: 07:11:15
+[   7.824469] [I] BL version: stallion-16.4-14791556
+[   7.824505] [I] BL type: official build
 starting app pixel_loader
-[   7.809954] [I] [PXL] sota: empty signature.
-[   7.809993] [I] [PXL] ABL start time (METRICS_BL3): 7563ms
-[   7.810034] [I] [PXL] AB Decision: decrement active slot boot retry
-[   7.810084] [I] [PXL] AB Decisions: 21011111
-[   7.810317] [I] [MAX77759] TCPC BC1.2, type: 2 val:2
-[   7.810536] [I] [PXL] boot voltage threshold=3400mV
-[   7.810729] [I] [PXL] bootloader message:
-[   7.811065] [I] [MAX77759] TCPC BC1.2, type: 2 val:2
-[   7.811262] [I] [PXL] boot voltage threshold=3400mV
+[   7.824943] [I] [PXL] sota: empty signature.
+[   7.824980] [I] [PXL] ABL start time (METRICS_BL3): 7566ms
+[   7.825028] [I] [PXL] AB Decision: decrement active slot boot retry
+[   7.825082] [I] [PXL] AB Decisions: 21011111
+[   7.825324] [I] [MAX77759] TCPC BC1.2, type: 2 val:2
+[   7.825546] [I] [PXL] boot voltage threshold=3400mV
+[   7.825736] [I] [PXL] bootloader message:
+[   7.826074] [I] [MAX77759] TCPC BC1.2, type: 2 val:2
+[   7.826270] [I] [PXL] boot voltage threshold=3400mV
 avb_slot_verify.c:443: ERROR: boot_a: Hash of data does not match digest in descriptor.
 avb_slot_verify.c:443: ERROR: init_boot_a: Hash of data does not match digest in descriptor.
-[   7.888756] [I] [DECON] decon0 registered successfully
-[   7.954193] [I] [AVB] boot_state: 160000:20260505:20260505
+[   7.890000] [I] [DECON] decon0 registered successfully
+[   7.971182] [I] [AVB] boot_state: 160000:20260505:20260505
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   7.955734] [I] [AND] using init_boot ramdisk
-[   7.955777] [I] [AND] using vendor_kernel_boot ramdisk
-[   7.955866] [I] [AND] kernel: addr:0xffff0000a0011000, size:99629
-[   7.957155] [I] [AND] kernel: total_time:1
-[   7.957194] [I] [AND] vendor kernel ramdisk copy
-[   7.957231] [I] [AND] ramdisk dst addr: 0xffff000086000000 src addr: 0xffff0000a9931000 size: 0x64f20b(6615563)
-[   7.957318] [I] [AND] padding prepended: 0
-[   7.958594] [I] [AND] vendor ramdisk copy
-[   7.958625] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
-[   7.958701] [I] [AND] padding prepended: 5
-[   7.966094] [I] [AND] ramdisk copy
-[   7.966122] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
-[   7.966204] [I] [AND] padding prepended: 6
-[   7.966674] [I] [AND] Ramdisk load size with padding: 49063043
-[   7.966738] [I] [DTBO] rev: 09875.00.00
-[   7.966778] [I] [DTBO] rev: 09875.00.00
-[   7.966816] [I] [DTBO] rev: 09875.00.00
-[   7.966850] [I] [DTBO] rev: 09875.00.01
-[   7.966891] [I] [DTBO] rev: 09875.00.00
-[   7.966924] [I] [DTBO] rev: 09875.00.01
-[   7.966954] [I] [DTBO] SOC DTB: index:3
-[   7.966988] [I] [DTBO] DTBO match: id 0x61306, rev 0x10000
-[   7.981740] [I] [AND] dpm not merged
-[   7.983238] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
-[   7.993971] [I] [AND] bootmode:
-[   7.994018] [I] [AND] DDR size: 8GiB
-[   7.994046] [I] [AND] DDR Manufacturer: Hynix
-[   7.994213] [I] [AND] ro.misctrl.16kb_before=0
-[   7.994266] [I] [AND] console is disabled
-[   7.994422] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
-[   7.994485] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
-[   7.997769] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
-[   8.004651] [I] [FDT] device: /reserved-memory/debug_snapshot/log_s2d path not found (-1)
-[   8.004796] [I] [FDT] device: /reserved-memory/debug_snapshot/log_array_reset path not found (-1)
-[   8.004958] [I] [FDT] device: /reserved-memory/debug_snapshot/log_kevents path not found (-1)
-[   8.005099] [I] [FDT] device: /reserved-memory/debug_snapshot/log_itmon path not found (-1)
-[   8.005255] [I] [FDT] device: /reserved-memory/debug_snapshot/log_s2d_extract path not found (-1)
-[   8.006365] [I] [FDT] device: /google,mitigation enabled ret=0
-[   8.020292] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
+[   7.972743] [I] [AND] using init_boot ramdisk
+[   7.972782] [I] [AND] using vendor_kernel_boot ramdisk
+[   7.972866] [I] [AND] kernel: addr:0xffff0000a0011000, size:99726
+[   7.973938] [I] [AND] kernel: total_time:1
+[   7.973973] [I] [AND] vendor kernel ramdisk copy
+[   7.974014] [I] [AND] ramdisk dst addr: 0xffff000086000000 src addr: 0xffff0000a9931000 size: 0x64f20b(6615563)
+[   7.974093] [I] [AND] padding prepended: 0
+[   7.975387] [I] [AND] vendor ramdisk copy
+[   7.975419] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
+[   7.975493] [I] [AND] padding prepended: 5
+[   7.982775] [I] [AND] ramdisk copy
+[   7.982805] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
+[   7.982878] [I] [AND] padding prepended: 6
+[   7.983356] [I] [AND] Ramdisk load size with padding: 49063043
+[   7.983417] [I] [DTBO] rev: 09875.00.00
+[   7.983457] [I] [DTBO] rev: 09875.00.00
+[   7.983495] [I] [DTBO] rev: 09875.00.00
+[   7.983528] [I] [DTBO] rev: 09875.00.01
+[   7.983569] [I] [DTBO] rev: 09875.00.00
+[   7.983602] [I] [DTBO] rev: 09875.00.01
+[   7.983633] [I] [DTBO] SOC DTB: index:3
+[   7.983668] [I] [DTBO] DTBO match: id 0x61306, rev 0x10000
+[   7.998438] [I] [AND] dpm not merged
+[   7.999937] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
+[   8.010695] [I] [AND] bootmode:
+[   8.010742] [I] [AND] DDR size: 8GiB
+[   8.010770] [I] [AND] DDR Manufacturer: Hynix
+[   8.010939] [I] [AND] ro.misctrl.16kb_before=0
+[   8.010988] [I] [AND] console is disabled
+[   8.011143] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
+[   8.011204] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
+[   8.014106] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
+[   8.021381] [I] [FDT] device: /reserved-memory/debug_snapshot/log_s2d path not found (-1)
+[   8.021522] [I] [FDT] device: /reserved-memory/debug_snapshot/log_array_reset path not found (-1)
+[   8.021661] [I] [FDT] device: /reserved-memory/debug_snapshot/log_kevents path not found (-1)
+[   8.021798] [I] [FDT] device: /reserved-memory/debug_snapshot/log_itmon path not found (-1)
+[   8.021953] [I] [FDT] device: /reserved-memory/debug_snapshot/log_s2d_extract path not found (-1)
+[   8.023086] [I] [FDT] device: /google,mitigation enabled ret=0
+[   8.036967] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   8.030597] [I] [DPU] panel settings after overriding: google-staea.3500a040@dsim0 null@dsim1
-[   8.045997] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
-[   8.084477] [E] [AVB] avb_property(com.android.build.microdroid-vendor.root_digest): not found
-[   8.084549] [W] [PKVM_PVMFW] failed to get microdroid vendor hashtree digest from avb property, skip appending value
+[   8.047332] [I] [DPU] panel settings after overriding: google-staea.3500a040@dsim0 null@dsim1
+[   8.062640] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
+[   8.101270] [E] [AVB] avb_property(com.android.build.microdroid-vendor.root_digest): not found
+[   8.101338] [W] [PKVM_PVMFW] failed to get microdroid vendor hashtree digest from avb property, skip appending value
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   8.085851] [W] [PKVM_PVMFW] no avf debug policy, because dpm is NULL
-[  18.147110] [I] [A/B] slot data a: 0x00001c00
-[  18.147145] [I] [A/B] slot data b: 0x00001803
-[  18.637668] [I] [UFS] shutdown complete
-[  18.637878] [E] [PSTORE] unable to get a real pram. create a dummy pram buffer
-[  18.638033] [I] [AND] thread stats (cpu 0): total idle time: 10691551, total busy time: 7946482
+[   8.102664] [W] [PKVM_PVMFW] no avf debug policy, because dpm is NULL
+[  18.165376] [I] [A/B] slot data a: 0x00001c00
+[  18.165411] [I] [A/B] slot data b: 0x00001803
+[  18.604935] [I] [UFS] shutdown complete
+[  18.605131] [E] [PSTORE] unable to get a real pram. create a dummy pram buffer
+[  18.605292] [I] [AND] thread stats (cpu 0): total idle time: 10654201, total busy time: 7951090
 Heap dump (using miniheap):
 	base 0xffff0000f8b8b000, len 0x6cf000
 	free list:
-		base 0xffff0000f8b9c090, end                                                                fff0000f8b9cc80, len 0x20
+		base 0xffff0000f8b9c280, end 0xffff0000f8b9c2a0, len 0x20
+		base 0xffff0000f8b9cc60, end 0xffff0000f8b9cc80, len 0x20
 		base 0xffff0000f8b9d680, end 0xffff0000f8b9d6a0, len 0x20
-		base 0xffff0000f8bcebf0, end 0xffff0000f8bcec10, len 0x20
-		base 0xffff0000f8bf5390, end 0xffff0000f8bf53e0, len 0x50
-		base 0xffff0000f8bf5ae0, end 0xffff0000f8bf6050, len 0x570
-		base 0xffff0000f8bf6870, end 0xffff0000f8c0b4a0, len 0x14c30
+		base 0xffff0000f8bf0310, end 0xffff0000f8bf0330, len 0x20
+		base 0xffff0000f8bf52d0, end 0xffff0000f8bf5320, len 0x50
+		base 0xffff0000f8bf5a20, end 0xffff0000f8bf5f90, len 0x570
+		base 0xffff0000f8bf67b0, end 0xffff0000f8c0b4a0, len 0x14cf0
 		base 0xffff0000f8d13220, end 0xffff0000f8d33660, len 0x20440
 		base 0xffff0000f8d336f0, end 0xffff0000f8d33710, len 0x20
 		base 0xffff0000f8d6dc80, end 0xffff0000f8dedea0, len 0x80220
@@ -398,8 +399,8 @@ Heap dump (using miniheap):
 		base 0xffff0000f8e4e940, end 0xffff0000f8e4e970, len 0x30
 		base 0xffff0000f8ed0f00, end 0xffff0000f8ed0fb0, len 0xb0
 		base 0xffff0000f8ed1030, end 0xffff0000f925a000, len 0x388fd0
-[  18.638857] [I] [AND] WXN has been disabled.
-[  18.638891] [I] [AND] Starting Linux kernel ...
+[  18.606143] [I] [AND] WXN has been disabled.
+[  18.606177] [I] [AND] Starting Linux kernel ...
 
 /************************************/
 /*          No kernel logs          */
@@ -407,65 +408,65 @@ Heap dump (using miniheap):
 [   0.000000] [I] [GS] secure payload loading took 0ms
 [   0.000000] [I] [GS] platform info binded: true
 [   0.000000] [I] [GS] platform info: 061306010000
-[   7.586558] [I] [MAIN] 
+[   7.580421] [I] [MAIN] 
 welcome to lk/MP
 
-[   7.586592] [I] [MAIN] boot args 0x1 0x0 0x0 0x0
+[   7.580455] [I] [MAIN] boot args 0x1 0x0 0x0 0x0
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   7.587253] [I] [GS] WXN has been enabled.
-[   7.587292] [I] [GS] acpm locks regulators
-[   7.587351] [I] [GS] Soc Product ID: 0x09875
-[   7.587389] [I] [GS] Soc rev: A1
-[   7.587421] [I] [GS] Soc ID: 0x120c4c8db7c8
-[   7.587459] [I] [GS] DVFS version: 2
-[   7.587497] [E] [LNXDBG] vendor magic_number must be 0xcceeddff but 0x00000000
-[   7.587554] [E] [LNXDBG] magic_number must be 0xcceeddff but 0x00000000
-[   7.587644] [I] [PMIC] S2MPG_M CHIPID read: 0x10
-[   7.587712] [I] [PMIC] S2MPG_S CHIPID read: 0x10
-[   7.587787] [I] [PMIC] S2MPG_M PWRONSRC read: 0x4
-[   7.587857] [I] [PMIC] S2MPG_M OFFSRC1 read: 0x10
-[   7.587927] [I] [PMIC] S2MPG_M OFFSRC2 read: 0x0
-[   7.588000] [I] [PMIC] S2MPG_M RTC_WTSR read: 0x7e
-[   7.588041] [I] [PMIC] S2MPG_M INT1: 0x30
-[   7.588078] [I] [PMIC] S2MPG_M INT2: 0x0
-[   7.588108] [I] [PMIC] S2MPG_M INT3: 0x0
-[   7.588142] [I] [PMIC] S2MPG_M INT4: 0x0
-[   7.588173] [I] [PMIC] S2MPG_M INT5: 0x0
-[   7.588237] [I] [PMIC] S2MPG_S OFFSRC1 read: 0x11
-[   7.588284] [I] [PMIC] S2MPG_S INT1: 0x83
-[   7.588316] [I] [PMIC] S2MPG_S INT2: 0x0
-[   7.588347] [I] [PMIC] S2MPG_S INT3: 0x0
-[   7.588377] [I] [PMIC] S2MPG_S INT4: 0x0
-[   7.588412] [I] [PMIC] S2MPG_S INT5: 0x0
+[   7.581175] [I] [GS] WXN has been enabled.
+[   7.581213] [I] [GS] acpm locks regulators
+[   7.581275] [I] [GS] Soc Product ID: 0x09875
+[   7.581313] [I] [GS] Soc rev: A1
+[   7.581345] [I] [GS] Soc ID: 0x120c4c8db7c8
+[   7.581383] [I] [GS] DVFS version: 2
+[   7.581421] [E] [LNXDBG] vendor magic_number must be 0xcceeddff but 0x00000000
+[   7.581481] [E] [LNXDBG] magic_number must be 0xcceeddff but 0x00000000
+[   7.581572] [I] [PMIC] S2MPG_M CHIPID read: 0x10
+[   7.581640] [I] [PMIC] S2MPG_S CHIPID read: 0x10
+[   7.581715] [I] [PMIC] S2MPG_M PWRONSRC read: 0x4
+[   7.581786] [I] [PMIC] S2MPG_M OFFSRC1 read: 0x10
+[   7.581856] [I] [PMIC] S2MPG_M OFFSRC2 read: 0x0
+[   7.581932] [I] [PMIC] S2MPG_M RTC_WTSR read: 0x7e
+[   7.581978] [I] [PMIC] S2MPG_M INT1: 0x30
+[   7.582015] [I] [PMIC] S2MPG_M INT2: 0x0
+[   7.582046] [I] [PMIC] S2MPG_M INT3: 0x0
+[   7.582080] [I] [PMIC] S2MPG_M INT4: 0x0
+[   7.582111] [I] [PMIC] S2MPG_M INT5: 0x0
+[   7.582175] [I] [PMIC] S2MPG_S OFFSRC1 read: 0x11
+[   7.582222] [I] [PMIC] S2MPG_S INT1: 0x83
+[   7.582254] [I] [PMIC] S2MPG_S INT2: 0x0
+[   7.582284] [I] [PMIC] S2MPG_S INT3: 0x0
+[   7.582315] [I] [PMIC] S2MPG_S INT4: 0x0
+[   7.582349] [I] [PMIC] S2MPG_S INT5: 0x0
 APC Bootmetrics:
-  BL1: MT:1 / DT:ENTRY / 103976 us
-  BL1: MT:2 / DT:LOAD  / 7336 us
+  BL1: MT:1 / DT:ENTRY / 104032 us
+  BL1: MT:2 / DT:LOAD  / 7344 us
   BL1: MT:F / DT:EXIT  / 143304 us
-  PBL: MT:1 / DT:ENTRY / 143440 us
+  PBL: MT:1 / DT:ENTRY / 143432 us
   PBL: MT:2 / DT:LOAD  / 19496 us
   PBL: MT:F / DT:EXIT  / 208520 us
-  BL2: MT:1 / DT:ENTRY / 210080 us
+  BL2: MT:1 / DT:ENTRY / 210088 us
   BL2: MT:2 / DT:LOAD  / 160 us
   BL2: MT:3 / DT:LOAD  / 152 us
-  BL2: MT:4 / DT:CHECK / 338168 us
+  BL2: MT:4 / DT:CHECK / 338272 us
   BL2: MT:5 / DT:CHECK / 2096 us
-  BL2: MT:6 / DT:LOAD  / 6830008 us
-  BL2: MT:7 / DT:CHECK / 6925568 us
-  BL2: MT:8 / DT:CHECK / 6925704 us
-  BL2: MT:9 / DT:LOAD  / 44608 us
-  BL2: MT:A / DT:LOAD  / 31152 us
-  BL2: MT:B / DT:LOAD  / 319888 us
+  BL2: MT:6 / DT:LOAD  / 6823960 us
+  BL2: MT:7 / DT:CHECK / 6919536 us
+  BL2: MT:8 / DT:CHECK / 6919680 us
+  BL2: MT:9 / DT:LOAD  / 44392 us
+  BL2: MT:A / DT:LOAD  / 31216 us
+  BL2: MT:B / DT:LOAD  / 320160 us
   BL2: MT:C / DT:LOAD  / 8 us
-  BL2: MT:F / DT:EXIT  / 7370928 us
-  PBL: MT:3 / DT:LOAD  / 86240 us
-  PBL: MT:4 / DT:LOAD  / 27888 us
-  PBL: MT:5 / DT:LOAD  / 6048 us
-  PBL: MT:6 / DT:CHECK / 7506200 us
-  PBL: MT:7 / DT:CHECK / 7506336 us
-  EL3: MT:1 / DT:ENTRY / 7509112 us
-  EL3: MT:D / DT:CHECK / 7524664 us
-  EL3: MT:E / DT:CHECK / 7575384 us
-  EL3: MT:F / DT:EXIT  / 7575424 us
+  BL2: MT:F / DT:EXIT  / 7365032 us
+  PBL: MT:3 / DT:LOAD  / 86216 us
+  PBL: MT:4 / DT:LOAD  / 27880 us
+  PBL: MT:5 / DT:LOAD  / 6040 us
+  PBL: MT:6 / DT:CHECK / 7500352 us
+  PBL: MT:7 / DT:CHECK / 7500496 us
+  EL3: MT:1 / DT:ENTRY / 7503272 us
+  EL3: MT:D / DT:CHECK / 7518848 us
+  EL3: MT:E / DT:CHECK / 7569248 us
+  EL3: MT:F / DT:EXIT  / 7569288 us
 APC Breadcrumbs(v2.4):
  stages(S): 0000404F / 0000404F
   flags(S): 000022C0 / 000022C0
@@ -475,84 +476,84 @@ stages(NS): 00005004 / 00005004
     device: 00000001 / 00000001
    tmutrip: 00000000 / 00000000
      reset: 00180000 / 00180000
-[   7.589416] [E] [DBGC] GSA Breadcrumb:
+[   7.583350] [E] [DBGC] GSA Breadcrumb:
 00000000 0000000d 00000000 00000000  |................|
 00000000 00000000 00000001           |............    |
-[   7.589555] [I] [DPM] SBDP initialized: chipid allowed=0, dpm_state=0x0000
-[   7.589613] [E] [DPM] check header failed
-[   7.589747] [I] [dev] initializing device i2c:usi00
-[   7.589795] [I] [I2C] usi00: version 2.2
-[   7.589846] [I] [dev] initializing device i2c:usi04
-[   7.589892] [I] [I2C] usi04: version 2.2
-[   7.589940] [I] [dev] initializing device i2c:usi06
-[   7.589981] [I] [I2C] usi06: version 2.2
-[   7.590029] [I] [dev] initializing device i2c:usi09
-[   7.590073] [I] [I2C] usi09: version 2.2
-[   7.590126] [I] [dev] initializing device i2cm:i2cm0
-[   7.590171] [I] DVFS init
-[   7.592415] [I] DVFS init done
-[   7.592449] [I] [UFS] UFS EVT version 0
-[   7.592497] [I] [UFS] controller version 3.0 found
-[   7.592539] [I] [UFS] capabilities 0x1383ff1f
-[   7.592717] [I] [UFS] UFS device found
+[   7.583490] [I] [DPM] SBDP initialized: chipid allowed=0, dpm_state=0x0000
+[   7.583548] [E] [DPM] check header failed
+[   7.583683] [I] [dev] initializing device i2c:usi00
+[   7.583727] [I] [I2C] usi00: version 2.2
+[   7.583778] [I] [dev] initializing device i2c:usi04
+[   7.583820] [I] [I2C] usi04: version 2.2
+[   7.583868] [I] [dev] initializing device i2c:usi06
+[   7.583913] [I] [I2C] usi06: version 2.2
+[   7.583960] [I] [dev] initializing device i2c:usi09
+[   7.584001] [I] [I2C] usi09: version 2.2
+[   7.584053] [I] [dev] initializing device i2cm:i2cm0
+[   7.584099] [I] DVFS init
+[   7.586345] [I] DVFS init done
+[   7.586378] [I] [UFS] UFS EVT version 0
+[   7.586426] [I] [UFS] controller version 3.0 found
+[   7.586468] [I] [UFS] capabilities 0x1383ff1f
+[   7.586640] [I] [UFS] UFS device found
 zuma_ufs_device_init_done
-[   7.592768] [E] [UFS] ufshc_notify done
-[   7.592839] [I] [UFS] ufshc_power_mode_change HS gear 4
-[   7.603035] [I] [UFS] ufshc: bBootLunEn 0x1
-[   7.603158] [I] [UFS] UFS device SKhynix HN8T05DEHKX073 version 3.1
-[   7.603206] [I] [UFS] Enabled LUNs found 4
-[   7.603260] [I] [UFS] UFS device total size 127984992256
-[   7.603346] [I] [UFS] Temp too high enabled
-[   7.603424] [I] [UFS] Temp too low enabled
-[   7.603879] [I] [UFS] Write Booster: available buffer=0x0 lifetime=0x1 current buffer=0x1e00
-[   7.603972] [I] [RIPCURRENTPRO] boot slot: a
-[   7.605644] [I] [A/B] slot data a: 0x00001c02
-[   7.605679] [I] [A/B] slot data b: 0x00001803
-[   7.606274] [I] [RIPCURRENTPRO] platform info: 061306010000
-[   7.606459] [I] [dev] initializing device cs40l2x:cs40l26
-[   7.616949] [I] [CS40L2x] CS40L26 found
-[   7.618620] [I] [dev] initializing device nfc:st21nfc
-[   7.620480] [I] [MAX77759] tcpc vendor id 56
-[   7.621424] [BMS] found 77779 on usi6
-[   7.621456] [BMS] bms_init init usi10 as sec_i2c
-[   7.621494] [I] [dev] initializing device i2c:usi10
-[   7.621533] [I] [I2C] usi10: version 2.2
-[   7.621734] [I] [MAX77779fg] FG device name 0x5100
-[   7.622243] [I] [BMS] [max77779fg] SOC(100), VCELL(4385), INOW(-461), IAVG(-275)
-[   7.622823] [I] [BMS] fship 0x0
-[   7.622948] [I] [BMS] master disconnect reason 0x0
+[   7.586690] [E] [UFS] ufshc_notify done
+[   7.586764] [I] [UFS] ufshc_power_mode_change HS gear 4
+[   7.596958] [I] [UFS] ufshc: bBootLunEn 0x1
+[   7.597081] [I] [UFS] UFS device SKhynix HN8T05DEHKX073 version 3.1
+[   7.597128] [I] [UFS] Enabled LUNs found 4
+[   7.597185] [I] [UFS] UFS device total size 127984992256
+[   7.597272] [I] [UFS] Temp too high enabled
+[   7.597348] [I] [UFS] Temp too low enabled
+[   7.597803] [I] [UFS] Write Booster: available buffer=0x0 lifetime=0x1 current buffer=0x1e00
+[   7.597896] [I] [RIPCURRENTPRO] boot slot: a
+[   7.599567] [I] [A/B] slot data a: 0x00001c02
+[   7.599602] [I] [A/B] slot data b: 0x00001803
+[   7.600196] [I] [RIPCURRENTPRO] platform info: 061306010000
+[   7.600378] [I] [dev] initializing device cs40l2x:cs40l26
+[   7.610875] [I] [CS40L2x] CS40L26 found
+[   7.612547] [I] [dev] initializing device nfc:st21nfc
+[   7.614400] [I] [MAX77759] tcpc vendor id 56
+[   7.615343] [BMS] found 77779 on usi6
+[   7.615373] [BMS] bms_init init usi10 as sec_i2c
+[   7.615409] [I] [dev] initializing device i2c:usi10
+[   7.615449] [I] [I2C] usi10: version 2.2
+[   7.615644] [I] [MAX77779fg] FG device name 0x5100
+[   7.616153] [I] [BMS] [max77779fg] SOC(100), VCELL(4388), INOW(-286), IAVG(-283)
+[   7.616735] [I] [BMS] fship 0x0
+[   7.616859] [I] [BMS] master disconnect reason 0x0
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   7.625823] [I] [FUSE] LCS state:PRODUCTION
-[   7.626036] [I] [RIPCURRENTPRO] saving ddr training data
-[   7.627319] [I] [FFU] no valid file
-[TMU:0] 48
-[TMU:1] 46
-[   7.665502] [I] [DSIM] dsim_probe dsim0+
-[   7.665543] [I] [DSIM] using data lane count(4)
-[   7.682353] [E] [DSIM] dsim0 wait phy pll stable
-[   7.699505] [I] [DPU] Succeeded to read panel product id : 0x3500a040
-[   7.699556] [E] [DPU] is_compatible is not defined!
-[   7.699599] [I] [DPU] panel_rev: 0x1000
-[   7.699739] [I] [DSIM] use panel google-staea for dsim0
-[   7.699779] [I] [DSIM] dsim_probe -: dsim0 driver(cmd mode) has been probed.
-[   7.699831] [I] [DSIM] dsim_probe dsim1+
-[   7.699868] [I] [DSIM] using data lane count(4)
-[   7.699938] [E] [DSIM] dsim1 wait phy pll stable
-[   7.750690] [E] [DSIM] timeout!! wait for DSIM interrupt (0x40300004)
-[   7.750738] [E] [DSIM] MIPI DSIM (id=6) read Timeout! 0x4
-[   7.750777] [E] [DSIM] dsim fail to get panel operation
-[   7.750853] [E] [DSIM] dsim has error.
-[   7.750882] [E] [DSIM] dsim_probe -: dsim1 probe failed.
-[   7.750921] [I] [DSIM] dsim1 probe was failed
-[   7.750954] [I] [DSIM] dsim_init -: set dsim0 driver as primary.
-[   7.767183] [E] [DSIM] dsim0 wait phy pll stable
-[   7.781294] [E] [RIPCURRENTPRO] [   8.674721] [I] [DSS] -------------------- DSS LOGS START --------------------
+[   7.619724] [I] [FUSE] LCS state:PRODUCTION
+[   7.619939] [I] [RIPCURRENTPRO] saving ddr training data
+[   7.621142] [I] [FFU] no valid file
+[TMU:0] 50
+[TMU:1] 48
+[   7.658721] [I] [DSIM] dsim_probe dsim0+
+[   7.658762] [I] [DSIM] using data lane count(4)
+[   7.675633] [E] [DSIM] dsim0 wait phy pll stable
+[   7.692798] [I] [DPU] Succeeded to read panel product id : 0x3500a040
+[   7.692855] [E] [DPU] is_compatible is not defined!
+[   7.692899] [I] [DPU] panel_rev: 0x1000
+[   7.693034] [I] [DSIM] use panel google-staea for dsim0
+[   7.693074] [I] [DSIM] dsim_probe -: dsim0 driver(cmd mode) has been probed.
+[   7.693126] [I] [DSIM] dsim_probe dsim1+
+[   7.693162] [I] [DSIM] using data lane count(4)
+[   7.693232] [E] [DSIM] dsim1 wait phy pll stable
+[   7.743965] [E] [DSIM] timeout!! wait for DSIM interrupt (0x40300004)
+[   7.744012] [E] [DSIM] MIPI DSIM (id=6) read Timeout! 0x4
+[   7.744052] [E] [DSIM] dsim fail to get panel operation
+[   7.744128] [E] [DSIM] dsim has error.
+[   7.744157] [E] [DSIM] dsim_probe -: dsim1 probe failed.
+[   7.744196] [I] [DSIM] dsim1 probe was failed
+[   7.744229] [I] [DSIM] dsim_init -: set dsim0 driver as primary.
+[   7.760457] [E] [DSIM] dsim0 wait phy pll stable
+[   7.774567] [E] [RIPCURRENTPRO] [   8.690502] [I] [DSS] -------------------- DSS LOGS START --------------------
 [PRE] reset message: APC Watchdog Early
 [PRE] RST_STAT: 0x1 - CLUSTER0_NONCPU_WDTRESET
 [PRE] GSA_RESET_STATUS: 0x10 - GSA_INTERMEDIATE_RESET
 [PRE] Reboot reason: 0xcbea - APC Watchdog Early
 [PRE] Reboot mode: 0x0 - Normal Boot
-[   8.677123] [DSS] APC Breadcrumbs(v2.4):
+[   8.692900] [DSS] APC Breadcrumbs(v2.4):
  stages(S): 0000404F / 00004030
   flags(S): 000022C0 / 000022C0
 stages(NS): 00005004 / 00005004
@@ -561,25 +562,25 @@ stages(NS): 00005004 / 00005004
     device: 00000001 / 00000001
    tmutrip: 00000000 / 00000000
      reset: 00180000 / 00000001
-[   8.679197] [E] [DBGC] GSA Breadcrumb:
+[   8.694977] [E] [DBGC] GSA Breadcrumb:
 00000000 fffd000d 00000000 00000000  |................|
 00000000 00000000 00000010           |............    |
-[   8.680901] [I] [DBGC] ACPM GPR DUMP - NOT AVAILABLE
-STATES_MIF|TOP - 0x27db9951 | 0x3def0f72
+[   8.696684] [I] [DBGC] ACPM GPR DUMP - NOT AVAILABLE
+STATES_MIF|TOP - 0x27fb9951 | 0x3cef0f70
 
-          pd-apm - 0xea8e0980	          pd-cmu - 0xca65926d	       pd-cpucl0 - 0xb35f0313	       pd-cpucl1 - 0xc860e57c	
-       pd-cpucl2 - 0xefff440e	          pd-g3d - 0xa149b2fe	pd-embedded_cpucl0 - 0x3c0862c0	pd-embedded_cpucl1 - 0x95bfce	
-pd-embedded_cpucl2 - 0xe5cc1725	 pd-embedded_g3d - 0x4254dbbe	         pd-dpub - 0x30131944	        pd-dpuf0 - 0x9a806c2d	
-        pd-dpuf1 - 0xddc7c172	          pd-g2d - 0x9130f20d	          pd-gdc - 0x21ff0a02	          pd-gse - 0x676fedb	
-         pd-mcsc - 0x3e96e38a	          pd-mfc - 0x140b937f	         pd-rgbp - 0x2feb5835	          pd-tnr - 0x44f4f374	
-         pd-yuvp - 0x53ff2408	          pd-aoc - 0x4400de6b	          pd-aur - 0xe1b3ac58	           pd-bw - 0x6148fb15	
-           pd-eh - 0x8df054ec	        pd-ispfe - 0x4634799f	          pd-tpu - 0x7ef8035c	         pd-mif0 - 0xa0808a6f	
-         pd-mif1 - 0xf3953087	         pd-mif2 - 0x2080b4f6	         pd-mif3 - 0xaec60270	         pd-misc - 0x506ae88f	
-        pd-nocl0 - 0xf1d1005c	       pd-nocl1a - 0x5681fc7	       pd-nocl1b - 0x8e67a873	      pd-nocl2aa - 0x2912ff0	
-      pd-nocl2ab - 0x75432529	         pd-hsi0 - 0xb1f2d3ce	         pd-hsi1 - 0xceca4f1b	         pd-hsi2 - 0x2686bf3f	
-       pd-peric0 - 0xf9b74a63	       pd-peric1 - 0x2c2a74f3	          pd-s2d - 0xcdbf4028	
+          pd-apm - 0xea9e2ba0	          pd-cmu - 0xea25922d	       pd-cpucl0 - 0xb75f0713	       pd-cpucl1 - 0xa0a0e57f	
+       pd-cpucl2 - 0xefff440e	          pd-g3d - 0xa10bb27e	pd-embedded_cpucl0 - 0x3c9862c0	pd-embedded_cpucl1 - 0x4097bfce	
+pd-embedded_cpucl2 - 0xedcd0f27	 pd-embedded_g3d - 0x4214d3fe	         pd-dpub - 0x301209c4	        pd-dpuf0 - 0x9b80682d	
+        pd-dpuf1 - 0x9de7c172	          pd-g2d - 0x9130db0d	          pd-gdc - 0x216d0a0a	          pd-gse - 0x476fed3	
+         pd-mcsc - 0x3e96e38a	          pd-mfc - 0x1c1a937f	         pd-rgbp - 0x2fabf835	          pd-tnr - 0x44f4f17d	
+         pd-yuvp - 0x53ff3408	          pd-aoc - 0x44008e6b	          pd-aur - 0xe1f3bc50	           pd-bw - 0x6148fa15	
+           pd-eh - 0xadc854e4	        pd-ispfe - 0x463470b7	          pd-tpu - 0x7ed8015c	         pd-mif0 - 0xa0008a6f	
+         pd-mif1 - 0xd3f5348f	         pd-mif2 - 0x2088b4f6	         pd-mif3 - 0xaac60274	         pd-misc - 0x506ae88f	
+        pd-nocl0 - 0xf1d380fc	       pd-nocl1a - 0x76c3fc7	       pd-nocl1b - 0xad67a853	      pd-nocl2aa - 0x2913be0	
+      pd-nocl2ab - 0x75432529	         pd-hsi0 - 0xb17293ce	         pd-hsi1 - 0xc6cecb0b	         pd-hsi2 - 0x2686ba3f	
+       pd-peric0 - 0xf9b74e63	       pd-peric1 - 0x3c2a74f3	          pd-s2d - 0xddbf4028	
 
-[UP] CUR_SEQ0 - 457009109
+[UP] CUR_SEQ0 - 457890028
 [DOWN] CUR_SEQ0 - DONE
 APSOC_CNT - 86837
 APSOC|MIF_CNT_SLEEP- 96861 | 29081
@@ -587,109 +588,109 @@ APSOC|MIF_CNT_SICD - 0 | 909456689
 CURR_POWERMODE - 825243186
 CPU_STAT - cpu0:on, cpu1:off, cpu2:off, cpu3:off, cpu4:on, cpu5:off, cpu6:off, cpu7:off
 SEQ_STAT - APSOC_SEQ_down, MIF_SEQ_down, CL0_off, CL1_off, CL2_off
-[UP] CUR_SEQ0 - 457009109
+[UP] CUR_SEQ0 - 457890028
 [DOWN] CUR_SEQ0 - DONE
-access_type: CUR_SEQ1 - 923151643, index: 0
+access_type: CUR_SEQ1 - 924048897, index: 0
 hotplug_flag - cpu0:out, cpu1:in, cpu2:out, cpu3:in, cpu4:out, cpu5:in, cpu6:out, cpu7:in, 
 MIF REF_COUNT:0
 MIF REQ_MASTER - 
 CURR_POWERMODE - 825243186
-[   8.697353] [DSS] Core stat at previous(KERNEL)
-[   8.697771] [DSS] Core0: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.698306] [DSS] Core1: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.698839] [DSS] Core2: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.699374] [DSS] Core3: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.699909] [DSS] Core4: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.700444] [DSS] Core5: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.700999] [DSS] Core6: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.701537] [DSS] Core7: Power/Emergency Reset: 0x0 (No Lockup)
-[   8.702073] [I] [DSS] ***** S2D Info Block ********************************************************
-[   8.703022] [I] [DSS] S2D Magic didn't detect - s2d validity check failed!
-[   8.703613] [I] [DSS] Additional information:
-[   8.704101] [I] [DSS]    S2D status: Not triggered
-[   8.704543] [I] [DSS] *****************************************************************************
-[   8.705295] [I] [DSS] Core reg status and PC:
-[   8.705691] [I] [DSS]        /- Power state  - +:On -:Off
-[   8.706170] [I] [DSS]        |/- Recorded by - P:panic A:arraydump S:s2d _:none
-[   8.706792] [I] [DSS]        ||/- IRQ        - O:enabled X:disabled _:n/a
-[   8.707378] [I] [DSS]        |||/- FIQ       - O:enabled X:disabled _:n/a
-[   8.707957] [I] [DSS] core#  ||||
-[   8.708304] [I] [DSS]   0    -___ PC=0x0000000000000000 ESR_EL1=0x00000000 EL0
-[   8.709137] [I] [DSS]   1    -___ PC=0x0000000000000000 ESR_EL1=0x56000000 EL0
-[   8.709938] [I] [DSS]   2    -___ PC=0x0000000000000000 ESR_EL1=0xf6556fcf EL0
-[   8.710739] [I] [DSS]   3    -___ PC=0x0000000000000000 ESR_EL1=0x647e4bfe EL0
-[   8.711535] [I] [DSS]   4    -___ PC=0x0000000000000000 ESR_EL1=0x1e1c7a91 EL0
-[   8.712331] [I] [DSS]   5    -___ PC=0x0000000000000000 ESR_EL1=0xf97dde97 EL0
-[   8.713127] [I] [DSS]   6    -___ PC=0x0000000000000000 ESR_EL1=0x4000000bfb5fea5 EL0
-[   8.713969] [I] [DSS]   7    -___ PC=0x0000000000000000 ESR_EL1=0x14226c80 EL0
-[   8.714790] [LNXDBG] PCSR iteration magic is invalid: 000000
-[   8.715354] [I] [DSS] Watchdog or Long Press Power Key Detected.
-[   8.715880] [I] [DSS] Core[0]: Initial policy - cache flush level 0
-[   8.716451] [I] [DSS] Core[1]: Initial policy - cache flush level 0
-[   8.717025] [I] [DSS] Core[2]: Initial policy - cache flush level 0
-[   8.717597] [I] [DSS] Core[3]: Initial policy - cache flush level 0
-[   8.718169] [I] [DSS] Core[4]: Initial policy - cache flush level 0
-[   8.718742] [I] [DSS] Core[5]: Initial policy - cache flush level 0
-[   8.719313] [I] [DSS] Core[6]: Initial policy - cache flush level 0
-[   8.719882] [I] [DSS] Core[7]: Initial policy - cache flush level 0
-[   8.720452] [I] [DSS] Core[0]: Cache flush level changed => 3
-[   8.721297] [I] [DSS] try to get arraydump for cores 0x1
-[   8.721897] [I] [DSS] Array dump response 0x0
-[   8.732468] [E] [DSIM] dsim0 wait phy pll stable
-[   8.750188] [I] [DPU] Succeeded to read panel product id : 0x3500a040
-[   8.750662] [E] [DPU] is_compatible is not defined!
-[   8.751069] [I] [DPU] panel_rev: 0x1000
-[   8.751700] [I] [DSIM] use panel google-staea for dsim0
-[   8.752108] [I] [DSIM] dsim_probe -: dsim0 driver(cmd mode) has been probed.
-[   8.752645] [I] [DSIM] dsim_probe dsim1+
-[   8.753000] [I] [DSIM] using data lane count(4)
-[   8.753532] [E] [DSIM] dsim1 wait phy pll stable
-[   8.804308] [E] [DSIM] timeout!! wait for DSIM interrupt (0x40300004)
-[   8.804872] [E] [DSIM] MIPI DSIM (id=6) read Timeout! 0x4
-[   8.805370] [E] [DSIM] dsim fail to get panel operation
-[   8.805914] [E] [DSIM] dsim has error.
-[   8.806217] [E] [DSIM] dsim_probe -: dsim1 probe failed.
-[   8.806627] [I] [DSIM] dsim1 probe was failed
-[   8.806966] [I] [DSIM] dsim_init -: set dsim0 driver as primary.
-[   8.823959] [E] [DSIM] dsim0 wait phy pll stable
-[   8.839580] [I] [DPP] dpp_probe +
-[   8.839916] [I] [DPP] dpp-0's attr is (0x004d0047)
-[   8.840381] [I] [DPP] dpp(0) init resources.
-[   8.840814] [I] [DPP] dpp_probe -: dpp0 is probed successfully
-[   8.841373] [I] [DECON] decon-int: max win6, command mode, hw trigger
-[   8.841977] [I] [DECON] single dsi mode
-[   8.842364] [I] [decon0] d_path(0xB1) DSCC DSC_ENC1 DSC_ENC0 OFIFO.0
-[   8.843009] [I] [decon0] sel(0x0) OFIFO.0 - dsim0 - google-staea
-[   8.843479] [I] [DECON] Display 1st window(5) xres(1080) yres(2424) win_start_pos(0) win_end_pos(9770437)
-[   8.856524] [I] [TCPM] port connected
-[   8.987640] [I] [DECON] decon0 registered successfully
-[   9.702627] [E] Discarding ramdump file gsa_sram_key.lst flag 0
-[   9.703182] [E] [GSA] fail to add gsa_sram_key.lst to ramdump sub-file, -8
-[   9.704034] [E] [BL31] Invalid bl31 log reserved region: bypass
+[   8.713158] [DSS] Core stat at previous(KERNEL)
+[   8.713579] [DSS] Core0: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.714116] [DSS] Core1: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.714652] [DSS] Core2: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.715185] [DSS] Core3: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.715746] [DSS] Core4: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.716281] [DSS] Core5: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.716815] [DSS] Core6: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.717352] [DSS] Core7: Power/Emergency Reset: 0x0 (No Lockup)
+[   8.717887] [I] [DSS] ***** S2D Info Block ********************************************************
+[   8.718835] [I] [DSS] S2D Magic didn't detect - s2d validity check failed!
+[   8.719426] [I] [DSS] Additional information:
+[   8.719914] [I] [DSS]    S2D status: Not triggered
+[   8.720356] [I] [DSS] *****************************************************************************
+[   8.721109] [I] [DSS] Core reg status and PC:
+[   8.721504] [I] [DSS]        /- Power state  - +:On -:Off
+[   8.721983] [I] [DSS]        |/- Recorded by - P:panic A:arraydump S:s2d _:none
+[   8.722605] [I] [DSS]        ||/- IRQ        - O:enabled X:disabled _:n/a
+[   8.723190] [I] [DSS]        |||/- FIQ       - O:enabled X:disabled _:n/a
+[   8.723767] [I] [DSS] core#  ||||
+[   8.724111] [I] [DSS]   0    -___ PC=0x0000000000000000 ESR_EL1=0x00000000 EL0
+[   8.724946] [I] [DSS]   1    -___ PC=0x0000000000000000 ESR_EL1=0x0555dc45 EL0
+[   8.725755] [I] [DSS]   2    -___ PC=0x0000000000000000 ESR_EL1=0xd6d7efcf EL0
+[   8.726557] [I] [DSS]   3    -___ PC=0x0000000000000000 ESR_EL1=0x54000000 EL0
+[   8.727357] [I] [DSS]   4    -___ PC=0x0000000000000000 ESR_EL1=0x1e1e6ab1 EL0
+[   8.728156] [I] [DSS]   5    -___ PC=0x0000000000000000 ESR_EL1=0xf97dde97 EL0
+[   8.728956] [I] [DSS]   6    -___ PC=0x0000000000000000 ESR_EL1=0x4000000bfb5fea5 EL0
+[   8.729799] [I] [DSS]   7    -___ PC=0x0000000000000000 ESR_EL1=0x1c626e80 EL0
+[   8.730621] [LNXDBG] PCSR iteration magic is invalid: 000000
+[   8.731184] [I] [DSS] Watchdog or Long Press Power Key Detected.
+[   8.731710] [I] [DSS] Core[0]: Initial policy - cache flush level 0
+[   8.732282] [I] [DSS] Core[1]: Initial policy - cache flush level 0
+[   8.732855] [I] [DSS] Core[2]: Initial policy - cache flush level 0
+[   8.733427] [I] [DSS] Core[3]: Initial policy - cache flush level 0
+[   8.734001] [I] [DSS] Core[4]: Initial policy - cache flush level 0
+[   8.734573] [I] [DSS] Core[5]: Initial policy - cache flush level 0
+[   8.735144] [I] [DSS] Core[6]: Initial policy - cache flush level 0
+[   8.735714] [I] [DSS] Core[7]: Initial policy - cache flush level 0
+[   8.736284] [I] [DSS] Core[0]: Cache flush level changed => 3
+[   8.737134] [I] [DSS] try to get arraydump for cores 0x1
+[   8.737736] [I] [DSS] Array dump response 0x0
+[   8.748307] [E] [DSIM] dsim0 wait phy pll stable
+[   8.766023] [I] [DPU] Succeeded to read panel product id : 0x3500a040
+[   8.766497] [E] [DPU] is_compatible is not defined!
+[   8.766905] [I] [DPU] panel_rev: 0x1000
+[   8.767535] [I] [DSIM] use panel google-staea for dsim0
+[   8.767943] [I] [DSIM] dsim_probe -: dsim0 driver(cmd mode) has been probed.
+[   8.768484] [I] [DSIM] dsim_probe dsim1+
+[   8.768837] [I] [DSIM] using data lane count(4)
+[   8.769370] [E] [DSIM] dsim1 wait phy pll stable
+[   8.820140] [E] [DSIM] timeout!! wait for DSIM interrupt (0x40300004)
+[   8.820704] [E] [DSIM] MIPI DSIM (id=6) read Timeout! 0x4
+[   8.821201] [E] [DSIM] dsim fail to get panel operation
+[   8.821747] [E] [DSIM] dsim has error.
+[   8.822050] [E] [DSIM] dsim_probe -: dsim1 probe failed.
+[   8.822463] [I] [DSIM] dsim1 probe was failed
+[   8.822802] [I] [DSIM] dsim_init -: set dsim0 driver as primary.
+[   8.839800] [E] [DSIM] dsim0 wait phy pll stable
+[   8.855419] [I] [DPP] dpp_probe +
+[   8.855756] [I] [DPP] dpp-0's attr is (0x004d0047)
+[   8.856221] [I] [DPP] dpp(0) init resources.
+[   8.856654] [I] [DPP] dpp_probe -: dpp0 is probed successfully
+[   8.857216] [I] [DECON] decon-int: max win6, command mode, hw trigger
+[   8.857823] [I] [DECON] single dsi mode
+[   8.858213] [I] [decon0] d_path(0xB1) DSCC DSC_ENC1 DSC_ENC0 OFIFO.0
+[   8.858858] [I] [decon0] sel(0x0) OFIFO.0 - dsim0 - google-staea
+[   8.859328] [I] [DECON] Display 1st window(5) xres(1080) yres(2424) win_start_pos(0) win_end_pos(9770437)
+[   8.871369] [I] [TCPM] port connected
+[   9.003591] [I] [DECON] decon0 registered successfully
+[   9.717397] [E] Discarding ramdump file gsa_sram_key.lst flag 0
+[   9.717953] [E] [GSA] fail to add gsa_sram_key.lst to ramdump sub-file, -8
+[   9.718806] [E] [BL31] Invalid bl31 log reserved region: bypass
 
-[   9.704539] [E] [PBLLOG] Invalid pbl log reserved region: bypass
+[   9.719311] [E] [PBLLOG] Invalid pbl log reserved region: bypass
 
-[   9.705069] [DSS] PSCI Breadcrumbs(v2.0):
-[   9.705472] [DSS] Core0: 00000000 / 00000000
-[   9.705989] [DSS] Core1: 00000000 / 00000000
-[   9.706505] [DSS] Core2: 00000000 / 00000000
-[   9.707020] [DSS] Core3: 00000000 / 00000000
-[   9.707535] [DSS] Core4: 00000000 / 00000000
-[   9.708047] [DSS] Core5: 00000000 / 00000000
-[   9.708561] [DSS] Core6: 00000000 / 00000000
-[   9.709073] [DSS] Core7: 00000000 / 00000000
-[   9.709588] [LNXDBG] WDT FIQ info:
-[   9.709871] [LNXDBG] core# type    raw-magic   elr
-[   9.710226] [LNXDBG]     0-7   N/A
-[   9.710536] [I] [DSS] linux debug info is not valid
-[   9.710981] [E] [LNXDBG] cdd_param is out of boundary
-[   9.711362] [I] [DSS] Last AVB: avb_ret=ERROR_VERIFICATION
-[   9.711877] [I] [DSS] Last AVB: avb_veritymode=enforcing
-[   9.712409] [I] [DSS] Last AVB: avb_error_parts=boot,init_boot
-[   9.713493] [I] [LNXDBG] build info set by ABL google/stallion/stallion:16/CP1A.260505.005/15081906:user/release-keys
+[   9.719841] [DSS] PSCI Breadcrumbs(v2.0):
+[   9.720247] [DSS] Core0: 00000000 / 00000000
+[   9.720763] [DSS] Core1: 00000000 / 00000000
+[   9.721279] [DSS] Core2: 00000000 / 00000000
+[   9.721794] [DSS] Core3: 00000000 / 00000000
+[   9.722306] [DSS] Core4: 00000000 / 00000000
+[   9.722819] [DSS] Core5: 00000000 / 00000000
+[   9.723331] [DSS] Core6: 00000000 / 00000000
+[   9.723843] [DSS] Core7: 00000000 / 00000000
+[   9.724357] [LNXDBG] WDT FIQ info:
+[   9.724640] [LNXDBG] core# type    raw-magic   elr
+[   9.724996] [LNXDBG]     0-7   N/A
+[   9.725306] [I] [DSS] linux debug info is not valid
+[   9.725752] [E] [LNXDBG] cdd_param is out of boundary
+[   9.726131] [I] [DSS] Last AVB: avb_ret=ERROR_VERIFICATION
+[   9.726646] [I] [DSS] Last AVB: avb_veritymode=enforcing
+[   9.727180] [I] [DSS] Last AVB: avb_error_parts=boot,init_boot
+[   9.728266] [I] [LNXDBG] build info set by ABL google/stallion/stallion:16/CP1A.260505.005/15081906:user/release-keys
 RAMDUMP_MSG.txt:
   reset message: APC Watchdog Early
-  UUID: 6f5c8660-8edc-bb44-9754-649b9e4af1ad
+  UUID: df76e520-8196-cf4a-a91b-f597c532b45d
   last kernel version: N/A
   aosp kernel version: N/A
   build: google/stallion/stallion:16/CP1A.260505.005/15081906:user/release-keys
@@ -697,89 +698,89 @@ RAMDUMP_MSG.txt:
   GSA_RESET_STATUS: 0x10 - GSA_INTERMEDIATE_RESET
   Reboot reason: 0xcbea - APC Watchdog Early
   Reboot mode: 0x0 - Normal Boot
-[   9.717341] [I] [DSS] -------------------- DSS LOGS END --------------------
+[   9.732111] [I] [DSS] -------------------- DSS LOGS END --------------------
 
 Reboot Info:
   RST_STAT: 0x180000 - PIN_RESET | PO_RESET
   GSA_RESET_STATUS: 0x1 - GSA_PINRESET
   Reboot reason: 0xcafe - User Reboot(S/W Reboot)
   Reboot mode: 0x0 - Normal Boot
-[   7.806532] [E] [EUSB] failed to get eUSB revision -62
-[   7.806577] [I] [FB] Set EUSB Ref clock auto
-[   7.806655] [I] [DPP] dpp_probe +
-[   7.806690] [I] [DPP] dpp-0's attr is (0x004d0047)
-[   7.806730] [I] [DPP] dpp(0) init resources.
-[   7.806798] [I] [DPP] dpp_probe -: dpp0 is probed successfully
-[   7.806852] [I] [DECON] decon-int: max win6, command mode, hw trigger
-[   7.806909] [I] [DECON] single dsi mode
-[   7.806951] [I] [decon0] d_path(0xB1) DSCC DSC_ENC1 DSC_ENC0 OFIFO.0
-[   7.807069] [I] [decon0] sel(0x0) OFIFO.0 - dsim0 - google-staea
-[   7.807116] [I] [DECON] Display 1st window(5) xres(1080) yres(2424) win_start_pos(0) win_end_pos(9770437)
-[   7.807369] [I] LK build date: Jan 28 2026, time: 07:11:15
-[   7.807416] [I] BL version: stallion-16.4-14791556
-[   7.807452] [I] BL type: official build
+[   7.799535] [E] [EUSB] failed to get eUSB revision -62
+[   7.799580] [I] [FB] Set EUSB Ref clock auto
+[   7.799654] [I] [DPP] dpp_probe +
+[   7.799688] [I] [DPP] dpp-0's attr is (0x004d0047)
+[   7.799731] [I] [DPP] dpp(0) init resources.
+[   7.799795] [I] [DPP] dpp_probe -: dpp0 is probed successfully
+[   7.799851] [I] [DECON] decon-int: max win6, command mode, hw trigger
+[   7.799906] [I] [DECON] single dsi mode
+[   7.799947] [I] [decon0] d_path(0xB1) DSCC DSC_ENC1 DSC_ENC0 OFIFO.0
+[   7.800064] [I] [decon0] sel(0x0) OFIFO.0 - dsim0 - google-staea
+[   7.800110] [I] [DECON] Display 1st window(5) xres(1080) yres(2424) win_start_pos(0) win_end_pos(9770437)
+[   7.800362] [I] LK build date: Jan 28 2026, time: 07:11:15
+[   7.800405] [I] BL version: stallion-16.4-14791556
+[   7.800441] [I] BL type: official build
 starting app pixel_loader
-[   7.807893] [I] [PXL] sota: empty signature.
-[   7.807930] [I] [PXL] ABL start time (METRICS_BL3): 7575ms
-[   7.807974] [I] [PXL] AB Decision: decrement active slot boot retry
-[   7.808029] [I] [PXL] AB Decisions: 11111221
-[   7.808271] [I] [MAX77759] TCPC BC1.2, type: 2 val:2
-[   7.808490] [I] [PXL] boot voltage threshold=3400mV
-[   7.808682] [I] [PXL] bootloader message:
-[   7.809019] [I] [MAX77759] TCPC BC1.2, type: 2 val:2
-[   7.809216] [I] [PXL] boot voltage threshold=3400mV
-[   7.821493] [I] [TCPM] port connected
+[   7.800877] [I] [PXL] sota: empty signature.
+[   7.800915] [I] [PXL] ABL start time (METRICS_BL3): 7569ms
+[   7.800958] [I] [PXL] AB Decision: decrement active slot boot retry
+[   7.801008] [I] [PXL] AB Decisions: 11111221
+[   7.801248] [I] [MAX77759] TCPC BC1.2, type: 2 val:2
+[   7.801471] [I] [PXL] boot voltage threshold=3400mV
+[   7.801662] [I] [PXL] bootloader message:
+[   7.802001] [I] [MAX77759] TCPC BC1.2, type: 2 val:2
+[   7.802198] [I] [PXL] boot voltage threshold=3400mV
+[   7.815488] [I] [TCPM] port connected
 avb_slot_verify.c:443: ERROR: init_boot_a: Hash of data does not match digest in descriptor.
-[   7.950095] [I] [DECON] decon0 registered successfully
-[   7.950963] [I] [AVB] boot_state: 160000:20260505:20260505
+[   7.943122] [I] [DECON] decon0 registered successfully
+[   7.943993] [I] [AVB] boot_state: 160000:20260505:20260505
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   7.952410] [I] [AND] using init_boot ramdisk
-[   7.952447] [I] [AND] using vendor_kernel_boot ramdisk
-[   7.952527] [I] [AND] kernel: addr:0xffff0000a0011000, size:fcf51a
-[   7.989882] [I] [AND] kernel: total_time:37
-[   7.989948] [I] [AND] vendor kernel ramdisk copy
-[   7.989985] [I] [AND] ramdisk dst addr: 0xffff000086000000 src addr: 0xffff0000a9931000 size: 0x64f20b(6615563)
-[   7.990066] [I] [AND] padding prepended: 0
-[   7.991356] [I] [AND] vendor ramdisk copy
-[   7.991389] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
-[   7.991467] [I] [AND] padding prepended: 5
-[   7.998733] [I] [AND] ramdisk copy
-[   7.998763] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
-[   7.998838] [I] [AND] padding prepended: 6
-[   7.999314] [I] [AND] Ramdisk load size with padding: 49063043
-[   7.999380] [I] [DTBO] rev: 09875.00.00
-[   7.999420] [I] [DTBO] rev: 09875.00.00
-[   7.999459] [I] [DTBO] rev: 09875.00.00
-[   7.999492] [I] [DTBO] rev: 09875.00.01
-[   7.999532] [I] [DTBO] rev: 09875.00.00
-[   7.999565] [I] [DTBO] rev: 09875.00.01
-[   7.999595] [I] [DTBO] SOC DTB: index:3
-[   7.999635] [I] [DTBO] DTBO match: id 0x61306, rev 0x10000
-[   8.014430] [I] [AND] dpm not merged
-[   8.015924] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
-[   8.026491] [I] [AND] bootmode:
-[   8.026539] [I] [AND] DDR size: 8GiB
-[   8.026567] [I] [AND] DDR Manufacturer: Hynix
-[   8.026734] [I] [AND] ro.misctrl.16kb_before=0
-[   8.026784] [I] [AND] console is disabled
-[   8.026930] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
-[   8.026992] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
-[   8.030083] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
+[   7.945511] [I] [AND] using init_boot ramdisk
+[   7.945548] [I] [AND] using vendor_kernel_boot ramdisk
+[   7.945628] [I] [AND] kernel: addr:0xffff0000a0011000, size:fcf51a
+[   7.983021] [I] [AND] kernel: total_time:37
+[   7.983087] [I] [AND] vendor kernel ramdisk copy
+[   7.983124] [I] [AND] ramdisk dst addr: 0xffff000086000000 src addr: 0xffff0000a9931000 size: 0x64f20b(6615563)
+[   7.983202] [I] [AND] padding prepended: 0
+[   7.984497] [I] [AND] vendor ramdisk copy
+[   7.984529] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
+[   7.984609] [I] [AND] padding prepended: 5
+[   7.991886] [I] [AND] ramdisk copy
+[   7.991918] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
+[   7.991991] [I] [AND] padding prepended: 6
+[   7.992471] [I] [AND] Ramdisk load size with padding: 49063043
+[   7.992531] [I] [DTBO] rev: 09875.00.00
+[   7.992572] [I] [DTBO] rev: 09875.00.00
+[   7.992612] [I] [DTBO] rev: 09875.00.00
+[   7.992645] [I] [DTBO] rev: 09875.00.01
+[   7.992684] [I] [DTBO] rev: 09875.00.00
+[   7.992717] [I] [DTBO] rev: 09875.00.01
+[   7.992748] [I] [DTBO] SOC DTB: index:3
+[   7.992786] [I] [DTBO] DTBO match: id 0x61306, rev 0x10000
+[   8.007488] [I] [AND] dpm not merged
+[   8.008987] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
+[   8.019709] [I] [AND] bootmode:
+[   8.019756] [I] [AND] DDR size: 8GiB
+[   8.019784] [I] [AND] DDR Manufacturer: Hynix
+[   8.019959] [I] [AND] ro.misctrl.16kb_before=0
+[   8.020004] [I] [AND] console is disabled
+[   8.020155] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
+[   8.020219] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
+[   8.023030] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   8.041586] [I] [FDT] device: /reserved-memory/debug_snapshot/log_s2d path not found (-1)
-[   8.041727] [I] [FDT] device: /reserved-memory/debug_snapshot/log_array_reset path not found (-1)
-[   8.041886] [I] [FDT] device: /reserved-memory/debug_snapshot/log_kevents path not found (-1)
-[   8.042032] [I] [FDT] device: /reserved-memory/debug_snapshot/log_itmon path not found (-1)
-[   8.042168] [I] [FDT] device: /reserved-memory/debug_snapshot/log_s2d_extract path not found (-1)
-[   8.043238] [I] [FDT] device: /google,mitigation enabled ret=0
-[   8.056943] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
-[   8.057005] [I] [DPU] panel settings after overriding: google-staea.3500a040@dsim0 null@dsim1
-[   8.072368] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
-[   8.111069] [E] [AVB] avb_property(com.android.build.microdroid-vendor.root_digest): not found
-[   8.111136] [W] [PKVM_PVMFW] failed to get microdroid vendor hashtree digest from avb property, skip appending value
+[   8.034548] [I] [FDT] device: /reserved-memory/debug_snapshot/log_s2d path not found (-1)
+[   8.034696] [I] [FDT] device: /reserved-memory/debug_snapshot/log_array_reset path not found (-1)
+[   8.034855] [I] [FDT] device: /reserved-memory/debug_snapshot/log_kevents path not found (-1)
+[   8.034992] [I] [FDT] device: /reserved-memory/debug_snapshot/log_itmon path not found (-1)
+[   8.035147] [I] [FDT] device: /reserved-memory/debug_snapshot/log_s2d_extract path not found (-1)
+[   8.036201] [I] [FDT] device: /google,mitigation enabled ret=0
+[   8.049705] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
+[   8.049769] [I] [DPU] panel settings after overriding: google-staea.3500a040@dsim0 null@dsim1
+[   8.065081] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
+[   8.103751] [E] [AVB] avb_property(com.android.build.microdroid-vendor.root_digest): not found
+[   8.103819] [W] [PKVM_PVMFW] failed to get microdroid vendor hashtree digest from avb property, skip appending value
 trusty_dev_common.c: INFO selected trusty api version: 3 (requested 3)
-[   8.112464] [W] [PKVM_PVMFW] no avf debug policy, because dpm is NULL
-[  18.172658] [I] [A/B] slot data a: 0x00001c02
-[  18.172693] [I] [A/B] slot data b: 0x00001803
-[  18.615226] [I] [UFS] shutdown complete
-[  18.615418] [E] [PSTORE] unable to get a real pram. create a dummy pram buffer
+[   8.105192] [W] [PKVM_PVMFW] no avf debug policy, because dpm is NULL
+[  18.168547] [I] [A/B] slot data a: 0x00001c02
+[  18.168583] [I] [A/B] slot data b: 0x00001803
+[  18.608118] [I] [UFS] shutdown complete
+[  18.608329] [E] [PSTORE] unable to get a real pram. create a dummy pram buffer

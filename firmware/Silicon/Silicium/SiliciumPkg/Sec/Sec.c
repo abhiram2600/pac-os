@@ -538,6 +538,91 @@ PacProbePointerAuth (VOID)
   PacTrace ("pac: key register access clean");
 }
 
+
+/**
+  Leave EL2 and run the rest of the firmware at EL1.
+
+  The bootloader hands control over at EL2. The kernel loader refuses to
+  start a kernel unless it is called at EL1, and Apple's kernel expects to
+  run there, so the firmware has to move down before either can happen.
+
+  This is done here, early, for two reasons. The memory management unit is
+  still off, so there is no translation to rebuild for the new level. And
+  the watchdog is already armed, so if any of this is wrong the phone resets
+  itself rather than hanging with no way back.
+
+  The rest of the firmware needs no changes: its ARM library already chooses
+  between the EL1 and EL2 registers at run time, in more than twenty places.
+
+  What has to be set up before the jump:
+
+    EL1 runs 64-bit code, rather than the 32-bit default
+    EL1 may read the counter and use the timers
+    the virtual counter has no offset from the physical one
+    EL1 may use floating point, which the compiler assumes
+    EL1 may use the pointer authentication keys, which macOS requires
+    EL1's control register holds a defined value with translation off
+    EL1's stack pointer continues on the stack already in use
+    interrupts and aborts are delivered to EL1 rather than EL2
+
+  That last one matters more than it looks. The firmware's own startup
+  routes interrupts and aborts to EL2, which is right while it runs there
+  and wrong the moment it does not: the first timer interrupt after the
+  drop would be delivered to a level that is no longer handling anything,
+  and the firmware stops dead with no error. The same applies to the two
+  bits that describe EL2 as the host.
+
+  The jump itself returns to the next instruction with the processor's
+  state set to EL1 with interrupts masked, which is what the saved program
+  status describes.
+**/
+STATIC
+VOID
+__attribute__ ((noinline))
+PacDropToEl1 (VOID)
+{
+  UINT64  CurrentEl;
+
+  __asm__ volatile ("mrs %0, CurrentEL" : "=r" (CurrentEl));
+
+  if (((CurrentEl >> 2) & 3) != 2) {
+    PacTrace ("el: not at EL2, nothing to drop");
+    return;
+  }
+
+  __asm__ volatile (
+    "mrs  x0, hcr_el2               \n"
+    "orr  x0, x0, #(1 << 31)        \n"   /* EL1 is AArch64            */
+    "movz x1, #0x0300, lsl #32      \n"   /* EL1 may use the pointer   */
+    "orr  x0, x0, x1                \n"   /* authentication keys and   */
+    "bic  x0, x0, #(1 << 3)         \n"   /* instructions.             */
+    "bic  x0, x0, #(1 << 4)         \n"   /* Interrupts and aborts go  */
+    "bic  x0, x0, #(1 << 5)         \n"   /* to EL1, not EL2, now that */
+    "bic  x0, x0, #(1 << 27)        \n"   /* the firmware runs there,  */
+    "bic  x0, x0, #(1 << 34)        \n"   /* and EL2 is no longer the  */
+    "msr  hcr_el2, x0               \n"   /* host.                     */
+    "mrs  x0, cnthctl_el2           \n"
+    "orr  x0, x0, #3                \n"   /* EL1 may use the timers    */
+    "msr  cnthctl_el2, x0           \n"
+    "msr  cntvoff_el2, xzr          \n"
+    "mov  x0, #(3 << 20)            \n"   /* EL1 may use floating point*/
+    "msr  cpacr_el1, x0             \n"
+    "movz x0, #0x0800               \n"   /* EL1 control register,     */
+    "movk x0, #0x30D0, lsl #16      \n"   /* translation and caches off*/
+    "msr  sctlr_el1, x0             \n"
+    "mov  x0, sp                    \n"
+    "msr  sp_el1, x0                \n"   /* keep the current stack    */
+    "adr  x0, 1f                    \n"
+    "msr  elr_el2, x0               \n"   /* resume at the next line   */
+    "movz x0, #0x03C5               \n"   /* EL1, interrupts masked    */
+    "msr  spsr_el2, x0              \n"
+    "isb                            \n"
+    "eret                           \n"
+    "1:                             \n"
+    ::: "x0", "x1", "memory"
+    );
+}
+
 VOID
 PacProbeFrameBuffer (VOID)
 {
@@ -1351,6 +1436,26 @@ SecEntry (VOID)
   }
 
   PacTrace ("sec: watchdog deadline armed");
+
+  //
+  // Move to EL1 now that a failure can be recovered from. The vector table
+  // installed above went into EL2's register, so it has to be installed
+  // again for the level we are about to run at.
+  //
+  PacDropToEl1 ();
+  ArmWriteVBar ((UINTN)SecVectorTable);
+
+  {
+    UINT64  NowEl;
+    CHAR8   ElLine[112];
+
+    __asm__ volatile ("mrs %0, CurrentEL" : "=r" (NowEl));
+    AsciiSPrint (ElLine, sizeof (ElLine), "el: now running at EL%u", (UINT32)((NowEl >> 2) & 3));
+    PacTrace (ElLine);
+  }
+
+  PacSyncErrors ("el: after dropping to EL1");
+  PacTrace ("el: drop clean");
 
   // Disable Data Cache
   ArmDisableDataCache ();

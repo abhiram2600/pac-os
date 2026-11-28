@@ -42,6 +42,20 @@ gMemoryDescriptor[] = {
   {"UEFI Stack", 0xF4B00000, 0x00040000, AddMem, SYS_MEM, SYS_MEM_CAP, BsData, WRITE_BACK_XN},
   {"DXE Heap", 0xF4B40000, 0x01000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
 
+  // The clean half of this phone's memory, given to the firmware to allocate
+  // from.
+  //
+  // Sixteen megabytes of heap is enough to reach a boot menu and nothing
+  // more. The kernel loader asks for a contiguous window measured in
+  // gigabytes and then loads a kernel of over a hundred megabytes into it,
+  // and fails immediately without this.
+  //
+  // This is the same 6 GiB the kernel is told it owns: three adjacent banks
+  // above the four gigabyte line, with no vendor reservation anywhere in
+  // them. Every carve-out on this phone sits in the low bank, which is left
+  // alone.
+  {"DXE Heap High", 0x880000000, 0x180000000, AddMem, SYS_MEM, SYS_MEM_CAP, Conv, WRITE_BACK_XN},
+
   // Register Regions
   {"Watchdog Timer", 0x10060000, 0x1000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},
   {"Watchdog CL1", 0x10070000, 0x1000, AddDev, MMAP_IO, UNCACHEABLE, MmIO, NS_DEVICE},

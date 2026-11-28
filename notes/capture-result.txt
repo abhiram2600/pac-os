@@ -3,116 +3,48 @@ fastboot up: current-slot: a
 
 === flashing our UEFI to the active boot slot ===
 Sending 'boot_a' (628 KB)                          OKAY [  0.015s]
-Writing 'boot_a'                                   OKAY [  0.012s]
-Finished. Total time: 0.032s
+Writing 'boot_a'                                   OKAY [  0.011s]
+Finished. Total time: 0.031s
 flashed
 
 === booting it; the bootloader will retry and then drop to fastboot ===
-outcome: fastboot:436
+outcome: fastboot:196
 
 === recovering to stock Android ===
-Sending 'boot_a' (65536 KB)                        OKAY [  1.560s]
-Writing 'boot_a'                                   OKAY [  0.211s]
-Finished. Total time: 1.774s
+Sending 'boot_a' (65536 KB)                        OKAY [  1.562s]
+Writing 'boot_a'                                   OKAY [  0.195s]
+Finished. Total time: 1.761s
 stock restored
 android up
 
 === OUR SEC TRACE (pmsg zone) ===
-pmsg-ramoops-0:    78194 bytes
+pmsg-ramoops-0:       65 bytes
 full UEFI log saved to pac-os/notes/uefi-debug-log.txt
 --- last 70 lines ---
- LastBlock : 3FF 
- Valid efi partition table header
- Valid efi partition table header
- Valid primary and Valid backup partition table
- Partition entries read block success
- Number of partition entries: 4
- start check partition entries
- End check partition entries
- Index : 0
- Start LBA : 6
- End LBA : 7
- Partition size: 2
- Start : 6000 End : 7000
-InstallProtocolInterface: 09576E91-6D3F-11D2-8E39-00A0C969723B F31F5C98
-InstallProtocolInterface: 964E5B21-6459-11D2-8E39-00A0C969723B F31F5330
-InstallProtocolInterface: 8CF2F62C-BC9B-4821-808D-EC9EC421A1A0 F31F53E8
-InstallProtocolInterface: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7 0
- Index : 1
- Start LBA : 8
- End LBA : 9
- Partition size: 2
- Start : 8000 End : 9000
-InstallProtocolInterface: 09576E91-6D3F-11D2-8E39-00A0C969723B F31F5898
-InstallProtocolInterface: 964E5B21-6459-11D2-8E39-00A0C969723B F31F55B0
-InstallProtocolInterface: 8CF2F62C-BC9B-4821-808D-EC9EC421A1A0 F31F5668
-InstallProtocolInterface: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7 0
- Index : 2
- Start LBA : A
- End LBA : B
- Partition size: 2
- Start : A000 End : B000
-InstallProtocolInterface: 09576E91-6D3F-11D2-8E39-00A0C969723B F31F2098
-InstallProtocolInterface: 964E5B21-6459-11D2-8E39-00A0C969723B F31F2BB0
-InstallProtocolInterface: 8CF2F62C-BC9B-4821-808D-EC9EC421A1A0 F31F2C68
-InstallProtocolInterface: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7 0
- Index : 3
- Start LBA : C
- End LBA : 33F
- Partition size: 334
- Start : C000 End : 33F000
-InstallProtocolInterface: 09576E91-6D3F-11D2-8E39-00A0C969723B F31F2398
-InstallProtocolInterface: 964E5B21-6459-11D2-8E39-00A0C969723B F31F2130
-InstallProtocolInterface: 8CF2F62C-BC9B-4821-808D-EC9EC421A1A0 F31F21E8
-InstallProtocolInterface: EBD0A0A2-B9E5-4433-87C0-68B6B72699C7 0
-Prepare to Free Pool
-InstallProtocolInterface: CE345171-BA0B-11D2-8E4F-00A0C969723B F31F50A0
- BlockSize : 4096 
- LastBlock : 1 
-InstallProtocolInterface: CE345171-BA0B-11D2-8E4F-00A0C969723B F31F4C20
- BlockSize : 4096 
- LastBlock : 1 
-InstallProtocolInterface: CE345171-BA0B-11D2-8E4F-00A0C969723B F31F48A0
- BlockSize : 4096 
- LastBlock : 1 
-InstallProtocolInterface: CE345171-BA0B-11D2-8E4F-00A0C969723B F31F41A0
- BlockSize : 4096 
- LastBlock : 333 
- BlockSize : 512 
- LastBlock : 2CF 
-FSOpen: Open '\EFI\UniXNU\unixnu.toml' Success
-UNIXNU: config: loaded \EFI\UniXNU\unixnu.toml
-UNIXNU: config: 3 entries, 0 drivers, 0 dt patches, 0 acpi tables, 0 slices, 0 kits loaded, 0 skipped
-UNIXNU: ui: graphics 360x808, scale 1, portrait layout, default theme
-UNIXNU: menu: shown 3 entries, default 0 'xnu', timeout 3000 ms, input yes, rotate 0 ms
-Connect ConIn in first WaitForKey in Lazy ConIn mode.
-UNIXNU: menu: timeout, booting default 0
-UNIXNU: boot: entry 'xnu' (PAC-OS)
-UNIXNU: xnu: handing off 0 staged kext(s) to loader
-UNIXNU: menu: entry 0 returned Unsupported
-UNIXNU: menu: shown 3 entries, default 0 'xnu', timeout -1 ms, input yes, rotate 0 ms
+sec: EXCEPTION ---
+Synchronous Exception at 0xFFFFFFF00BB9E624
 
 === BOOTLOADER LOG (console zone), tail ===
-console-ramoops-0:    42245 bytes
-[   7.990066] [I] [AND] padding prepended: 0
-[   7.991356] [I] [AND] vendor ramdisk copy
-[   7.991389] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
-[   7.991467] [I] [AND] padding prepended: 5
-[   7.998733] [I] [AND] ramdisk copy
-[   7.998763] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
-[   7.998838] [I] [AND] padding prepended: 6
-[   7.999314] [I] [AND] Ramdisk load size with padding: 49063043
-[   8.014430] [I] [AND] dpm not merged
-[   8.015924] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
-[   8.026491] [I] [AND] bootmode:
-[   8.026539] [I] [AND] DDR size: 8GiB
-[   8.026567] [I] [AND] DDR Manufacturer: Hynix
-[   8.026734] [I] [AND] ro.misctrl.16kb_before=0
-[   8.026784] [I] [AND] console is disabled
-[   8.026930] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
-[   8.026992] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
-[   8.030083] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
-[   8.056943] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
-[   8.072368] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
+console-ramoops-0:    42246 bytes
+[   7.983202] [I] [AND] padding prepended: 0
+[   7.984497] [I] [AND] vendor ramdisk copy
+[   7.984529] [I] [AND] ramdisk dst addr: 0xffff00008664f20b src addr: 0xffff0000a5931000 size: 0x263baca(40090314)
+[   7.984609] [I] [AND] padding prepended: 5
+[   7.991886] [I] [AND] ramdisk copy
+[   7.991918] [I] [AND] ramdisk dst addr: 0xffff000088c8acda src addr: 0xffff0000a4011000 size: 0x23f7a3(2357155)
+[   7.991991] [I] [AND] padding prepended: 6
+[   7.992471] [I] [AND] Ramdisk load size with padding: 49063043
+[   8.007488] [I] [AND] dpm not merged
+[   8.008987] [I] [AND] MTE S: 0, NS: 0, tag base: 0x0
+[   8.019709] [I] [AND] bootmode:
+[   8.019756] [I] [AND] DDR size: 8GiB
+[   8.019784] [I] [AND] DDR Manufacturer: Hynix
+[   8.019959] [I] [AND] ro.misctrl.16kb_before=0
+[   8.020004] [I] [AND] console is disabled
+[   8.020155] [I] [BOOT] secure dram base 0xb6200000, size 0x9e00000
+[   8.020219] [I] [BOOT] secure PGTBL base 0xe0000000, size 58720256
+[   8.023030] [I] [BOOT] MTE S: 0, NS: 0, tag base: 0x0
+[   8.049705] [I] [AND] ro.boot.hardware.cpu.pagesize=4096
+[   8.065081] [I] [AND] linux,initrd-start: 0x86000000, linux,initrd-end: 0x88ecb424
 
 done. /Users/abhiram/Documents/pac/pac-os/notes/capture-result.txt
